@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .car-types {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 200px;
+    border: 1px solid;
+    height: 900px;
+}
+
+.car-type {
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border:1px solid;
+    width:100px;
+}
+
+.car-type:hover {
+    background-color: #ccc;
+}
+
+.car-details {
+    display: none;
+    padding: 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    margin-top: -900px;
+    margin-left: 220px;
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+    <div class="car-types">
+        <div class="car-type" id="hatchback">Hatchback</div>
+        <div class="car-type" id="sedan">Sedan</div>
+       
+        <div class="car-type" id="suv">SUV</div>
+        <div class="car-type" id="muv">MUV</div>
+      
+    </div>
+    <div class="car-details" id="suv-details">
+        <h2>SUV</h2>
+        <p>SUVs are spacious and great for family trips. They usually have four-wheel drive and are suitable for off-road driving.</p>
+    </div>
+    <div class="car-details" id="muv-details">
+        <h2>MUV</h2>
+        <p>MUVs, or Multi Utility Vehicles, are versatile and can accommodate more passengers and cargo than regular cars.</p>
+    </div>
+    <div class="car-details" id="sedan-details">
+        <h2>Sedan</h2>
+        <p>Sedans are known for their comfort and style. They have a sleek design and are perfect for city driving.</p>
+    </div>
+    <div class="car-details" id="hatchback-details">
+        <h2>Hatchback</h2>
+        <p>Hatchbacks are compact and fuel-efficient. They are ideal for urban commuting and small families.</p>
+    </div>
+
+    <script>
+        const carTypes = document.querySelectorAll('.car-type');
+        const carDetails = document.querySelectorAll('.car-details');
+
+        carTypes.forEach((type) => {
+            type.addEventListener('click', () => {
+                const typeId = type.id;
+                carDetails.forEach((detail) => {
+                    detail.style.display = 'none';
+                });
+                document.getElementById(`${typeId}-details`).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

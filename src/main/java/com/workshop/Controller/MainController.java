@@ -18,4 +18,9 @@ public class MainController {
 	        // TODO: Implement logic to display patient dashboard
 	        return "user";
 	    }
+	 
+	 @GetMapping("/cabs")
+	 public String cabs() {
+		 return "Cabs";
+	 }
 }
