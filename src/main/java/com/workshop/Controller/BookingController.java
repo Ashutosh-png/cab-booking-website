@@ -1,5 +1,6 @@
 package com.workshop.Controller;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.workshop.Entity.Booking;
 import com.workshop.Entity.CabInfo;
+import com.workshop.Entity.User;
 import com.workshop.Repo.Trip;
 import com.workshop.Service.BookingService;
 import com.workshop.Service.CabInfoService;
@@ -261,6 +263,16 @@ public class BookingController {
 
 		return ser.getBooking(userid);
 		
+	}
+	
+	@GetMapping("/getUserBooking")
+	public String getUserBooking(Model model,Principal principal) {
+		User user = userService.getByUsername(principal.getName());
+		String userid  = user.getUserid();
+		List<Booking> booking = ser.getBooking(userid);
+		System.out.println(booking);
+		model.addAttribute("booking",booking);
+		return "myTrip";
 	}
 	
 	

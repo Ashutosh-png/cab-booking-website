@@ -284,10 +284,9 @@ footer {
                       >Sign Up</a
                     >
                     <a
-                      href="#"
+                      th:href="@{/login}"
                       class="theme-btn theme-btn-small"
-                      data-toggle="modal"
-                      data-target="#loginPopupForm"
+                      
                       >Login</a
                     >
                   </div>
@@ -621,7 +620,25 @@ footer {
     <section class="trip-list" style="text-align: center; margin: 100px;">
         <!-- Display list of trips here -->
         <!-- <h2>My Trips</h2> -->
-        <div class="trip" style="display: block; border: 2px solid #1c0505; padding: 30px; margin: 10px; max-width: 1100px; border-radius: 30px; height: 300px; text-align: center;">
+        
+        <div th:each="booking : ${booking}" class="trip" style="display: block; border: 2px solid #1c0505; padding: 30px; margin: 10px; max-width: 1100px; border-radius: 30px; height: 300px; text-align: center;">
+    <div style="display: inline; width: 50%; text-align: left;">
+        <h3>From:</h3>
+        <p th:text="${booking.fromLocation}"></p> <!-- Display 'fromLocation' field -->
+        <h3>StartDate:</h3>
+        <p th:text="${booking.startDate}"></p> <!-- Display 'startDate' field -->
+        <h3>Time:</h3>
+        <p th:text="${booking.time}"></p> <!-- Display 'time' field -->
+    </div>
+    <div style="display: inline; width: 50%; text-align: right;">
+        <h3 style="margin-top: -100px;">To:</h3>
+        <p th:text="${booking.toLocation}"></p> <!-- Display 'toLocation' field -->
+        <h3 style="margin-bottom: -130px;">ReturnDate:</h3>
+        <p th:text="${booking.returnDate}"></p> <!-- Display 'returnDate' field -->
+    </div>
+</div>
+        
+      <!--   <div class="trip" style="display: block; border: 2px solid #1c0505; padding: 30px; margin: 10px; max-width: 1100px; border-radius: 30px; height: 300px; text-align: center;">
             <div style="display: inline; width: 50%; text-align: left;">
                 <h3>From:</h3>
                 <h3>StartDate:</h3>
@@ -666,7 +683,7 @@ footer {
                 <h3 style="margin-top: -100px;">To:</h3>
                 <h3 style="margin-bottom: -130px;">ReturnDate:</h3>
             </div>
-        </div>
+        </div>--> 
        
      
         
