@@ -19,8 +19,11 @@ public class MainController {
 	        return "user";
 	    }
 	 
-	 @GetMapping("/cabs")
-	 public String cabs() {
-		 return "Cabs";
-	 }
+	 @GetMapping("/trips")
+	    public String getTrips() {
+	        // TODO: Implement logic to display patient dashboard
+	        return "myTrip";
+	    }
+	 
+	
 }

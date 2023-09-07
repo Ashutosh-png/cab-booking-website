@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
   
 <!-- Mirrored from techydevs.com/demos/trizen/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Mar 2023 06:21:55 GMT -->
 <head>
@@ -7,16 +7,17 @@
     <meta name="author" content="TechyDevs" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Trizen - Travel Booking HTML Template</title>
+    <title>Aimcab</title>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCelDo4I5cPQ72TfCTQW-arhPZ7ALNcp8w&libraries=places"></script>
+    
 
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
       rel="stylesheet"
     />
-
 
     <!-- Template CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -31,12 +32,6 @@
     <link rel="stylesheet" href="css/jquery-ui.css" />
     <link rel="stylesheet" href="css/flag-icon.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    
-    <style>
-    
-    
-    
-    </style>
   </head>
   <body>
     <!-- start cssload-loader -->
@@ -67,17 +62,17 @@
               <div class="header-top-content">
                 <div class="header-left">
                   <ul class="list-items">
-                    <li>
+                    <!-- <li>
                       <a href="#"
                         ><i class="la la-phone mr-1"></i>(123) 123-456</a
                       >
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                       <a href="#"
                         ><i class="la la-envelope mr-1"></i
                         >trizen@example.com</a
                       >
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -89,7 +84,7 @@
                 >
                   <div class="header-right-action">
                     <div class="select-contain select--contain w-auto">
-                      <select class="select-contain-select">
+                      <!-- <select class="select-contain-select">
                         <option
                           data-content='<span class="flag-icon flag-icon-id mr-1"></span> Bahasa Indonesia'
                         >
@@ -176,12 +171,12 @@
                         >
                           Hindi
                         </option>
-                      </select>
+                      </select> -->
                     </div>
                   </div>
                   <div class="header-right-action">
                     <div class="select-contain select--contain w-auto">
-                      <select class="select-contain-select">
+                      <!-- <select class="select-contain-select">
                         <option value="1">AED</option>
                         <option value="2">AUD</option>
                         <option value="3">BRL</option>
@@ -210,7 +205,7 @@
                         <option value="26">MXN</option>
                         <option value="27">ARS</option>
                         <option value="28">INR</option>
-                      </select>
+                      </select> -->
                     </div>
                   </div>
                   <div class="header-right-action">
@@ -221,12 +216,10 @@
                       data-target="#signupPopupForm"
                       >Sign Up</a
                     >
-                                        <!-- data-toggle="modal" -->  
-                    
                     <a
-                      th:href="@{/login}"
+                      href="#"
                       class="theme-btn theme-btn-small"
-                     
+                      data-toggle="modal"
                       data-target="#loginPopupForm"
                       >Login</a
                     >
@@ -246,9 +239,10 @@
                   ><i class="la la-angle-down"></i
                 ></a>
                 <div class="logo">
-                  <a href="index.html"
-                    ><img src="images/logo.png" alt="logo"
-                  /></a>
+                  <!-- <a href="index.html" -->
+                       <h1>Aimcab</h1>
+                    <!-- ><img src="images/logo.png" alt="logo" -->
+                  <!-- </a> -->
                   <div class="menu-toggler">
                     <i class="la la-bars"></i>
                     <i class="la la-times"></i>
@@ -260,13 +254,13 @@
                   <nav>
                     <ul>
                       <li>
-                        <a href="#">Home <i class="la la-angle-down"></i></a>
-                        <ul class="dropdown-menu-item">
-                          <li><a href="index.html">Home - main</a></li>
-                          <li><a href="index2.html">Home - Hotel</a></li>
-                          <li><a href="index3.html">Home - Activity</a></li>
-                          <li><a href="index4.html">Home - Car</a></li>
-                          <li><a href="index5.html">Home - Cruise</a></li>
+                        <a href="#">Buses <i class="la la-angle-down"></i></a>
+                        <!-- <ul class="dropdown-menu-item">
+                          <li><a href="index.html">Buses - Buses</a></li>
+                          <li><a href="index2.html">Home - Cabs</a></li>
+                          <li><a href="index3.html">Home - Train</a></li>
+                          <li><a href="index4.html">Home - Mytrip</a></li>
+                          <li><a href="index5.html">Home - Profile</a></li>
                           <li><a href="index6.html">Home - Flight</a></li>
                           <li><a href="index7.html">Home - City Tour</a></li>
                           <li>
@@ -275,11 +269,11 @@
                               <span class="badge bg-2 text-white">New</span></a
                             >
                           </li>
-                        </ul>
+                        </ul> -->
                       </li>
                       <li>
-                        <a href="#">Tour <i class="la la-angle-down"></i></a>
-                        <ul class="dropdown-menu-item">
+                        <a href="#">Cabs <i class="la la-angle-down"></i></a>
+                        <!-- <ul class="dropdown-menu-item">
                           <li>
                             <a href="tour-fullwidth.html">Tour Full width</a>
                           </li>
@@ -302,11 +296,11 @@
                               >Tour Search Result</a
                             >
                           </li>
-                        </ul>
+                        </ul> -->
                       </li>
                       <li>
-                        <a href="#">Cruise <i class="la la-angle-down"></i></a>
-                        <ul class="dropdown-menu-item">
+                        <a href="#">Train <i class="la la-angle-down"></i></a>
+                        <!-- <ul class="dropdown-menu-item">
                           <li><a href="cruises.html">Cruises</a></li>
                           <li><a href="cruises-list.html">Cruise list</a></li>
                           <li>
@@ -323,12 +317,12 @@
                               >Cruise Search Result</a
                             >
                           </li>
-                        </ul>
+                        </ul> -->
                       </li>
                       <li>
-                        <a href="#">Pages <i class="la la-angle-down"></i></a>
+                        <a href="#">MyTrip <i class="la la-angle-down"></i></a>
                         <div class="dropdown-menu-item mega-menu">
-                          <ul class="row no-gutters">
+                          <!-- <ul class="row no-gutters">
                             <li class="col-lg-3 mega-menu-item">
                               <ul>
                                 <li><a href="add-hotel.html">add hotel </a></li>
@@ -446,12 +440,12 @@
                                 <li><a href="page-404.html">404 page</a></li>
                               </ul>
                             </li>
-                          </ul>
+                          </ul> -->
                         </div>
                       </li>
                       <li>
-                        <a href="#">Flight <i class="la la-angle-down"></i></a>
-                        <ul class="dropdown-menu-item">
+                        <a href="#">Profile<i class="la la-angle-down"></i></a>
+                        <!-- <ul class="dropdown-menu-item">
                           <li><a href="flight-grid.html">Flight grid</a></li>
                           <li><a href="flight-list.html">Flight list</a></li>
                           <li>
@@ -468,10 +462,11 @@
                               >Flight Search Result</a
                             >
                           </li>
-                        </ul>
+                        </ul> -->
                       </li>
-                      <li>
-                        <a href="#">Hotel <i class="la la-angle-down"></i></a>
+                      <!-- <li>
+                        
+                        <a href="#">Login <i class="la la-angle-down"></i></a>
                         <ul class="dropdown-menu-item">
                           <li><a href="hotel-grid.html">Hotel grid</a></li>
                           <li><a href="hotel-list.html">Hotel list</a></li>
@@ -509,9 +504,9 @@
                           </li>
                         </ul>
                       </li>
-                      <li>
-                        <a href="#">car <i class="la la-angle-down"></i></a>
-                        <ul class="dropdown-menu-item">
+                      <li> -->
+                        <!-- <a href="#">Register <i class="la la-angle-down"></i></a> -->
+                        <!-- <ul class="dropdown-menu-item">
                           <li><a href="car-grid.html">car grid</a></li>
                           <li><a href="car-list.html">car list</a></li>
                           <li><a href="car-sidebar.html">car sidebar </a></li>
@@ -522,17 +517,17 @@
                               >Car Search Result</a
                             >
                           </li>
-                        </ul>
+                        </ul> -->
                       </li>
                     </ul>
                   </nav>
                 </div>
                 <!-- end main-menu-content -->
-                <div class="nav-btn">
+                <!-- <div class="nav-btn">
                   <a href="become-local-expert.html" class="theme-btn"
                     >Become Local Expert</a
                   >
-                </div>
+                </div> -->
                 <!-- end nav-btn -->
               </div>
               <!-- end menu-wrapper -->
@@ -553,13 +548,13 @@
     START HERO-WRAPPER AREA
 ================================= -->
     <section class="hero-wrapper">
-      <div class="hero-box hero-bg">
-        <span class="line-bg line-bg1"></span>
+      <div class="hero-box hero-bg1">
+        <!-- <span class="line-bg line-bg1"></span>
         <span class="line-bg line-bg2"></span>
         <span class="line-bg line-bg3"></span>
         <span class="line-bg line-bg4"></span>
         <span class="line-bg line-bg5"></span>
-        <span class="line-bg line-bg6"></span>
+        <span class="line-bg line-bg6"></span> -->
         <div class="container">
           <div class="row">
             <div class="col-lg-10 mx-auto responsive--column-l">
@@ -568,15 +563,15 @@
                   <h2 class="sec__title cd-headline zoom">
                     Amazing
                     <span class="cd-words-wrapper">
-                      <b class="is-visible">Tours</b>
-                      <b>Adventures</b>
-                      <b>Flights</b>
-                      <b>Hotels</b>
-                      <b>Cars</b>
-                      <b>Cruises</b>
+                      <b class="is-visible"></b>
+                      <b>Buses</b>
+                      <b>Train</b>
+                      <b>Cabs</b>
+                      <!-- <b>Cars</b> -->
+                      <!-- <b>Cruises</b>
                       <b>Package Deals</b>
                       <b>Fun</b>
-                      <b>People</b>
+                      <b>People</b> -->
                     </span>
                     Waiting for You
                   </h2>
@@ -595,7 +590,7 @@
                       aria-controls="flight"
                       aria-selected="true"
                     >
-                      <i class="la la-plane mr-1"></i>Flights
+                      <i class="la la-car mr-1"></i>Cabs
                     </a>
                   </li>
                   <li class="nav-item">
@@ -608,7 +603,7 @@
                       aria-controls="hotel"
                       aria-selected="false"
                     >
-                      <i class="la la-hotel mr-1"></i>Hotels
+                      <i class="la la-hotel mr-1"></i>Buses
                     </a>
                   </li>
                   <li class="nav-item">
@@ -621,10 +616,10 @@
                       aria-controls="package"
                       aria-selected="false"
                     >
-                      <i class="la la-shopping-bag mr-1"></i>Vacation Packages
+                      <i class="la la-shopping-bag mr-1"></i>Train
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a
                       class="nav-link d-flex align-items-center"
                       id="car-tab"
@@ -634,9 +629,9 @@
                       aria-controls="car"
                       aria-selected="true"
                     >
-                      <i class="la la-car mr-1"></i>Cars
+                      <i class=""></i>Cabs
                     </a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                     <a
                       class="nav-link d-flex align-items-center"
@@ -647,7 +642,7 @@
                       aria-controls="cruise"
                       aria-selected="false"
                     >
-                      <i class="la la-ship mr-1"></i>Cruises
+                      <!-- <i class="la la-ship mr-1"></i>Cruises -->
                     </a>
                   </li>
                   <li class="nav-item">
@@ -660,7 +655,7 @@
                       aria-controls="tour"
                       aria-selected="false"
                     >
-                      <i class="la la-globe mr-1"></i>Tours
+                      <!-- <i class="la la-globe mr-1"></i>Tours -->
                     </a>
                   </li>
                 </ul>
@@ -679,7 +674,7 @@
                   <div class="section-tab section-tab-2 pb-3">
                     <ul class="nav nav-tabs" id="myTab3" role="tablist">
                       <li class="nav-item">
-                        <a
+                        <!-- <a
                           class="nav-link active"
                           id="one-way-tab"
                           data-toggle="tab"
@@ -689,10 +684,10 @@
                           aria-selected="true"
                         >
                           One way
-                        </a>
+                        </a> -->
                       </li>
                       <li class="nav-item">
-                        <a
+                        <!-- <a
                           class="nav-link"
                           id="round-trip-tab"
                           data-toggle="tab"
@@ -702,9 +697,9 @@
                           aria-selected="false"
                         >
                           Round-trip
-                        </a>
+                        </a> -->
                       </li>
-                      <li class="nav-item">
+                      <!-- <li class="nav-item">
                         <a
                           class="nav-link"
                           id="multi-city-tab"
@@ -714,188 +709,61 @@
                           aria-controls="multi-city"
                           aria-selected="false"
                         >
-                          Multi-city
+                          Rental trip
                         </a>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                   <!-- end section-tab -->
                   <div class="tab-content" id="myTabContent3">
-                    <div
-                      class="tab-pane fade show active"
-                      id="one-way"
-                      role="tabpanel"
-                      aria-labelledby="one-way-tab"
-                    >
-                      <div class="contact-form-action">
-                        <form action="#" class="row align-items-center">
-                          <div class="col-lg-6 pr-0">
-                            <div class="input-box">
-                              <label class="label-text">Flying from</label>
-                              <div class="form-group">
-                                <span class="la la-map-marker form-icon"></span>
-                                <input
-                                  class="form-control"
-                                  type="text"
-                                  placeholder="City or airport"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <!-- end col-lg-3 -->
-                          <div class="col-lg-6">
-                            <div class="input-box">
-                              <label class="label-text">Flying to</label>
-                              <div class="form-group">
-                                <span class="la la-map-marker form-icon"></span>
-                                <input
-                                  class="form-control"
-                                  type="text"
-                                  placeholder="City or airport"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <!-- end col-lg-3 -->
-                          <div class="col-lg-3 pr-0">
-                            <div class="input-box">
-                              <label class="label-text">Departing</label>
-                              <div class="form-group">
-                                <span class="la la-calendar form-icon"></span>
-                                <input
-                                  class="date-range form-control"
-                                  type="text"
-                                  name="daterange-single"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <!-- end col-lg-3 -->
-                          <div class="col-lg-3 pr-0">
-                            <div class="input-box">
-                              <label class="label-text">Passengers</label>
-                              <div class="form-group">
-                                <div
-                                  class="dropdown dropdown-contain gty-container"
-                                >
-                                  <a
-                                    class="dropdown-toggle dropdown-btn"
-                                    href="#"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-expanded="false"
-                                  >
-                                    <span
-                                      class="adult"
-                                      data-text="Adult"
-                                      data-text-multi="Adults"
-                                      >0 Adult</span
-                                    >
-                                    -
-                                    <span
-                                      class="children"
-                                      data-text="Child"
-                                      data-text-multi="Children"
-                                      >0 Child</span
-                                    >
-                                  </a>
-                                  <div class="dropdown-menu dropdown-menu-wrap">
-                                    <div class="dropdown-item">
-                                      <div
-                                        class="qty-box d-flex align-items-center justify-content-between"
-                                      >
-                                        <label>Adults</label>
-                                        <div
-                                          class="qtyBtn d-flex align-items-center"
-                                        >
-                                          <div class="qtyDec">
-                                            <i class="la la-minus"></i>
-                                          </div>
-                                          <input
-                                            type="text"
-                                            name="adult_number"
-                                            value="0"
-                                          />
-                                          <div class="qtyInc">
-                                            <i class="la la-plus"></i>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="dropdown-item">
-                                      <div
-                                        class="qty-box d-flex align-items-center justify-content-between"
-                                      >
-                                        <label>Children</label>
-                                        <div
-                                          class="qtyBtn d-flex align-items-center"
-                                        >
-                                          <div class="qtyDec">
-                                            <i class="la la-minus"></i>
-                                          </div>
-                                          <input
-                                            type="text"
-                                            name="child_number"
-                                            value="0"
-                                          />
-                                          <div class="qtyInc">
-                                            <i class="la la-plus"></i>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="dropdown-item">
-                                      <div
-                                        class="qty-box d-flex align-items-center justify-content-between"
-                                      >
-                                        <label>Infants</label>
-                                        <div
-                                          class="qtyBtn d-flex align-items-center"
-                                        >
-                                          <div class="qtyDec">
-                                            <i class="la la-minus"></i>
-                                          </div>
-                                          <input
-                                            type="text"
-                                            name="infants_number"
-                                            value="0"
-                                          />
-                                          <div class="qtyInc">
-                                            <i class="la la-plus"></i>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                    <div class="tab-pane fade show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
+                        <div class="contact-form-action">
+                            <form th:action="@{/cab}" method="post">
+                                <div class="mb-3">
+                                    <label for="tripType">Trip Type:</label>
+                                    <select name="tripType" id="tripType" class="form-select" required="required">
+                                        <option value="oneWay">One Way</option>
+                                        <option value="roundTrip">Round Trip</option>
+
+                                        <option value="rentalTrip">Rental Trip</option>
+                                    </select>
                                 </div>
-                                <!-- end dropdown -->
+                                <div class="mb-3" style="display: inline-block; width: 48%;">
+                                    <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
+                                        required="required" autocomplete="off" placeholder="pickupLocation">
+                                </div>
+                                <div class="mb-3" style="display: inline-block; width: 48%;">
+                                    <input type="text" id="dropLocation" name="dropLocation" class="form-control"
+                                        required="required" autocomplete="off" placeholder="dropLocation">
+                                </div>
+                                
+                                <div class="mb-3" style="display: inline-block; width: 48%;">
+                                    <label for="date">Start Date:</label>
+                                    <input type="date" id="date" name="date" class="form-control" required="required">
+                                </div>
+                                
+                                <div class="mb-3" style="display: inline-block; width: 48%;">
+                                    <label for="time">Time:</label>
+                                    <input type="time" id="time" name="time" class="form-control" required="required">
+                                </div>
+                                <div class="mb-3 rows" style="display: inline-block; width: 48%;">
+                                  <label for="Returndate">Return Date:</label>
+                                  <input type="date" id="Returndate" name="Returndate" class="form-control" >
                               </div>
-                            </div>
-                          </div>
-                          <!-- end col-lg-3 -->
-                          <div class="col-lg-3 pr-0">
-                            <div class="input-box">
-                              <label class="label-text">Coach</label>
-                              <div class="form-group select-contain w-auto">
-                                <select class="select-contain-select">
-                                  <option value="1" selected>Economy</option>
-                                  <option value="2">Business</option>
-                                  <option value="3">First class</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- end col-lg-3 -->
-                          <div class="col-lg-3">
-                            <a
-                              href="flight-search-result.html"
-                              class="theme-btn w-100 text-center margin-top-20px"
-                              >Search Now</a
-                            >
-                          </div>
-                        </form>
-                      </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <input type="hidden" id="distanceInput" name="distance">
+                                <div class="mt-3">
+                                    <h2>Distance:</h2>
+                                    <span id="distance"></span>
+                                </div>
+                                <div class="rows"></div>
+                            </form>
+                        </div>
                     </div>
+                
+                
+                
+                
                     <!-- end tab-pane -->
                     <div
                       class="tab-pane fade"
@@ -989,14 +857,8 @@
                                           <div class="qtyDec">
                                             <i class="la la-minus"></i>
                                           </div>
-                                          <input
-                                            type="text"
-                                            name="adult_number"
-                                            value="0"
-                                          />
-                                          <div class="qtyInc">
-                                            <i class="la la-plus"></i>
-                                          </div>
+                                         
+                                        
                                         </div>
                                       </div>
                                     </div>
@@ -1004,21 +866,12 @@
                                       <div
                                         class="qty-box d-flex align-items-center justify-content-between"
                                       >
-                                        <label>Children</label>
                                         <div
                                           class="qtyBtn d-flex align-items-center"
                                         >
-                                          <div class="qtyDec">
-                                            <i class="la la-minus"></i>
-                                          </div>
-                                          <input
-                                            type="text"
-                                            name="child_number"
-                                            value="0"
-                                          />
-                                          <div class="qtyInc">
-                                            <i class="la la-plus"></i>
-                                          </div>
+                                         
+                                         
+                                         
                                         </div>
                                       </div>
                                     </div>
@@ -1978,7 +1831,7 @@
                         <form action="#" class="row align-items-center">
                           <div class="col-lg-3 pr-0">
                             <div class="input-box">
-                              <label class="label-text">Flying from</label>
+                              <label class="label-text">from</label>
                               <div class="form-group">
                                 <span class="la la-map-marker form-icon"></span>
                                 <input
@@ -1992,7 +1845,7 @@
                           <!-- end col-lg-3 -->
                           <div class="col-lg-3 pr-0">
                             <div class="input-box">
-                              <label class="label-text">Flying to</label>
+                              <label class="label-text">to</label>
                               <div class="form-group">
                                 <span class="la la-map-marker form-icon"></span>
                                 <input
@@ -6468,6 +6321,73 @@
     <script src="js/jquery.ripples-min.js"></script>
     <script src="js/quantity-input.js"></script>
     <script src="js/main.js"></script>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Get references to the relevant elements
+        const tripTypeSelect = document.getElementById("tripType");
+        const returnDateField = document.querySelector(".rows");
+        
+        // Initially hide the return date and time fields
+        returnDateField.style.display = "none";
+      
+        // Add an event listener to the trip type dropdown
+        tripTypeSelect.addEventListener("change", function() {
+          if (this.value === "roundTrip") {
+            returnDateField.style.display = "block";
+          } else {
+            returnDateField.style.display = "none";
+          }
+        });
+      });
+    </script>
+  
+    
+    <script>
+    var pickupInput = document.getElementById('pickupLocation');
+    var dropInput = document.getElementById('dropLocation');
+
+    var options = {
+        types: ['geocode']
+    };
+
+    var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
+    var dropAutocomplete = new google.maps.places.Autocomplete(dropInput, options);
+
+    function calculateDistance() {
+        var origin = document.getElementById('pickupLocation').value;
+        var destination = document.getElementById('dropLocation').value;
+
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix({
+            origins: [origin],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode.DRIVING
+        }, function (response, status) {
+            if (status === 'OK') {
+                var distance = response.rows[0].elements[0].distance.text;
+                document.getElementById('distance').textContent = 'Distance: ' + distance;
+                document.getElementById('distanceInput').value = distance;
+            } else {
+                document.getElementById('distance').textContent = 'Error calculating distance.';
+            }
+
+            // Submit the form after calculating the distance
+            document.querySelector('form').submit();
+        });
+    }
+
+    // Attach the calculateDistance function to the form's submit event
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        calculateDistance();
+    });
+</script>
+    </script>
+
+
+   
   </body>
 
 <!-- Mirrored from techydevs.com/demos/trizen/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Mar 2023 06:23:46 GMT -->

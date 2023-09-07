@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+</head>
+<body>
+    <h1>Invoice</h1>
+    <p><strong>Cab Information:</strong></p>
+    <p>Cab ID: <span th:text="${cabId}"></span></p>
+    <p>Model Name: <span th:text="${modelName}"></span></p>
+    <p>Model Type: <span th:text="${modelType}"></span></p>
+    <p>Seats: <span th:text="${seats}"></span></p>
+    <p>Fuel Type: <span th:text="${fuelType}"></span></p>
+    <p>Availability: <span th:text="${availability}"></span></p>
+    <p>Price: <span th:text="${price}"></span></p>
+
+    <p><strong>Trip Information:</strong></p>
+    <p>Pickup Location: <span th:text="${pickupLocation}"></span></p>
+    <p>Drop Location: <span th:text="${dropLocation}"></span></p>
+    <p>Date: <span th:text="${date}"></span></p>
+    <p>Return Date: <span th:text="${returndate}"></span></p>
+    <p>Time: <span th:text="${time}"></span></p>
+    <p>Trip Type: <span th:text="${tripType}"></span></p>
+        <p>Trip Type: <span th:text="${distance}"></span></p>
+    
+    
+     <form id="bookForm" th:action="@{/book}" method="post">
+        <!-- Hidden input fields for cab information -->
+        <input type="hidden" name="cabId" th:value="${cabId}" />
+        <input type="hidden" name="modelName" th:value="${modelName}" />
+        <input type="hidden" name="modelType" th:value="${modelType}" />
+        <input type="hidden" name="seats" th:value="${seats}" />
+        <input type="hidden" name="fuelType" th:value="${fuelType}" />
+        <input type="hidden" name="availability" th:value="${availability}" />
+        <input type="hidden" name="price" th:value="${price}" />
+
+        <!-- Hidden input fields for trip information -->
+        <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+        <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+        <input type="hidden" name="date" th:value="${date}" />
+        <input type="hidden" name="returndate" th:value="${returndate}" />
+        <input type="hidden" name="time" th:value="${time}" />
+        <input type="hidden" name="tripType" th:value="${tripType}" />
+                <input type="hidden" name="distance" th:value="${distance}" />
+        
+        
+        <!-- "Book" button to submit the form -->
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>

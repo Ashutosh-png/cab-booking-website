@@ -1,88 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Information</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .car-types {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-    width: 200px;
-    border: 1px solid;
-    height: 900px;
-}
-
-.car-type {
-    cursor: pointer;
-    margin: 10px;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    border:1px solid;
-    width:100px;
-}
-
-.car-type:hover {
-    background-color: #ccc;
-}
-
-.car-details {
-    display: none;
-    padding: 20px;
-    background-color: #3498db;
-    color: white;
-    border-radius: 5px;
-    margin-top: -900px;
-    margin-left: 220px;
-    width: 800px;
-}
-    </style>
+    <title>Cab Information</title>
 </head>
 <body>
-    <div class="car-types">
-        <div class="car-type" id="hatchback">Hatchback</div>
-        <div class="car-type" id="sedan">Sedan</div>
-       
-        <div class="car-type" id="suv">SUV</div>
-        <div class="car-type" id="muv">MUV</div>
-      
+    <h1>Cab Information</h1>
+    <!-- Buttons to filter cab types -->
+    <div>
+        <button onclick="filterCabs('HATCHBACK')">Hatchback</button>
+        <button onclick="filterCabs('SEDAN')">Sedan</button>
+                <button onclick="filterCabs('SUV')">Sedan</button>
+                <button onclick="filterCabs('MUV')">Sedan</button>
+        
+        <!-- Add more buttons for other cab types as needed -->
     </div>
-    <div class="car-details" id="suv-details">
-        <h2>SUV</h2>
-        <p>SUVs are spacious and great for family trips. They usually have four-wheel drive and are suitable for off-road driving.</p>
-    </div>
-    <div class="car-details" id="muv-details">
-        <h2>MUV</h2>
-        <p>MUVs, or Multi Utility Vehicles, are versatile and can accommodate more passengers and cargo than regular cars.</p>
-    </div>
-    <div class="car-details" id="sedan-details">
-        <h2>Sedan</h2>
-        <p>Sedans are known for their comfort and style. They have a sleek design and are perfect for city driving.</p>
-    </div>
-    <div class="car-details" id="hatchback-details">
-        <h2>Hatchback</h2>
-        <p>Hatchbacks are compact and fuel-efficient. They are ideal for urban commuting and small families.</p>
+    <div th:each="trip : ${tripinfo}">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Model Name</th>
+                <th>Model Type</th>
+                <th>Seats</th>
+                <th>Fuel Type</th>
+                <th>Availability</th>
+                                <th>Price</th>
+                
+            </tr>
+        </thead>
+        <tbody id="cabTableBody">
+            <!-- Use Thymeleaf to loop through the cab info and display it, but filter by modelType -->
+            <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'HATCHBACK'}">
+                <td th:text="${cab.id}"></td>
+                <td th:text="${cab.modelName}"></td>
+                <td th:text="${cab.modelType}"></td>
+                <td th:text="${cab.seats}"></td>
+                <td th:text="${cab.fuelType}"></td>
+                <td th:text="${cab.availability}"></td>
+                <td th:text="${trip.hatchback*distance}"></td> 
+                   <td>
+        <!-- Add a "Book" button with an onclick event to handle the booking action -->
+        <form th:action="@{/invoice}" method="post">
+            <!-- Hidden input fields to pass cab and trip information -->
+            <input type="hidden" name="cabId" th:value="${cab.id}" />
+            <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+            <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+            <input type="hidden" name="seats" th:value="${cab.seats}" />
+            <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+            <input type="hidden" name="availability" th:value="${cab.availability}" />
+            <input type="hidden" name="price" th:value="${trip.hatchback*distance}" />
+                        <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                                <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                                <input type="hidden" name="date" th:value="${date}" />
+                                                <input type="hidden" name="returndate" th:value="${returndate}" />
+                                               <input type="hidden" name="time" th:value="${time}" />
+                                             <input type="hidden" name="tripType" th:value="${tripType}" />
+                                           <input type="hidden" name="distance" th:value="${distance}" />
+                                             
+                                                
+                        
+            
+            <button type="submit">Book</button>
+        </form>
+    </td>
+                
+                
+                        
+                
+            </tr>
+             <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'SEDAN'}">
+                <td th:text="${cab.id}"></td>
+                <td th:text="${cab.modelName}"></td>
+                <td th:text="${cab.modelType}"></td>
+                <td th:text="${cab.seats}"></td>
+                <td th:text="${cab.fuelType}"></td>
+                <td th:text="${cab.availability}"></td>
+                                                                <td th:text="${trip.sedan*distance}"></td> 
+                                                                 <td>
+        <!-- Add a "Book" button with an onclick event to handle the booking action -->
+        <form th:action="@{/invoice}" method="post">
+            <!-- Hidden input fields to pass cab and trip information -->
+            <input type="hidden" name="cabId" th:value="${cab.id}" />
+            <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+            <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+            <input type="hidden" name="seats" th:value="${cab.seats}" />
+            <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+            <input type="hidden" name="availability" th:value="${cab.availability}" />
+            <input type="hidden" name="price" th:value="${trip.sedan*distance}" />
+              <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                                <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                                <input type="hidden" name="date" th:value="${date}" />
+                                                <input type="hidden" name="returndate" th:value="${returndate}" />
+                                               <input type="hidden" name="time" th:value="${time}" />
+                                             <input type="hidden" name="tripType" th:value="${tripType}" />
+                                           <input type="hidden" name="distance" th:value="${distance}" />
+            <button type="submit">Book</button>
+        </form>
+    </td>
+                
+            </tr>
+              <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'SUV'}">
+                <td th:text="${cab.id}"></td>
+                <td th:text="${cab.modelName}"></td>
+                <td th:text="${cab.modelType}"></td>
+                <td th:text="${cab.seats}"></td>
+                <td th:text="${cab.fuelType}"></td>
+                <td th:text="${cab.availability}"></td>
+                                                                <td th:text="${trip.suv*distance}"></td> 
+                                                                 <td>
+        <!-- Add a "Book" button with an onclick event to handle the booking action -->
+        <form th:action="@{/invoice}" method="post">
+            <!-- Hidden input fields to pass cab and trip information -->
+            <input type="hidden" name="cabId" th:value="${cab.id}" />
+            <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+            <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+            <input type="hidden" name="seats" th:value="${cab.seats}" />
+            <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+            <input type="hidden" name="availability" th:value="${cab.availability}" />
+            <input type="hidden" name="price" th:value="${trip.suv*distance}" />
+              <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                                <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                                <input type="hidden" name="date" th:value="${date}" />
+                                                <input type="hidden" name="returndate" th:value="${returndate}" />
+                                               <input type="hidden" name="time" th:value="${time}" />
+                                             <input type="hidden" name="tripType" th:value="${tripType}" />
+                                           <input type="hidden" name="distance" th:value="${distance}" />
+            <button type="submit">Book</button>
+        </form>
+    </td>
+                
+            </tr>
+             <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'MUV'}">
+                <td th:text="${cab.id}"></td>
+                <td th:text="${cab.modelName}"></td>
+                <td th:text="${cab.modelType}"></td>
+                <td th:text="${cab.seats}"></td>
+                <td th:text="${cab.fuelType}"></td>
+                <td th:text="${cab.availability}"></td>
+                                                                <td th:text="${trip.suvplus*distance}"></td> 
+                                                                 <td>
+        <!-- Add a "Book" button with an onclick event to handle the booking action -->
+        <form th:action="@{/invoice}" method="post">
+            <!-- Hidden input fields to pass cab and trip information -->
+            <input type="hidden" name="cabId" th:value="${cab.id}" />
+            <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+            <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+            <input type="hidden" name="seats" th:value="${cab.seats}" />
+            <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+            <input type="hidden" name="availability" th:value="${cab.availability}" />
+            <input type="hidden" name="price" th:value="${trip.suvplus*distance}" />
+              <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                                <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                                <input type="hidden" name="date" th:value="${date}" />
+                                                <input type="hidden" name="returndate" th:value="${returndate}" />
+                                               <input type="hidden" name="time" th:value="${time}" />
+                                             <input type="hidden" name="tripType" th:value="${tripType}" />
+                                           <input type="hidden" name="distance" th:value="${distance}" />
+            <button type="submit">Book</button>
+        </form>
+    </td>
+                
+            </tr>
+        </tbody>
+    </table>
     </div>
 
     <script>
-        const carTypes = document.querySelectorAll('.car-type');
-        const carDetails = document.querySelectorAll('.car-details');
-
-        carTypes.forEach((type) => {
-            type.addEventListener('click', () => {
-                const typeId = type.id;
-                carDetails.forEach((detail) => {
-                    detail.style.display = 'none';
-                });
-                document.getElementById(`${typeId}-details`).style.display = 'block';
+        // JavaScript function to filter cabs by model type
+        function filterCabs(modelType) {
+            const cabRows = document.querySelectorAll("#cabTableBody tr");
+            cabRows.forEach((row) => {
+                const modelTypeCell = row.querySelector("td:nth-child(3)"); // Assuming model type is in the third column
+                if (modelTypeCell.textContent.trim() === modelType) {
+                    row.style.display = "table-row";
+                } else {
+                    row.style.display = "none";
+                }
             });
-        });
+        }
+       
     </script>
 </body>
 </html>
