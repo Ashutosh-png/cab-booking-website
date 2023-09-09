@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.workshop.Entity.Booking;
 import com.workshop.Entity.CabInfo;
 import com.workshop.Entity.User;
@@ -206,70 +208,88 @@ public class BookingController {
 	           System.out.println("Not Successful");
 	      }
 	      
-	      String apiURL = "https://aimcabbooking.com/confirm-round-api.php";
-	      StringBuilder postData = new StringBuilder();
+	     // String apiURL = "https://aimcabbooking.com/confirm-round-api.php";
+	     // StringBuilder postData = new StringBuilder();
 	     
-	      postData.append("&date1=").append(URLEncoder.encode("2023-09-08", "UTF-8"));
-	    
+	    // postData.append("&date1=").append(URLEncoder.encode("2023-09-08", "UTF-8"));
 
-	      System.out.println(postData);
-
-	      try {
-	          URL url = new URL(apiURL);
-	          HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-	          // Set the HTTP method to POST
-	          connection.setRequestMethod("POST");
-	          
-	          // Enable input/output streams for the connection
-	          connection.setDoOutput(true);
-
-	          // Write the data to the connection's output stream
-	          try (OutputStream os = connection.getOutputStream()) {
-	        	    byte[] postDataBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
-	        	    os.write(postDataBytes);
-	        	}
-
-	          // Get the response from the API
-	          int responseCode = connection.getResponseCode();
-	          if (responseCode == HttpURLConnection.HTTP_OK) {
-	              // Read and process the response
-	              BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-	              String inputLine;
-	              StringBuilder response = new StringBuilder();
-
-	              while ((inputLine = in.readLine()) != null) {
-	                  response.append(inputLine);
-	              }
-	              in.close();
-
-	              // Handle the API response here, if needed
-	              String apiResponse = response.toString();
-	              System.out.println("API Response: " + apiResponse);
-
-	              // Continue with your code as needed...
-
-	          } else {
-	              System.out.println("API request failed with response code: " + responseCode);
-	              // Handle the error
-	             // return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("API request failed");
-		           System.out.println("API request failed");
-
-	          }
-
-	          // Close the connection
-	          connection.disconnect();
-
-	      } catch (Exception e) {
-	          e.printStackTrace();
-	          // Handle any exceptions that occur during the request
-	        //  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("API request failed");
-	           System.out.println("Not Successful");
-
-	      }
+	    //  System.out.println(postData);
+	      JSONObject requestBody = new JSONObject();
+	        requestBody.put("date1", date);
+	        requestBody.put("name", name);
+	        requestBody.put("email", email);
+	        requestBody.put("car", modelName);
+	        requestBody.put("distance", distance);
+	        requestBody.put("phone", phone);
+	        requestBody.put("user_pickup", pickupLocation);
+	        requestBody.put("user_drop", dropLocation);
+	        requestBody.put("time", time);
+	        requestBody.put("dateend", returndate);
+	        requestBody.put("timeend", "");
+	        requestBody.put("days", 2);
+	        requestBody.put("user_trip_type", tripType);
+	        requestBody.put("amount", price);
 	      
-	      
-	      
+
+
+	        // Add other properties as needed...
+
+	        // Convert the JSON object to a string
+	        String jsonRequestBody = requestBody.toString();
+
+	        try {
+	            String apiURL = "https://aimcabbooking.com/confirm-round-api.php";
+
+	            // Create the URL
+	            URL url = new URL(apiURL);
+	            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+	            // Set the HTTP method to POST
+	            connection.setRequestMethod("POST");
+
+	            // Set the request headers
+	            connection.setRequestProperty("Content-Type", "application/json");
+
+	            // Enable input/output streams for the connection
+	            connection.setDoOutput(true);
+
+	            // Write the JSON data to the connection's output stream
+	            try (OutputStream os = connection.getOutputStream()) {
+	                os.write(jsonRequestBody.getBytes("UTF-8"));
+	            }
+
+	            // Get the response from the API
+	            int responseCode = connection.getResponseCode();
+	            if (responseCode == HttpURLConnection.HTTP_OK) {
+	                // Read and process the response
+	                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+	                String inputLine;
+	                StringBuilder response = new StringBuilder();
+
+	                while ((inputLine = in.readLine()) != null) {
+	                    response.append(inputLine);
+	                }
+	                in.close();
+
+	                // Handle the API response here, if needed
+	                String apiResponse = response.toString();
+	                System.out.println("API Response: " + apiResponse);
+
+	                // Continue with your code as needed...
+	            } else {
+	                System.out.println("API request failed with response code: " + responseCode);
+	                // Handle the error
+	                System.out.println("API request failed");
+	            }
+
+	            // Close the connection
+	            connection.disconnect();
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            // Handle any exceptions that occur during the request
+	            System.out.println("Not Successful");
+	        }
 	      
 	      ser.saveBooking(booking);
 	      System.out.println("Booked ");

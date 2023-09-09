@@ -62,6 +62,27 @@ public class UserRegistrationController {
 
 		        return "redirect:/registration";
 		    }
+		    
+		    User lastuser = service.getLastUser();
+	        String userid = lastuser.getUserid();
+	        int numericPart = 0; // Initialize the numeric part to 0 by default
+
+	        if (userid != null && !userid.isEmpty()) {
+	            // Extract the numeric part of the userid and increment it
+	            try {
+	                numericPart = Integer.parseInt(userid.substring(4)); // Assuming "USER" prefix
+	                numericPart++; // Increment by one
+	            } catch (NumberFormatException e) {
+	                // Handle parsing error, if any
+	                e.printStackTrace();
+	            }
+	        }
+
+	        // Create the new userid with the incremented value
+	        String newUserId = "USER" + numericPart;
+	        userregistrationDto.setUserid(newUserId);
+          System.out.println(userregistrationDto);
+		    
 		    service.save(userregistrationDto);
 	        redirectAttributes.addFlashAttribute("register", "Registered Succesfully");
 
