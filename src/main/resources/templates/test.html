@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<!-- Mirrored from techydevs.com/demos/trizen/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Mar 2023 06:21:55 GMT -->
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="TechyDevs" />
@@ -10,6 +9,7 @@
     <title>Aimcab</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Add custom CSS for the borders */
         .info-box {
@@ -21,6 +21,44 @@
         .form-box {
             border: 1px solid #ccc;
             padding: 15px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-top:80px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        p {
+            color: #777;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
         }
 
         /* Inline CSS to align elements in the same line */
@@ -57,6 +95,18 @@
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
     }
+    #backHomeBtn{
+        background-color:green;
+        color:white;
+        width:150px;
+        height:60px;
+
+    }
+  #backHomeBtn:hover{
+        background-color: white;
+        color:black
+
+    }
     </style>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
@@ -85,20 +135,7 @@
   </head>
   <body>
     <!-- start cssload-loader -->
-    <div class="preloader" id="preloader">
-      <div class="loader">
-        <svg class="spinner" viewBox="0 0 50 50">
-          <circle
-            class="path"
-            cx="25"
-            cy="25"
-            r="20"
-            fill="none"
-            stroke-width="5"
-          ></circle>
-        </svg>
-      </div>
-    </div>
+   
     <!-- end cssload-loader -->
 
     <!-- ================================
@@ -589,152 +626,32 @@
          END HEADER AREA
 ================================= -->
 
-    <!-- ================================
+
    
-    <!-- end hero-wrapper -->
-    <!-- ================================
-    END HERO-WRAPPER AREA
-================================= -->
 
-    <!-- ================================
-    START INFO AREA
-================================= -->
-   
-    <!-- ================================
-    START HOTEL AREA
-================================= -->
-
-<br>
-<br>
-<br>
-
-
-<section class="vh-100">
-    <div class="container-fluid" style="margin: auto;">
-        <div class="row">
-            <div class="col-sm-6 text-black">
-
-                <div class="px-5 ms-xl-4">
-                    <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-                    <!-- <span class="h1 fw-bold mb-0"><img
-                            src="https://images.drlogy.com/assets/uploads/img/practice-profile/hospitals/gallery/6195b32d79c9107f918718498a8e39bf.png"
-                            style="height: 100px;"></span> -->
+  
+        <div class="vh-100 d-flex justify-content-center align-items-center">
+            <div class="col-md-4">
+                <div class="border border-3 border-success"></div>
+                <div class="card  bg-white shadow p-5" style="height: 400px; width: 800px; right: 130px;">
+                    <div class="mb-4 text-center">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75"
+                            fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16"> -->
+                            <!-- <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" /> -->
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h1>Thank You !</h1>
+                        <p>Your Cab Booked Sucessfully </p></br>
+                        <button id="backHomeBtn" class="btn btn-outline-success" >Back Home</button>
+                    </div>
                 </div>
-
-                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-
-
-                    <form th:action="@{/register}" method="post" th:object="${user}">
-
-                        <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register</h3>
-
-
-                        <!-- logout message -->
-                        <div th:if="${param.logout}">
-                            <div class="alert alert-info">You have been logged out.</div>
-                        </div>
-                        <div th:if="${message}">
-                            <p class="alert alert-danger" th:text="${message}"></p>
-                        </div>
-                        <div th:if="${register}">
-                            <p class="alert alert-info" th:text="${register}"></p>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <input type="text" id="username" name="username" th:field="*{username}" required
-                                placeholder="Enter Username" autofocus="autofocus"
-                                class="form-control form-control-lg" />
-                            <!-- <label class="form-label" for="username">Username</label> -->
-                        </div>
-                        <div class="form-outline mb-4">
-                            <input type="email" id="email" name="email" th:field="*{email}" required placeholder="Enter email"
-                                autofocus="autofocus" class="form-control form-control-lg" />
-                            <!-- <label class="form-label" for="email">Email</label> -->
-                        </div>
-                        <div class="form-outline mb-4">
-                            <input type="text" id="phone" name="phone" th:field="*{phone}" required placeholder="Phone no"
-                                autofocus="autofocus" class="form-control form-control-lg" />
-                            <!-- <label class="form-label" for="Phone">Phone no</label> -->
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <input type="password" id="password" name="password" th:field="*{password}" required
-                                placeholder="Password" class="form-control form-control-lg" />
-                            <!-- <label class="form-label" for="password">Password</label> -->
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label for="role">Role</label>
-                            <select id="role" name="role" th:field="*{role}" class="select-custom">
-                                <option value="USER">user</option>
-                                <option value="VENDOR">vendor</option>
-
-                            </select>
-                        </div>
-
-                        <!-- Additional Fields for Doctor 
-          <div id="doctor-fields" style="display: none;">
-            <div class="form-outline mb-4">
-              <input type="text" id="address" name="address" th:field="*{address}"
-                placeholder="Enter Address" class="form-control form-control-lg" />
-              <label class="form-label" for="address">Address</label>
             </div>
-            <div class="form-outline mb-4">
-              <input type="text" id="number" name="number" th:field="*{number}"  placeholder="Enter Number"
-                class="form-control form-control-lg" />
-              <label class="form-label" for="number">Number</label>
-            </div>
-            <div class="form-outline mb-4">
-              <input type="text" id="bio" name="bio" th:field="*{bio}"  placeholder="Enter Bio"
-                class="form-control form-control-lg" />
-              <label class="form-label" for="bio">Bio</label>
-            </div>
-            <div class="form-outline mb-4">
-              <input type="text" id="speciality" name="speciality" th:field="*{speciality}" 
-                placeholder="Enter Speciality" class="form-control form-control-lg" />
-              <label class="form-label" for="speciality">Speciality</label>
-            </div>
-          </div>-->
-
-                        <div class="pt-1 mb-4">
-                            <button class="btn btn-info btn-lg btn-block" type="submit" name="login-submit"
-                                id="login-submit">Register</button>
-                        </div>
-
-
-                        <p>Already registered? <a href="/" th:href="@{/login}" class="link-info">Login
-                                here</a></p>
-
-                    </form>
-
-                    <script>
-                        // Show additional fields for Doctor when selected
-                        var roleSelect = document.getElementById('role');
-                        var doctorFields = document.getElementById('doctor-fields');
-
-                        roleSelect.addEventListener('change', function () {
-                            if (roleSelect.value === 'DOCTOR') {
-                                doctorFields.style.display = 'block';
-                            } else {
-                                doctorFields.style.display = 'none';
-                            }
-                        });
-                    </script>
-
-                </div>
-
-            </div>
-            <!-- <div class="col-sm-6 px-0 d-none d-sm-block">
-                <img src="https://img.freepik.com/premium-vector/character-doctor-vector-illustration-flat-style_605517-147.jpg?w=2000"
-                    alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
-            </div> -->
         </div>
-    </div>
-</section>
-<br>
-<br>
-<br>
-   
-
+ 
+        
     <!-- ================================
        START FOOTER AREA
 ================================= -->
@@ -760,7 +677,7 @@
                   Cerrick Way, FL 12345
                 </li>
                 <li>+123-456-789</li>
-                <li><a href="#">trizen@yourwebsite.com</a></li>
+                <li><a href="#">aimcb@yourwebsite.com</a></li>
               </ul>
             </div>
             <!-- end footer-item -->
@@ -889,10 +806,10 @@
           <div class="col-lg-7">
             <div class="copy-right padding-top-30px">
               <p class="copy__desc">
-                &copy; Copyright Trizen 2020. Made with
+                &copy;  Made with
                 <span class="la la-heart"></span> by
                 <a href="https://themeforest.net/user/techydevs/portfolio"
-                  >TechyDevs</a
+                  >AimCab</a
                 >
               </p>
             </div>
@@ -1170,12 +1087,17 @@
     <script src="js/quantity-input.js"></script>
     <script src="js/main.js"></script>
 
-
+    <script>
+        // Add a click event listener to the "Back Home" button
+        document.getElementById("backHomeBtn").addEventListener("click", function () {
+            // Redirect to the index.html page
+            window.location.href = "/home";
+        });
+    </script>
    
 
 
    
   </body>
 
-<!-- Mirrored from techydevs.com/demos/trizen/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Mar 2023 06:23:46 GMT -->
 </html>

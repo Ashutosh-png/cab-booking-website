@@ -95,6 +95,13 @@ public class User {
 		this.userid = userid;
 		this.role = role;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", phone="
+				+ phone + ", userid=" + userid + ", role=" + role + "]";
+	}
 
 	public User(String username, String email, String password, String phone,String userid, Role role) {
 		super();

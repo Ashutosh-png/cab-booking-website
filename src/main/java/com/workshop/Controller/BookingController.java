@@ -1,5 +1,13 @@
 package com.workshop.Controller;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,7 +96,7 @@ public class BookingController {
 	  
 	  
 	  @PostMapping("/book")
-	  public ResponseEntity<String> book(
+	  public String book(
 	          @RequestParam("cabId") String cabId,
 	          @RequestParam("modelName") String modelName,
 	          @RequestParam("modelType") String modelType,
@@ -100,9 +110,13 @@ public class BookingController {
 	          @RequestParam("returndate") String returndate,
 	          @RequestParam("time") String time,
 	          @RequestParam("tripType") String tripType,
-	          @RequestParam("distance") String distance
+	          @RequestParam("distance") String distance,
+	          @RequestParam("name") String name,
+	          @RequestParam("email") String email,
+	          @RequestParam("phone") String phone, Model model , Principal principal
 
-	  ) {
+
+	  ) throws UnsupportedEncodingException {
 	      System.out.println("Cab ID: " + cabId);
 	      System.out.println("Model Name: " + modelName);
 	      System.out.println("Model Type: " + modelType);
@@ -117,6 +131,10 @@ public class BookingController {
 	      System.out.println("Time: " + time);
 	      System.out.println("Trip Type: " + tripType);
 	      System.out.println("distance: " + distance);
+	      System.out.println("name: " + name);
+	      System.out.println("email: " + email);
+	      System.out.println("phone: " + phone);
+
 
 	      LocalDate localDate1 = LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
 	      
@@ -125,6 +143,15 @@ public class BookingController {
 
 		    // Use ISO_TIME pattern for parsing time strings
 		    LocalTime localTime1 = LocalTime.parse(time, DateTimeFormatter.ISO_TIME);
+		    
+		    User user  = userService.getByUsername(principal.getName());
+		    System.out.println(user);
+		    
+		    
+			String userid  = user.getUserid();
+			
+			
+			
 	      Booking booking = new Booking();
 	      booking.setFromLocation(pickupLocation);
 	      booking.setToLocation(dropLocation);
@@ -132,8 +159,20 @@ public class BookingController {
 	      booking.setStartDate(localDate1);
 	      booking.setTime(localTime1);
 	      booking.setDistance(distance);
-	      
+	      booking.setName(name);
+	      booking.setEmail(email);
+	      booking.setPhone(phone);
+	      booking.setUserid(userid);
+	      System.out.println(tripType);
+    	  System.out.println(returndate);
+    	  System.out.println(name);
+    	  System.out.println(email);
+    	  System.out.println(phone);
+
+
 	      if("roundTrip".equals(tripType)) {
+	    	  System.out.println("check");
+	    	  System.out.println(returndate);
 	    	  LocalDate localDate2 = LocalDate.parse(returndate, DateTimeFormatter.ISO_DATE);
 		      booking.setReturnDate(localDate2);
 
@@ -163,12 +202,91 @@ public class BookingController {
 	      booking.setBookingId(bookid);
 	      if (booking.getDistance() == null || booking.getDistance().equals("0")) {
 	          System.out.println("Distance not found");
-	          return ResponseEntity.ok("Not Successful");
+	        //   ResponseEntity.ok("Not Successful");
+	           System.out.println("Not Successful");
 	      }
+	      
+	      String apiURL = "https://aimcabbooking.com/confirm-round-api.php";
+	      StringBuilder postData = new StringBuilder();
+	     
+	      postData.append("&date1=").append(URLEncoder.encode("2023-09-08", "UTF-8"));
+	    
+
+	      System.out.println(postData);
+
+	      try {
+	          URL url = new URL(apiURL);
+	          HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+	          // Set the HTTP method to POST
+	          connection.setRequestMethod("POST");
+	          
+	          // Enable input/output streams for the connection
+	          connection.setDoOutput(true);
+
+	          // Write the data to the connection's output stream
+	          try (OutputStream os = connection.getOutputStream()) {
+	        	    byte[] postDataBytes = postData.toString().getBytes(StandardCharsets.UTF_8);
+	        	    os.write(postDataBytes);
+	        	}
+
+	          // Get the response from the API
+	          int responseCode = connection.getResponseCode();
+	          if (responseCode == HttpURLConnection.HTTP_OK) {
+	              // Read and process the response
+	              BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+	              String inputLine;
+	              StringBuilder response = new StringBuilder();
+
+	              while ((inputLine = in.readLine()) != null) {
+	                  response.append(inputLine);
+	              }
+	              in.close();
+
+	              // Handle the API response here, if needed
+	              String apiResponse = response.toString();
+	              System.out.println("API Response: " + apiResponse);
+
+	              // Continue with your code as needed...
+
+	          } else {
+	              System.out.println("API request failed with response code: " + responseCode);
+	              // Handle the error
+	             // return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("API request failed");
+		           System.out.println("API request failed");
+
+	          }
+
+	          // Close the connection
+	          connection.disconnect();
+
+	      } catch (Exception e) {
+	          e.printStackTrace();
+	          // Handle any exceptions that occur during the request
+	        //  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("API request failed");
+	           System.out.println("Not Successful");
+
+	      }
+	      
+	      
+	      
+	      
 	      ser.saveBooking(booking);
 	      System.out.println("Booked ");
-	      return ResponseEntity.ok("Booked Successfully");
+	      return "redirect:/testpage";
 	  }
+	  
+	  
+	  @GetMapping("/thankyou")
+	  public String getpage() {
+		  return "thankyou";
+	  }
+	  
+	  @GetMapping("/testpage")
+	  public String getpagetest() {
+		  return "test";
+	  }
+	  
 
 	  @PostMapping("/cab")
 	    public String processForm(
@@ -237,7 +355,8 @@ public class BookingController {
 	        model.addAttribute("pickupLocation", pickupLocation);
 	        model.addAttribute("dropLocation", dropLocation);
 	        model.addAttribute("date", date);
-	        model.addAttribute("Returndate", returndate);
+	        model.addAttribute("returndate", returndate);
+	        System.out.println("returndate "+returndate);
 
 	        model.addAttribute("time", time);
 	        model.addAttribute("distance", Distance);
