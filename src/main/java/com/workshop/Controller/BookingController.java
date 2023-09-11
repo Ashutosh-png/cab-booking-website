@@ -12,6 +12,7 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -115,6 +116,15 @@ public class BookingController {
 	          @RequestParam("distance") String distance,
 	          @RequestParam("name") String name,
 	          @RequestParam("email") String email,
+	          @RequestParam("service") String service,
+	          @RequestParam("gst") String gst,
+	          @RequestParam("total") String total,
+	          @RequestParam("days") String days,
+	          @RequestParam("driverrate") String driverrate,
+
+
+
+
 	          @RequestParam("phone") String phone, Model model , Principal principal
 
 
@@ -146,11 +156,27 @@ public class BookingController {
 		    // Use ISO_TIME pattern for parsing time strings
 		    LocalTime localTime1 = LocalTime.parse(time, DateTimeFormatter.ISO_TIME);
 		    
-		    User user  = userService.getByUsername(principal.getName());
-		    System.out.println(user);
+		   // User user  = userService.getByUsername(principal.getName());
+		   // System.out.println(user);
+		    User user;
 		    
+		    String userid;
 		    
-			String userid  = user.getUserid();
+		    if (principal != null) {
+		        // User is logged in, get their user information
+		        user = userService.getByUsername(principal.getName());
+		    } else {
+		        // User is not logged in, create a guest user
+		        // You can use a predefined identifier like "guest" or generate a unique identifier
+		        // For example:
+		        String guestUserId = "guest";
+		        user = new User();
+		        user.setUserid(guestUserId);
+		    }
+		    
+		    userid = user.getUserid();
+
+			
 			
 			
 			
@@ -226,9 +252,15 @@ public class BookingController {
 	        requestBody.put("time", time);
 	        requestBody.put("dateend", returndate);
 	        requestBody.put("timeend", "");
-	        requestBody.put("days", 2);
+	        requestBody.put("days", days);
 	        requestBody.put("user_trip_type", tripType);
-	        requestBody.put("amount", price);
+	        requestBody.put("amount", total);
+	        requestBody.put("baseAmount", price);
+	        requestBody.put("service_charge", service);
+	        requestBody.put("gst", gst);
+	        requestBody.put("driver_bhata", driverrate);
+
+
 	      
 
 
@@ -325,6 +357,7 @@ public class BookingController {
 		  List<Trip> tripinfo = new ArrayList<>();
 		    int Dist = Integer.parseInt(distance.replaceAll("[^0-9]", ""));
 		    int Distance =0;
+		    int days =0;
 		  System.out.println(Distance);
 		  
 		  String city1 = userService.getLongNameByCity(dropLocation, apiKey);
@@ -353,6 +386,9 @@ public class BookingController {
 			  System.out.println(startdate+" "+enddate+" "+time+" "+distance);
 			  LocalDate localDate1 = LocalDate.parse(startdate, DateTimeFormatter.ISO_DATE);
 			    LocalDate localDate2 = LocalDate.parse(enddate, DateTimeFormatter.ISO_DATE);
+		         days = (int) ChronoUnit.DAYS.between(localDate1, localDate2);
+		         days++;
+		        System.out.println(days);
 
 			    // Use ISO_TIME pattern for parsing time strings
 			    LocalTime localTime1 = LocalTime.parse(time1, DateTimeFormatter.ISO_TIME);
@@ -383,6 +419,8 @@ public class BookingController {
 	        model.addAttribute("cabinfo", c);
 	        model.addAttribute("price", 10);
 	        model.addAttribute("tripinfo",tripinfo);
+	        model.addAttribute("days",days);
+
 
 	        
 
@@ -479,6 +517,9 @@ public class BookingController {
 	         @RequestParam("time") String time,
 	         @RequestParam("tripType") String tripType,
 	         @RequestParam("distance") String distance,
+	         @RequestParam("days") String days,
+
+	         
 
 	         Model model
 	 ) {
@@ -497,9 +538,47 @@ public class BookingController {
 	     System.out.println("Time: " + time);
 	     System.out.println("Trip Type: " + tripType);
 	     System.out.println("Distance: " + distance);
+	     System.out.println("Days: " + days);
+	     
+	     int driverrate=0;
+	     int gst =0;
+	     int service = 0;
+	     
+	     if ("oneWay".equals(tripType)) {
+	       //  driverrate = 250;
+	         gst = (Integer.parseInt(price)/100)*10;
+	         service = (Integer.parseInt(price)/100)*5;
+
+	         
+	      } else if ("roundTrip".equals(tripType)) {
+	    	  driverrate = Integer.parseInt(days) * 300;
+	    	    gst = ((Integer.parseInt(price) + driverrate) / 100) * 10;
+	    	    service = ((Integer.parseInt(price) + driverrate) / 100) * 5;
+
+	      }
+	    // int driverrate = Integer.parseInt(days)*300;
+	     System.out.println(driverrate);
+	     System.out.println(price);
+	     
+	     
+	     
+	     System.out.println("gst "+gst);
+	     System.out.println("service "+service);
 
 
+
+         int totalAmount = Integer.parseInt(price)+gst+service+driverrate;
+         System.out.println(totalAmount);
 	     // Store the cab information in the model for the next page
+	     model.addAttribute("driverrate", driverrate);
+	     model.addAttribute("days", days);
+	     model.addAttribute("gst", gst);
+	     model.addAttribute("service", service);
+	     model.addAttribute("total", totalAmount);
+
+
+
+
 	     model.addAttribute("cabId", cabId);
 	     model.addAttribute("modelName", modelName);
 	     model.addAttribute("modelType", modelType);

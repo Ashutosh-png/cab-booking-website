@@ -104,6 +104,34 @@
             width:180px;
             height:55px;
         }
+        
+       @media (max-width: 767px) {
+        .container1 {
+            display: block;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-button {
+            margin-right: 10px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        /* Adjust other styles as needed for mobile layout */
+        .car-image {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Adjust other styles as needed for mobile layout */
+    }
     </style>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
@@ -727,6 +755,8 @@
          <input type="hidden" name="time" th:value="${time}" />
           <input type="hidden" name="tripType" th:value="${tripType}" />
     <input type="hidden" name="distance" th:value="${distance}" />
+        <input type="hidden" name="days" th:value="${days}" />
+    
                                          
                                             
                 
@@ -786,6 +816,8 @@
                                            <input type="hidden" name="time" th:value="${time}" />
                                          <input type="hidden" name="tripType" th:value="${tripType}" />
                                        <input type="hidden" name="distance" th:value="${distance}" />
+                                               <input type="hidden" name="days" th:value="${days}" />
+                                       
        <span style="margin-bottom: 100px; color: green;font-size: 30px;"> ₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.sedan * distance}"></span>
         <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
     </form>
@@ -835,6 +867,8 @@
                                            <input type="hidden" name="time" th:value="${time}" />
                                          <input type="hidden" name="tripType" th:value="${tripType}" />
                                        <input type="hidden" name="distance" th:value="${distance}" />
+                                               <input type="hidden" name="days" th:value="${days}" />
+                                       
         <span style="margin-bottom:100px ;color: green;font-size: 30px;">₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.suv * distance}"></span>
         <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
     </form>
@@ -885,6 +919,8 @@
                                            <input type="hidden" name="time" th:value="${time}" />
                                          <input type="hidden" name="tripType" th:value="${tripType}" />
                                        <input type="hidden" name="distance" th:value="${distance}" />
+                                               <input type="hidden" name="days" th:value="${days}" />
+                                       
          <span style="margin-bottom:100px; color: green; font-size: 30px;">₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.suvplus * distance}"></span>
         <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
     </form>

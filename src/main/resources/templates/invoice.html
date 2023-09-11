@@ -590,6 +590,12 @@
             <p><strong>Fuel Type:</strong> <span th:text="${fuelType}"></span></p>
             <p><strong>Availability:</strong> <span th:text="${availability}"></span></p>
             <p><strong>Price:</strong> <span th:text="${price}"></span></p>
+                                    <p><strong>Driver Rate:</strong> <span th:text="${driverrate}"></span></p>
+                                                                        <p><strong>Service Charge:</strong> <span th:text="${service}"></span></p>
+                                                                        <p><strong>GST:</strong> <span th:text="${gst}"></span></p>
+                                                                        <h4><strong>Total Amount:</strong> <span th:text="${total}"></span></h4>
+                                    
+            
             <img src="./images/car.png" style="height: 350px; width: 350px;"  alt="">
         </div>
         <div class="col-md-6 info-box inline" style="width: 200px;">
@@ -601,6 +607,7 @@
             <p><strong>Time:</strong> <span th:text="${time}"></span></p>
             <p><strong>Trip Type:</strong> <span th:text="${tripType}"></span></p>
             <p><strong>Distance:</strong> <span th:text="${distance}"></span></p>
+            
             <hr>
             
                 <form id="bookForm" th:action="@{/book}" method="post" style="position: relative;">
@@ -619,6 +626,14 @@
         <input type="hidden" name="time" th:value="${time}" />
         <input type="hidden" name="tripType" th:value="${tripType}" />
                 <input type="hidden" name="distance" th:value="${distance}" />
+                                <input type="hidden" name="service" th:value="${service}" />
+                                <input type="hidden" name="gst" th:value="${gst}" />
+                                <input type="hidden" name="total" th:value="${total}" />
+                               <input type="hidden" name="days" th:value="${days}" />
+                                                              <input type="hidden" name="driverrate" th:value="${driverrate}" />
+                               
+                                
+                
         
 
                     <div class="form-group">
