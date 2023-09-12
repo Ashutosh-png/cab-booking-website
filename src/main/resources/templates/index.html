@@ -601,19 +601,7 @@
                       <i class="la la-hotel mr-1"></i>Buses
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link d-flex align-items-center"
-                      id="package-tab"
-                      data-toggle="tab"
-                      href="#package"
-                      role="tab"
-                      aria-controls="package"
-                      aria-selected="false"
-                    >
-                      <i class="la la-shopping-bag mr-1"></i>Train
-                    </a>
-                  </li>
+                
                   <!-- <li class="nav-item">
                     <a
                       class="nav-link d-flex align-items-center"
@@ -714,22 +702,30 @@
                     <div class="tab-pane fade show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
                         <div class="contact-form-action">
                             <form th:action="@{/cab}" method="post">
-                                <div class="mb-3">
-                                    <label for="tripType">Trip Type:</label>
-                                    <select name="tripType" id="tripType" class="form-select" required="required">
-                                        <option value="oneWay">One Way</option>
-                                        <option value="roundTrip">Round Trip</option>
+                              <div class="mb-3">
+   <label>Trip Type:</label>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="tripType" id="oneWay" value="oneWay">
+    <label class="form-check-label" for="oneWay">One Way</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="tripType" id="roundTrip" value="roundTrip">
+    <label class="form-check-label" for="roundTrip">Round Trip</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="tripType" id="rentalTrip" value="rentalTrip">
+    <label class="form-check-label" for="rentalTrip">Rental Trip</label>
+</div>
+</div>
 
-                                        <option value="rentalTrip">Rental Trip</option>
-                                    </select>
-                                </div>
+
                                 <div class="mb-3" style="display: inline-block; width: 48%;">
                                     <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
-                                        required="required" autocomplete="off" placeholder="pickupLocation">
+                                        required="required" autocomplete="off" placeholder="Pickup Location">
                                 </div>
                                 <div class="mb-3" style="display: inline-block; width: 48%;">
                                     <input type="text" id="dropLocation" name="dropLocation" class="form-control"
-                                        required="required" autocomplete="off" placeholder="dropLocation">
+                                        required="required" autocomplete="off" placeholder="Drop Location">
                                 </div>
                                 
                                 <div class="mb-3" style="display: inline-block; width: 48%;">
@@ -3042,1151 +3038,810 @@
     <!-- ================================
     START ROUND-TRIP AREA
 ================================= -->
-    <section class="round-trip-flight section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading text-center">
-              <h2 class="sec__title line-height-55">
-                Most Popular Cities <br />
-           
-              </h2>
-            </div>
-            <!-- end section-heading -->
+  <section class="round-trip-flight section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading text-center">
+            <h2 class="sec__title line-height-55">
+              Most Popular Cities <br />
+
+            </h2>
           </div>
-          <!-- end col-lg-12 -->
+          <!-- end section-heading -->
         </div>
-        <!-- end row -->
-        <div class="row padding-top-50px">
-          <div class="col-lg-12">
-            <div class="flight-filter-tab text-center">
-              <div class="section-tab section-tab-3">
-                <ul
-                  class="nav nav-tabs justify-content-center"
-                  id="myTab4"
-                  role="tablist"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active"
-                      id="new-york-tab"
-                      data-toggle="tab"
-                      href="#new-york"
-                      role="tab"
-                      aria-controls="new-york"
-                      aria-selected="false"
-                    >
-                     PUNE
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="hong-kong-tab"
-                      data-toggle="tab"
-                      href="#hong-kong"
-                      role="tab"
-                      aria-controls="hong-kong"
-                      aria-selected="false"
-                    >
-                     MUMBAI
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="beijing-tab"
-                      data-toggle="tab"
-                      href="#beijing"
-                      role="tab"
-                      aria-controls="beijing"
-                      aria-selected="false"
-                    >
-                      NASHIK
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="tokyo-tab"
-                      data-toggle="tab"
-                      href="#tokyo"
-                      role="tab"
-                      aria-controls="tokyo"
-                      aria-selected="false"
-                    >
-                      AURANGABAD
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      id="seoul-tab"
-                      data-toggle="tab"
-                      href="#seoul"
-                      role="tab"
-                      aria-controls="seoul"
-                      aria-selected="false"
-                    >
-                      SHIRDI
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- end section-tab -->
+        <!-- end col-lg-12 -->
+      </div>
+      <!-- end row -->
+      <div class="row padding-top-50px">
+        <div class="col-lg-12">
+          <div class="flight-filter-tab text-center">
+            <div class="section-tab section-tab-3">
+              <ul class="nav nav-tabs justify-content-center" id="myTab4" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="new-york-tab" data-toggle="tab" href="#new-york" role="tab"
+                    aria-controls="new-york" aria-selected="false">
+                    PUNE
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="hong-kong-tab" data-toggle="tab" href="#hong-kong" role="tab"
+                    aria-controls="hong-kong" aria-selected="false">
+                    MUMBAI
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="beijing-tab" data-toggle="tab" href="#beijing" role="tab"
+                    aria-controls="beijing" aria-selected="false">
+                    NASHIK
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tokyo-tab" data-toggle="tab" href="#tokyo" role="tab" aria-controls="tokyo"
+                    aria-selected="false">
+                    AURANGABAD
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="seoul-tab" data-toggle="tab" href="#seoul" role="tab" aria-controls="seoul"
+                    aria-selected="false">
+                    SHIRDI
+                  </a>
+                </li>
+              </ul>
             </div>
-            
-            <!-- end flight-filter-tab -->
-            <div class="popular-round-trip-wrap padding-top-40px">
-              <div class="tab-content" id="myTabContent4">
-                <div
-                  class="tab-pane fade show active"
-                  id="new-york"
-                  role="tabpanel"
-                  aria-labelledby="new-york-tab"
-                >
-                  <div class="row">
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="./pune.html"
-                              class="d-flex align-items-center"
-                            >
-                              Pune<i class="la la-exchange mx-2"></i>Mumbai
-                              
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
+            <!-- end section-tab -->
+          </div>
+
+          <!-- end flight-filter-tab -->
+          <div class="popular-round-trip-wrap padding-top-40px">
+            <div class="tab-content" id="myTabContent4">
+              <div class="tab-pane fade show active" id="new-york" role="tabpanel" aria-labelledby="new-york-tab">
+                <div class="row">
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Pune<i class="la la-exchange mx-2"></i>Mumbai
+
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
                             <span class="price__from mr-1">From</span
                             ><span class="price__num">$340</span>
                           </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
                       </div>
-                      <!-- end deal-card -->
                     </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Pune<i class="la la-exchange mx-2"></i
-                              >Nashik
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Pune<i class="la la-exchange mx-2"></i>Nashik
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
                             <span class="price__from mr-1">From</span
                             ><span class="price__num">$740</span>
                           </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
                       </div>
-                      <!-- end deal-card -->
                     </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Pune<i class="la la-exchange mx-2"></i>Shirdi
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Pune<i class="la la-exchange mx-2"></i>Shirdi
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
                             <span class="price__from mr-1">From</span
                             ><span class="price__num">$140</span>
                           </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
                       </div>
-                      <!-- end deal-card -->
                     </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Pune<i class="la la-exchange mx-2"></i>Aurangabad
-                              
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Pune<i class="la la-exchange mx-2"></i>Aurangabad
+
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
                             <span class="price__from mr-1">From</span
                             ><span class="price__num">$340</span>
                           </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
                       </div>
-                      <!-- end deal-card -->
                     </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Pune<i class="la la-exchange mx-2"></i>Solapur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Pune<i class="la la-exchange mx-2"></i>Solapur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
                             <span class="price__from mr-1">From</span
                             ><span class="price__num">$100</span>
                           </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
                       </div>
-                      <!-- end deal-card -->
                     </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              pune<i class="la la-exchange mx-2"></i>Latur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            pune<i class="la la-exchange mx-2"></i>Latur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
                             <span class="price__from mr-1">From</span
                             ><span class="price__num">$640</span>
                           </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
                       </div>
-                      <!-- end deal-card -->
                     </div>
-                    <!-- end col-lg-4 -->
+                    <!-- end deal-card -->
                   </div>
+                  <!-- end col-lg-4 -->
                 </div>
-                <!-- end tab-pane -->
-                <div
-                  class="tab-pane fade"
-                  id="hong-kong"
-                  role="tabpanel"
-                  aria-labelledby="hong-kong-tab"
-                >
-                  <div class="row">
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="./pune.html"
-                              class="d-flex align-items-center"
-                            >
-                              Mumbai<i class="la la-exchange mx-2"></i
-                              >Pune
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Mumbai<i class="la la-exchange mx-2"></i>Nashik
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$740</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Mumbai<i class="la la-exchange mx-2"></i>Aurangabad
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$140</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Mumbai<i class="la la-exchange mx-2"></i>Shirdi
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Mumbai<i class="la la-exchange mx-2"></i>Solapur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$100</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Mumbai<i class="la la-exchange mx-2"></i
-                              >Lonawala
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$640</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                  </div>
-                </div>
-                <!-- end tab-pane -->
-                <div
-                  class="tab-pane fade"
-                  id="seoul"
-                  role="tabpanel"
-                  aria-labelledby="seoul-tab"
-                >
-                  <div class="row">
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Shirdi<i class="la la-exchange mx-2"></i>Pune
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Shirdi<i class="la la-exchange mx-2"></i>Mumbai
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$740</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Shirdi<i class="la la-exchange mx-2"></i>Aurangabad
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$140</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Shirdi<i class="la la-exchange mx-2"></i>Nashik
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Shirdi<i class="la la-exchange mx-2"></i>Latur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$100</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Shirdi<i class="la la-exchange mx-2"></i>Solapur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$640</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                  </div>
-                </div>
-                <!-- end tab-pane -->
-                <div
-                  class="tab-pane fade"
-                  id="tokyo"
-                  role="tabpanel"
-                  aria-labelledby="tokyo-tab"
-                >
-                  <div class="row">
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              Aurangabad<i class="la la-exchange mx-2"></i>Pune
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Aurangabad<i class="la la-exchange mx-2"></i>Mumbai
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$740</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Aurangabad<i class="la la-exchange mx-2"></i>Shirdi
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$140</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Aurangabad<i class="la la-exchange mx-2"></i>Solapur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Aurangabad<i class="la la-exchange mx-2"></i>Latur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$100</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Aurangabad<i class="la la-exchange mx-2"></i>Nanded
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$640</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                  </div>
-                </div>
-                <!-- end tab-pane -->
-                <div
-                  class="tab-pane fade"
-                  id="beijing"
-                  role="tabpanel"
-                  aria-labelledby="beijing-tab"
-                >
-                  <div class="row">
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                              
-                            Nashik<i class="la la-exchange mx-2"></i>Pune
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Nashik<i class="la la-exchange mx-2"></i>Mumbai
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$740</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Nashik<i class="la la-exchange mx-2"></i>Shirdi
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$140</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Nashik<i class="la la-exchange mx-2"></i>Solapur
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$340</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Nashik<i class="la la-exchange mx-2"></i>Latur
-                              kong
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$100</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                    <div class="col-lg-4 responsive-column">
-                      <div class="deal-card">
-                        <div class="deal-title d-flex align-items-center">
-                          <img
-                            src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
-                            alt="air-line-img"
-                          />
-                          <h3 class="deal__title">
-                            <a
-                              href="flight-single.html"
-                              class="d-flex align-items-center"
-                            >
-                            Nashik<i class="la la-exchange mx-2"></i>Aurangabad
-                            </a>
-                          </h3>
-                        </div>
-                        <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
-                        <div
-                          class="deal-action-box d-flex align-items-center justify-content-between"
-                        >
-                          <!-- <div class="price-box d-flex align-items-center">
-                            <span class="price__from mr-1">From</span
-                            ><span class="price__num">$640</span>
-                          </div> -->
-                          <a href="flight-single.html" class="btn-text"
-                            >See details<i class="la la-angle-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                      <!-- end deal-card -->
-                    </div>
-                    <!-- end col-lg-4 -->
-                  </div>
-                </div>
-                <!-- end tab-pane -->
               </div>
-              <!-- end tab-content -->
-              <div
-                class="tab-content-info d-flex justify-content-between align-items-center"
-              >
-                <p class="font-size-15">
+              <!-- end tab-pane -->
+              <div class="tab-pane fade" id="hong-kong" role="tabpanel" aria-labelledby="hong-kong-tab">
+                <div class="row">
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Mumbai<i class="la la-exchange mx-2"></i>Pune
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Mumbai<i class="la la-exchange mx-2"></i>Nashik
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$740</span>
+                          </div> -->
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Mumbai<i class="la la-exchange mx-2"></i>Aurangabad
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$140</span>
+                          </div> -->
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Mumbai<i class="la la-exchange mx-2"></i>Shirdi
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Mumbai<i class="la la-exchange mx-2"></i>Solapur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$100</span>
+                          </div> -->
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="./pune.html" class="d-flex align-items-center">
+                            Mumbai<i class="la la-exchange mx-2"></i>Lonawala
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$640</span>
+                          </div> -->
+                        <a href="./pune.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                </div>
+              </div>
+              <!-- end tab-pane -->
+              <div class="tab-pane fade" id="seoul" role="tabpanel" aria-labelledby="seoul-tab">
+                <div class="row">
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Shirdi<i class="la la-exchange mx-2"></i>Pune
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Shirdi<i class="la la-exchange mx-2"></i>Mumbai
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$740</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Shirdi<i class="la la-exchange mx-2"></i>Aurangabad
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$140</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Shirdi<i class="la la-exchange mx-2"></i>Nashik
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Shirdi<i class="la la-exchange mx-2"></i>Latur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$100</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Shirdi<i class="la la-exchange mx-2"></i>Solapur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$640</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                </div>
+              </div>
+              <!-- end tab-pane -->
+              <div class="tab-pane fade" id="tokyo" role="tabpanel" aria-labelledby="tokyo-tab">
+                <div class="row">
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Aurangabad<i class="la la-exchange mx-2"></i>Pune
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Aurangabad<i class="la la-exchange mx-2"></i>Mumbai
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$740</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Aurangabad<i class="la la-exchange mx-2"></i>Shirdi
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$140</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Aurangabad<i class="la la-exchange mx-2"></i>Solapur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Aurangabad<i class="la la-exchange mx-2"></i>Latur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$100</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Aurangabad<i class="la la-exchange mx-2"></i>Nanded
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$640</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                </div>
+              </div>
+              <!-- end tab-pane -->
+              <div class="tab-pane fade" id="beijing" role="tabpanel" aria-labelledby="beijing-tab">
+                <div class="row">
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+
+                            Nashik<i class="la la-exchange mx-2"></i>Pune
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Nashik<i class="la la-exchange mx-2"></i>Mumbai
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$740</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Nashik<i class="la la-exchange mx-2"></i>Shirdi
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$140</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Nashik<i class="la la-exchange mx-2"></i>Solapur
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$340</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Nashik<i class="la la-exchange mx-2"></i>Latur
+                            kong
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$100</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                  <div class="col-lg-4 responsive-column">
+                    <div class="deal-card">
+                      <div class="deal-title d-flex align-items-center">
+                        <img src="images/auto-automobile-car-pictogram-service-traffic-transport--2.png"
+                          alt="air-line-img" />
+                        <h3 class="deal__title">
+                          <a href="flight-single.html" class="d-flex align-items-center">
+                            Nashik<i class="la la-exchange mx-2"></i>Aurangabad
+                          </a>
+                        </h3>
+                      </div>
+                      <!-- <p class="deal__meta">Tue, Jul 14-Fri, Jul 24</p> -->
+                      <div class="deal-action-box d-flex align-items-center justify-content-between">
+                        <!-- <div class="price-box d-flex align-items-center">
+                            <span class="price__from mr-1">From</span
+                            ><span class="price__num">$640</span>
+                          </div> -->
+                        <a href="flight-single.html" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                      </div>
+                    </div>
+                    <!-- end deal-card -->
+                  </div>
+                  <!-- end col-lg-4 -->
+                </div>
+              </div>
+              <!-- end tab-pane -->
+            </div>
+            <!-- end tab-content -->
+            <div class="tab-content-info d-flex justify-content-between align-items-center">
+              <!-- <p class="font-size-15">
                   <i class="la la-question-circle mr-1"></i>Average round-trip
                   price per person, taxes and fees included.
-                </p>
-                <a href="#" class="btn-text font-size-15"
-                  >Discover More <i class="la la-angle-right"></i
-                ></a>
-              </div>
-              <!-- end tab-content-info -->
+                </p> -->
+              <a href="#" class="btn-text font-size-15">Discover More <i class="la la-angle-right"></i></a>
             </div>
+            <!-- end tab-content-info -->
           </div>
-          <!-- end col-lg-12 -->
         </div>
-        <!-- end row -->
+        <!-- end col-lg-12 -->
       </div>
-      <!-- end container -->
-    </section>
-    <!-- end round-trip-flight -->
-    <!-- ================================
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end round-trip-flight -->
+  <!-- ================================
     END ROUND-TRIP AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
     START HOTEL AREA
 ================================= -->
-    <section
+  <!-- <section 
       class="hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px"
     >
       <div class="container-fluid">
@@ -4198,11 +3853,11 @@
                 Destinations
               </h2>
             </div>
-            <!-- end section-heading -->
+    
           </div>
-          <!-- end col-lg-12 -->
+         
         </div>
-        <!-- end row -->
+       
         <div class="row padding-top-50px">
           <div class="col-lg-12">
             <div class="hotel-card-wrap">
@@ -4248,7 +3903,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- end card-item -->
+               
                 <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
@@ -4289,7 +3944,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- end card-item -->
+                
                 <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
@@ -4332,7 +3987,7 @@
                   </div>
                 </div>
                 <!-- end card-item -->
-                <div class="card-item mb-0">
+  <!-- <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
                       <img src="images/img4.jpg" alt="hotel-img" />
@@ -4373,7 +4028,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- end card-item -->
+          
                 <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
@@ -4414,7 +4069,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- end card-item -->
+            
                 <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
@@ -4456,9 +4111,9 @@
                       ></a>
                     </div>
                   </div>
-                </div>
-                <!-- end card-item -->
-                <div class="card-item mb-0">
+                </div> -->
+
+  <!-- <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
                       <img src="images/img1.jpg" alt="hotel-img" />
@@ -4499,8 +4154,8 @@
                     </div>
                   </div>
                 </div>
-                <!-- end card-item -->
-                <div class="card-item mb-0">
+              -->
+  <!-- <div class="card-item mb-0">
                   <div class="card-img">
                     <a href="hotel-single.html" class="d-block">
                       <img src="images/img2.jpg" alt="hotel-img" />
@@ -4540,26 +4195,24 @@
                     </div>
                   </div>
                 </div>
-                <!-- end card-item -->
+               
               </div>
-              <!-- end hotel-card-carousel -->
+         
             </div>
           </div>
-          <!-- end col-lg-12 -->
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end container-fluid -->
-    </section>
-    <!-- end hotel-area -->
-    <!-- ================================
-    END HOTEL AREA
-================================= -->
+   
+        </div> -->
 
-    <!-- ================================
+  <!-- </div>  -->
+
+
+
+
+
+  <!-- ================================
     START DESTINATION AREA
 ================================= -->
-    <section class="destination-area section--padding">
+  <!-- <section class="destination-area section--padding">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-8">
@@ -4570,16 +4223,16 @@
               </p>
             </div>
 
-            <!-- end section-heading -->
+           
           </div>
-          <!-- end col-lg-8 -->
+        
           <div class="col-lg-4">
             <div class="btn-box btn--box text-right">
               <a href="tour-grid.html" class="theme-btn">Discover More</a>
             </div>
           </div>
         </div>
-        <!-- end row -->
+      
         <div class="row padding-top-50px">
           <div class="col-lg-4">
             <div class="card-item destination-card">
@@ -4612,7 +4265,7 @@
                 </div>
               </div>
             </div>
-            <!-- end card-item -->
+          
             <div class="card-item destination-card">
               <div class="card-img">
                 <img src="images/destination-img3.jpg" alt="destination-img" />
@@ -4643,9 +4296,9 @@
                 </div>
               </div>
             </div>
-            <!-- end card-item -->
+           
           </div>
-          <!-- end col-lg-4 -->
+         
           <div class="col-lg-4">
             <div class="card-item destination-card">
               <div class="card-img">
@@ -4678,7 +4331,7 @@
                 </div>
               </div>
             </div>
-            <!-- end card-item -->
+           
             <div class="card-item destination-card">
               <div class="card-img">
                 <img src="images/destination-img5.jpg" alt="destination-img" />
@@ -4709,9 +4362,9 @@
                 </div>
               </div>
             </div>
-            <!-- end card-item -->
+            
           </div>
-          <!-- end col-lg-4 -->
+      
           <div class="col-lg-4">
             <div class="card-item destination-card">
               <div class="card-img">
@@ -4743,418 +4396,359 @@
                 </div>
               </div>
             </div>
-            <!-- end card-item -->
+            
           </div>
-          <!-- end col-lg-4 -->
+         
         </div>
-        <!-- end row -->
+     
       </div>
-      <!-- end container -->
-    </section>
-    <!-- end destination-area -->
-    <!-- ================================
+     
+    </section> -->
+  <!-- end destination-area -->
+  <!-- ================================
     END DESTINATION AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
     START CAR AREA
 ================================= -->
-    <section class="car-area section-bg section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading text-center">
-              <h2 class="sec__title">Recommended Car Rentals</h2>
-            </div>
-            <!-- end section-heading -->
+  <section class="car-area section-bg section-padding" style="padding: 50px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading text-center">
+            <h2 class="sec__title">Book Your Cab Now!</h2>
           </div>
-          <!-- end col-lg-12 -->
+          <!-- end section-heading -->
         </div>
-        <!-- end row -->
-        <div class="row padding-top-50px">
-          <div class="col-lg-12">
-            <div class="car-wrap">
-              <div class="car-carousel carousel-action">
-                <div class="card-item car-card mb-0">
-                  <div class="card-img">
-                    <a href="car-single.html" class="d-block">
-                      <img src="images/car-img.png" alt="car-img" />
-                    </a>
-                    <span class="badge">Bestseller</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
+        <!-- end col-lg-12 -->
+      </div>
+      <!-- end row -->
+      <div class="row padding-top-30px">
+        <div class="col-lg-12">
+          <div class="car-wrap">
+            <div class="car-carousel carousel-action">
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/wagonr-exterior-right-front-three-quarter-3.webp" alt="car-img" />
+                  </a>
+                  <!-- <span class="badge">Bestseller</span> -->
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
                   </div>
-                  <div class="card-body">
-                    <p class="card-meta">Compact SUV</p>
-                    <h3 class="card-title">
-                      <a href="car-single.html">Toyota Corolla or Similar</a>
-                    </h3>
-                    <div class="card-rating">
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Compact SUV</p> -->
+                  <h3 class="card-title">
+                    <a href="car-single.html">Hatchback</a>
+                  </h3>
+                  <!-- <div class="card-rating">
                       <span class="badge text-white">4.4/5</span>
                       <span class="review__text">Average</span>
                       <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div class="card-attributes">
-                      <ul class="d-flex align-items-center">
-                        <li
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Passenger"
                         >
                           <i class="la la-users"></i><span>4</span>
-                        </li>
-                        <li
+                        </li> -->
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Luggage"
                         >
                           <i class="la la-suitcase"></i><span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
+                        </li> -->
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
                         <span class="price__from">From</span>
                         <span class="price__num">$23.00</span>
                         <span class="price__text">Per day</span>
-                      </p>
-                      <a href="car-single.html" class="btn-text"
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
                         >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
+                      ></a> -->
                   </div>
                 </div>
-                <!-- end card-item -->
-                <div class="card-item car-card mb-0">
-                  <div class="card-img">
-                    <a href="car-single.html" class="d-block">
-                      <img src="images/car-img2.png" alt="car-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
+              </div>
+              <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/swift.jpeg" alt="car-img" />
+                  </a>
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
                   </div>
-                  <div class="card-body">
-                    <p class="card-meta">Standard</p>
-                    <h3 class="card-title">
-                      <a href="car-single.html"
-                        >Volkswagen Jetta 2 Doors or Similar</a
-                      >
-                    </h3>
-                    <div class="card-rating">
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Standard</p> -->
+                  <h3 class="card-title">
+                    <a href="car-single.html">Hatchback</a>
+                  </h3>
+                  <!-- <div class="card-rating">
                       <span class="badge text-white">4.4/5</span>
                       <span class="review__text">Average</span>
                       <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div class="card-attributes">
-                      <ul class="d-flex align-items-center">
-                        <li
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Passenger"
                         >
                           <i class="la la-users"></i><span>4</span>
-                        </li>
-                        <li
+                        </li> -->
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Luggage"
                         >
                           <i class="la la-suitcase"></i><span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
+                        </li> -->
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
                         <span class="price__from">From</span>
                         <span class="price__num">$33.00</span>
                         <span class="price__text">Per day</span>
-                      </p>
-                      <a href="car-single.html" class="btn-text"
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
                         >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
+                      ></a> -->
                   </div>
                 </div>
-                <!-- end card-item -->
-                <div class="card-item car-card mb-0">
-                  <div class="card-img">
-                    <a href="car-single.html" class="d-block">
-                      <img src="images/car-img3.png" alt="car-img" />
-                    </a>
-                    <span class="badge">featured</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
+              </div>
+              <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/c6es93a_1572125.jpg" alt="car-img" />
+                  </a>
+                  <!-- <span class="badge">featured</span> -->
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
                   </div>
-                  <div class="card-body">
-                    <p class="card-meta">Compact Elite</p>
-                    <h3 class="card-title">
-                      <a href="car-single.html">Toyota Yaris or Similar</a>
-                    </h3>
-                    <div class="card-rating">
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Compact Elite</p> -->
+                  <h3 class="card-title">
+                    <a href="#Form">SUV</a>
+                  </h3>
+                  <!-- <div class="card-rating">
                       <span class="badge text-white">4.4/5</span>
                       <span class="review__text">Average</span>
                       <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div class="card-attributes">
-                      <ul class="d-flex align-items-center">
-                        <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li>
-                        <li
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
+                        title="Passenger">
+                        <!-- <i class="la la-users"></i><span>4</span> -->
+                      </li>
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Luggage"
                         >
                           <i class="la la-suitcase"></i><span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
+                        </li> -->
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
                         <span class="price__from">From</span>
                         <span class="price__num">$23.00</span>
                         <span class="price__text">Per day</span>
-                      </p>
-                      <a href="car-single.html" class="btn-text"
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
                         >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
+                      ></a> -->
                   </div>
                 </div>
-                <!-- end card-item -->
-                <div class="card-item car-card mb-0">
-                  <div class="card-img">
-                    <a href="car-single.html" class="d-block">
-                      <img src="images/car-img4.png" alt="car-img" />
-                    </a>
-                    <span class="badge">Bestseller</span>
-                    <div
+              </div>
+              <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/images.jpeg" alt="car-img" />
+                  </a>
+                  <!-- <span class="badge">Bestseller</span> -->
+                  <!-- <div
                       class="add-to-wishlist icon-element"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Save for later"
                     >
                       <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-meta">Fullsize Van</p>
-                    <h3 class="card-title">
-                      <a href="car-single.html">Seat Alhambra or Similar</a>
-                    </h3>
-                    <div class="card-rating">
+                    </div> -->
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Fullsize Van</p> -->
+                  <h3 class="card-title">
+                    <a href="#Form">SUV</a>
+                  </h3>
+                  <!-- <div class="card-rating">
                       <span class="badge text-white">4.4/5</span>
                       <span class="review__text">Average</span>
                       <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div class="card-attributes">
-                      <ul class="d-flex align-items-center">
-                        <li
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Passenger"
                         >
                           <i class="la la-users"></i><span>6</span>
-                        </li>
-                        <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>2</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
+                        </li> -->
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
+                        <!-- <i class="la la-suitcase"></i><span>2</span> -->
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
                         <span class="price__from">From</span>
                         <span class="price__num">$45.00</span>
                         <span class="price__text">Per day</span>
-                      </p>
-                      <a href="car-single.html" class="btn-text"
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
                         >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
+                      ></a> -->
                   </div>
                 </div>
-                <!-- end card-item -->
-                <div class="card-item car-card mb-0">
-                  <div class="card-img">
-                    <a href="car-single.html" class="d-block">
-                      <img src="images/car-img5.png" alt="car-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
+              </div>
+              <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/etios-2010-2013.webp" alt="car-img" />
+                  </a>
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
                   </div>
-                  <div class="card-body">
-                    <p class="card-meta">Luxury</p>
-                    <h3 class="card-title">
-                      <a href="car-single.html">Mercedes E Class or Similar</a>
-                    </h3>
-                    <div class="card-rating">
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Luxury</p> -->
+                  <h3 class="card-title">
+                    <a href="car-single.html">Sedan</a>
+                  </h3>
+                  <!-- <div class="card-rating">
                       <span class="badge text-white">4.4/5</span>
                       <span class="review__text">Average</span>
                       <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div class="card-attributes">
-                      <ul class="d-flex align-items-center">
-                        <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>5</span>
-                        </li>
-                        <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>3</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
+                        title="Passenger">
+                        <!-- <i class="la la-users"></i><span>5</span> -->
+                      </li>
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
+                        <!-- <i class="la la-suitcase"></i><span>3</span> -->
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
                         <span class="price__from">From</span>
                         <span class="price__num">$58.00</span>
                         <span class="price__text">Per day</span>
-                      </p>
-                      <a href="car-single.html" class="btn-text"
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
                         >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
+                      ></a> -->
                   </div>
                 </div>
-                <!-- end card-item -->
-                <div class="card-item car-card mb-0">
-                  <div class="card-img">
-                    <a href="car-single.html" class="d-block">
-                      <img src="images/car-img6.png" alt="car-img" />
-                    </a>
-                    <span class="badge">featured</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
+              </div>
+              <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/swift-dzire-car-jpg-500x500.webp" alt="car-img" />
+                  </a>
+                  <!-- <span class="badge">featured</span> -->
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
                   </div>
-                  <div class="card-body">
-                    <p class="card-meta">Mini</p>
-                    <h3 class="card-title">
-                      <a href="car-single.html"
-                        >Fiat Fiesta 2 Doors or Similar</a
-                      >
-                    </h3>
-                    <div class="card-rating">
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Mini</p> -->
+                  <h3 class="card-title">
+                    <a href="car-single.html">Sedan</a>
+                  </h3>
+                  <!-- <div class="card-rating">
                       <span class="badge text-white">4.4/5</span>
                       <span class="review__text">Average</span>
                       <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div class="card-attributes">
-                      <ul class="d-flex align-items-center">
-                        <li
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <!-- <li
                           class="d-flex align-items-center"
                           data-toggle="tooltip"
                           data-placement="top"
                           title="Passenger"
                         >
                           <i class="la la-users"></i><span>4</span>
-                        </li>
-                        <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
+                        </li> -->
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
+                        <!-- <i class="la la-suitcase"></i><span>1</span> -->
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
                         <span class="price__from">From</span>
                         <span class="price__num">$23.00</span>
                         <span class="price__text">Per day</span>
-                      </p>
-                      <a href="car-single.html" class="btn-text"
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
                         >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
+                      ></a> -->
                   </div>
                 </div>
-                <!-- end card-item -->
               </div>
-              <!-- end car-carousel -->
+              <!-- end card-item -->
             </div>
+            <!-- end car-carousel -->
           </div>
-          <!-- end col-lg-12 -->
         </div>
-        <!-- end row -->
+        <!-- end col-lg-12 -->
       </div>
-      <!-- end container -->
-    </section>
-    <!-- end car-area -->
-    <!-- ================================
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end car-area -->
+  <!-- ================================
     END CAR AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
        START TESTIMONIAL AREA
-================================= -->
+
     <section class="testimonial-area section-padding">
       <div class="container">
         <div class="row">
@@ -5171,9 +4765,9 @@
                 <a href="#" class="theme-btn">Explore All</a>
               </div>
             </div>
-            <!-- end section-heading -->
+       
           </div>
-          <!-- end col-lg-4 -->
+     
           <div class="col-lg-8">
             <div class="testimonial-carousel carousel-action">
               <div class="testimonial-card">
@@ -5201,7 +4795,7 @@
                   </div>
                 </div>
               </div>
-              <!-- end testimonial-card -->
+          
               <div class="testimonial-card">
                 <div class="testi-desc-box">
                   <p class="testi__desc">
@@ -5227,7 +4821,7 @@
                   </div>
                 </div>
               </div>
-              <!-- end testimonial-card -->
+            
               <div class="testimonial-card">
                 <div class="testi-desc-box">
                   <p class="testi__desc">
@@ -5253,7 +4847,7 @@
                   </div>
                 </div>
               </div>
-              <!-- end testimonial-card -->
+           
               <div class="testimonial-card">
                 <div class="testi-desc-box">
                   <p class="testi__desc">
@@ -5279,25 +4873,25 @@
                   </div>
                 </div>
               </div>
-              <!-- end testimonial-card -->
+            
             </div>
-            <!-- end testimonial-carousel -->
+       
           </div>
-          <!-- end col-lg-8 -->
+         
         </div>
-        <!-- end row -->
+       
       </div>
-      <!-- end container -->
-    </section>
-    <!-- end testimonial-area -->
-    <!-- ================================
+      
+    </section> -->
+  <!-- end testimonial-area -->
+  <!-- ================================
        START TESTIMONIAL AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
     START CTA AREA
 ================================= -->
-    <section
+  <!-- <section
       class="cta-area padding-top-100px padding-bottom-180px text-center"
     >
       <div class="video-bg">
@@ -5314,34 +4908,34 @@
                 Let us show you the world <br />
                 Discover our most popular destinations
               </h2>
-            </div>
-            <!-- end section-heading -->
-            <div class="btn-box padding-top-35px">
+            </div> -->
+
+  <!-- <div class="btn-box padding-top-35px">
               <a href="become-local-expert.html" class="theme-btn border-0"
                 >Join with us</a
               >
             </div>
-          </div>
-          <!-- end col-lg-12 -->
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end container -->
-      <svg class="cta-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+          </div> -->
+  <!-- end col-lg-12 -->
+  <!-- </div> -->
+  <!-- end row -->
+  <!-- </div> -->
+  <!-- end container -->
+  <!-- <svg class="cta-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
         <path
           d="M-31.31,170.22 C164.50,33.05 334.36,-32.06 547.11,196.88 L500.00,150.00 L0.00,150.00 Z"
         ></path>
       </svg>
-    </section>
-    <!-- end cta-area -->
-    <!-- ================================
+    </section> -->
+  <!-- end cta-area -->
+  <!-- ================================
     END CTA AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
        START BLOG AREA
 ================================= -->
-    <section class="blog-area padding-top-30px padding-bottom-90px">
+  <!-- <section class="blog-area padding-top-30px padding-bottom-90px">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -5350,13 +4944,13 @@
                 Latest News & Articles <br />
                 You Might Like
               </h2>
-            </div>
-            <!-- end section-heading -->
-          </div>
-          <!-- end col-lg-12 -->
-        </div>
-        <!-- end row -->
-        <div class="row padding-top-50px">
+            </div> -->
+  <!-- end section-heading -->
+  <!-- </div> -->
+  <!-- end col-lg-12 -->
+  <!-- </div> -->
+  <!-- end row -->
+  <!-- <div class="row padding-top-50px">
           <div class="col-lg-4 responsive-column">
             <div class="card-item blog-card">
               <div class="card-img">
@@ -5411,11 +5005,11 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <!-- end card-item -->
-          </div>
-          <!-- end col-lg-4 -->
-          <div class="col-lg-4 responsive-column">
+            </div> -->
+  <!-- end card-item -->
+  </div>
+  <!-- end col-lg-4 -->
+  <!-- <div class="col-lg-4 responsive-column">
             <div class="card-item blog-card">
               <div class="card-img">
                 <img src="images/blog-img2.jpg" alt="blog-img" />
@@ -5468,11 +5062,11 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <!-- end card-item -->
-          </div>
-          <!-- end col-lg-4 -->
-          <div class="col-lg-4 responsive-column">
+            </div> -->
+  <!-- end card-item -->
+  <!-- </div> -->
+  <!-- end col-lg-4 -->
+  <!-- <div class="col-lg-4 responsive-column">
             <div class="card-item blog-card">
               <div class="card-img">
                 <img src="images/blog-img3.jpg" alt="blog-img" />
@@ -5484,12 +5078,12 @@
                     <a href="#" class="badge">audio</a>
                   </div>
                   <h3 class="card-title line-height-26">
-                    <a href="blog-single.html"
-                      >By all Means, Travel to Popular Sites & Don’t Rule Out
-                      Other Locations</a
-                    >
-                  </h3>
-                  <p class="card-meta">
+                    <a href="blog-single.html" -->
+  <!-- >By all Means, Travel to Popular Sites & Don’t Rule Out
+                      Other Locations</a -->
+  >
+  <!-- </h3> -->
+  <!-- <p class="card-meta">
                     <span class="post__date"> 1 March, 2020</span>
                     <span class="post-dot"></span>
                     <span class="post__time">3 Mins read</span>
@@ -5526,95 +5120,87 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <!-- end card-item -->
-          </div>
-          <!-- end col-lg-4 -->
-        </div>
-        <!-- end row -->
-        <div class="row">
+            </div> -->
+  <!-- end card-item -->
+  <!-- </div> -->
+  <!-- end col-lg-4 -->
+  <!-- </div> -->
+  <!-- end row -->
+  <!-- <div class="row">
           <div class="col-lg-12">
             <div class="btn-box text-center pt-4">
               <a href="blog-grid.html" class="theme-btn">Read More Post</a>
             </div>
           </div>
         </div>
-      </div>
-      <!-- end container -->
-    </section>
-    <!-- end blog-area -->
-    <!-- ================================
+      </div> -->
+  <!-- end container -->
+  <!-- </section> -->
+  <!-- end blog-area -->
+  <!-- ================================
        START BLOG AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
     START MOBILE AREA
 ================================= -->
-    <section
-      class="mobile-app padding-top-100px padding-bottom-50px section-bg"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="mobile-app-content">
-              <div class="section-heading">
-                <h2 class="sec__title line-height-55">
-                  Trizen Android and IOS App is Available!
-                </h2>
-              </div>
-              <!-- end section-heading -->
-              <ul class="info-list padding-top-30px">
-                <li class="d-flex align-items-center mb-3">
-                  <span
-                    class="la la-check icon-element flex-shrink-0 ml-0"
-                  ></span>
-                  Access and change your itinerary on-the-go
-                </li>
-                <li class="d-flex align-items-center mb-3">
-                  <span
-                    class="la la-check icon-element flex-shrink-0 ml-0"
-                  ></span>
-                  Free cancellation on select hotels
-                </li>
-                <li class="d-flex align-items-center mb-3">
-                  <span
-                    class="la la-check icon-element flex-shrink-0 ml-0"
-                  ></span>
-                  Get real-time trip updates
-                </li>
-              </ul>
-              <div class="btn-box padding-top-30px">
-                <a href="#" class="d-inline-block mr-3">
-                  <img src="images/app-store.png" alt="" />
-                </a>
-                <a href="#" class="d-inline-block">
-                  <img src="images/google-play.png" alt="" />
-                </a>
-              </div>
-              <!-- end btn-box -->
+  <section class="mobile-app padding-top-100px padding-bottom-50px section-bg" style="margin: 10px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mobile-app-content">
+            <div class="section-heading">
+              <h2 class="sec__title line-height-55">
+                Aimcab Android and IOS App is Available!
+              </h2>
             </div>
-          </div>
-          <!-- end col-lg-6 -->
-          <div class="col-lg-6">
-            <div class="mobile-img">
-              <img src="images/mobile-app.png" alt="mobile-img" />
+            <!-- end section-heading -->
+            <ul class="info-list padding-top-30px">
+              <li class="d-flex align-items-center mb-3">
+                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
+                Access and change your itinerary on-the-go
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
+                Free cancellation on select hotels
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
+                Get real-time trip updates
+              </li>
+            </ul>
+            <div class="btn-box padding-top-30px">
+              <a href="#" class="d-inline-block mr-3">
+                <img src="images/app-store.png" alt="" />
+              </a>
+              <a href="#" class="d-inline-block">
+                <img src="images/google-play.png" alt="" />
+              </a>
             </div>
+            <!-- end btn-box -->
           </div>
-          <!-- end col-lg-5 -->
         </div>
-        <!-- end row -->
+        <!-- end col-lg-6 -->
+        <div class="col-lg-6">
+          <div class="mobile-img">
+            <img src="images/mobile-app.png" alt="mobile-img" />
+          </div>
+        </div>
+        <!-- end col-lg-5 -->
       </div>
-      <!-- end container -->
-    </section>
-    <!-- end mobile-app -->
-    <!-- ================================
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end mobile-app -->
+  <!-- ================================
     END MOBILE AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
        START CLIENTLOGO AREA
 ================================= -->
-    <section
+  <!-- <section
       class="clientlogo-area padding-top-80px padding-bottom-80px text-center"
     >
       <div class="container">
@@ -5623,114 +5209,105 @@
             <div class="client-logo">
               <div class="client-logo-item">
                 <img src="images/client-logo.png" alt="brand image" />
-              </div>
-              <!-- end client-logo-item -->
-              <div class="client-logo-item">
+              </div> -->
+  <!-- end client-logo-item -->
+  <!-- <div class="client-logo-item">
                 <img src="images/client-logo2.png" alt="brand image" />
-              </div>
-              <!-- end client-logo-item -->
-              <div class="client-logo-item">
+              </div> -->
+  <!-- end client-logo-item -->
+  <!-- <div class="client-logo-item">
                 <img src="images/client-logo3.png" alt="brand image" />
-              </div>
-              <!-- end client-logo-item -->
-              <div class="client-logo-item">
+              </div> -->
+  <!-- end client-logo-item -->
+  <!-- <div class="client-logo-item">
                 <img src="images/client-logo4.png" alt="brand image" />
-              </div>
-              <!-- end client-logo-item -->
-              <div class="client-logo-item">
+              </div> -->
+  <!-- end client-logo-item -->
+  <!-- <div class="client-logo-item">
                 <img src="images/client-logo5.png" alt="brand image" />
-              </div>
-              <!-- end client-logo-item -->
-              <div class="client-logo-item">
+              </div> -->
+  <!-- end client-logo-item -->
+  <!-- <div class="client-logo-item">
                 <img src="images/client-logo6.png" alt="brand image" />
-              </div>
-              <!-- end client-logo-item -->
-            </div>
-            <!-- end client-logo -->
-          </div>
-          <!-- end col-lg-12 -->
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end container -->
-    </section>
-    <!-- end clientlogo-area -->
-    <!-- ================================
+              </div> -->
+  <!-- end client-logo-item -->
+  <!-- </div> -->
+  <!-- end client-logo -->
+  <!-- </div> -->
+  <!-- end col-lg-12 -->
+  <!-- </div> -->
+  <!-- end row -->
+  <!-- </div> -->
+  <!-- end container -->
+  <!-- </section> -->
+  <!-- end clientlogo-area -->
+  <!-- ================================
        START CLIENTLOGO AREA
 ================================= -->
 
-    <!-- ================================
+  <!-- ================================
        START FOOTER AREA
 ================================= -->
-    <section
-      class="footer-area section-bg padding-top-100px padding-bottom-30px"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 responsive-column">
-            <div class="footer-item">
-              <div class="footer-logo padding-bottom-30px">
-                <a href="index.html" class="foot__logo"
-                  ><img src="images/aimcab_logo-removebg-preview.png" style="height: 120px;" alt="logo"
-                /></a>
-              </div>
-              <!-- end logo -->
-              <p class="footer__desc">
-                Morbi convallis bibendum urna ut viverra. Maecenas consequat
-              </p>
-              <ul class="list-items pt-3">
-                <li>
-                  3015 Grand Ave, Coconut Grove,<br />
-                  Cerrick Way, FL 12345
-                </li>
-                <li>+123-456-789</li>
-                <li><a href="#">trizen@yourwebsite.com</a></li>
-              </ul>
+  <section class="footer-area section-bg padding-top-100px padding-bottom-30px">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <div class="footer-logo padding-bottom-30px">
+              <a href="index.html" class="foot__logo"><img src="images/aimcab_logo-removebg-preview.png"
+                  style="height: 120px;" alt="logo" /></a>
             </div>
-            <!-- end footer-item -->
+            <!-- end logo -->
+            <p class="footer__desc">
+              Address
+            </p>
+            <ul class="list-items pt-3">
+              <li>
+                PUNE,<br />
+                City Vista Kharadi, FL 12345
+              </li>
+              <li>+123-456-789</li>
+              <li><a href="#">Aimcab@yourwebsite.com</a></li>
+            </ul>
           </div>
-          <!-- end col-lg-3 -->
-          <div class="col-lg-3 responsive-column">
-            <div class="footer-item">
-              <h4
-                class="title curve-shape pb-3 margin-bottom-20px"
-                data-text="curvs"
-              >
-                Company
-              </h4>
-              <ul class="list-items list--items">
-                <li><a href="about.html">About us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="blog-grid.html">News</a></li>
-                <li><a href="contact.html">Support</a></li>
-                <li><a href="#">Advertising</a></li>
-              </ul>
-            </div>
-            <!-- end footer-item -->
+          <!-- end footer-item -->
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">
+              Company
+            </h4>
+            <ul class="list-items list--items">
+              <li><a href="about.html">About us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="blog-grid.html">News</a></li>
+              <li><a href="contact.html">Support</a></li>
+              <li><a href="#">Advertising</a></li>
+            </ul>
           </div>
-          <!-- end col-lg-3 -->
-          <div class="col-lg-3 responsive-column">
-            <div class="footer-item">
-              <h4
-                class="title curve-shape pb-3 margin-bottom-20px"
-                data-text="curvs"
-              >
-                Other Links
-              </h4>
-              <ul class="list-items list--items">
-                <li><a href="#">USA Vacation Packages</a></li>
-                <li><a href="#">USA Flights</a></li>
-                <li><a href="#">USA Hotels</a></li>
-                <li><a href="#">USA Car Hire</a></li>
-                <li><a href="#">Create an Account</a></li>
-                <li><a href="#">Trizen Reviews</a></li>
-              </ul>
-            </div>
-            <!-- end footer-item -->
+          <!-- end footer-item -->
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">
+              Cities
+            </h4>
+            <ul class="list-items list--items">
+              <li><a href="./pune.html">Pune</a></li>
+              <li><a href="./pune.html">Mumbai</a></li>
+              <li><a href="./pune.html">Shirdi</a></li>
+              <li><a href="./pune.html">Aurangabad</a></li>
+              <li><a href="./pune.html">Nashik</a></li>
+              <li><a href="./pune.html">Solapur</a></li>
+            </ul>
           </div>
-          <!-- end col-lg-3 -->
-          <div class="col-lg-3 responsive-column">
+          <!-- end footer-item -->
+        </div>
+        <!-- end col-lg-3 -->
+        <!-- <div class="col-lg-3 responsive-column">
             <div class="footer-item">
               <h4
                 class="title curve-shape pb-3 margin-bottom-20px"
@@ -5767,316 +5344,244 @@
                   </div>
                 </form>
               </div>
-            </div>
-            <!-- end footer-item -->
-          </div>
-          <!-- end col-lg-3 -->
-        </div>
-        <!-- end row -->
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <div class="term-box footer-item">
-              <ul class="list-items list--items d-flex align-items-center">
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Help Center</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- end col-lg-8 -->
-          <div class="col-lg-4">
-            <div class="footer-social-box text-right">
-              <ul class="social-profile">
-                <li>
-                  <a href="#"><i class="lab la-facebook-f"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="lab la-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="lab la-instagram"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="lab la-linkedin-in"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- end col-lg-4 -->
-        </div>
-        <!-- end row -->
+            </div> -->
+        <!-- end footer-item -->
       </div>
-      <!-- end container -->
-      <div class="section-block mt-4"></div>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <div class="copy-right padding-top-30px">
-              <p class="copy__desc">
-                &copy; Copyright Trizen 2020. Made with
-                <span class="la la-heart"></span> by
-                <a href="https://themeforest.net/user/techydevs/portfolio"
-                  >TechyDevs</a
-                >
-              </p>
-            </div>
-            <!-- end copy-right -->
+      <!-- end col-lg-3 -->
+    </div>
+    <!-- end row -->
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="term-box footer-item">
+          <ul class="list-items list--items d-flex align-items-center">
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- end col-lg-8 -->
+      <div class="col-lg-4">
+        <div class="footer-social-box text-right">
+          <ul class="social-profile">
+            <li>
+              <a href="#"><i class="lab la-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="lab la-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="lab la-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="lab la-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end col-lg-4 -->
+    </div>
+    <!-- end row -->
+    </div>
+    <!-- end container -->
+    <div class="section-block mt-4"></div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="copy-right padding-top-30px" >
+            <p class="copy__desc">
+              &copy; Copyright Aimcab 2020. Made with
+              <span class="la la-heart"></span> by
+              <a href="https://www.cobaztech.com/">cobaztech</a>
+            </p>
           </div>
-          <!-- end col-lg-7 -->
-          <div class="col-lg-5">
+          <!-- end copy-right -->
+        </div>
+        <!-- end col-lg-7 -->
+        <!-- <div class="col-lg-5">
             <div
               class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px"
             >
               <h3 class="title font-size-15 pr-2">We Accept</h3>
               <img src="images/payment-img.png" alt="" />
-            </div>
-            <!-- end copy-right-content -->
-          </div>
-          <!-- end col-lg-5 -->
-        </div>
-        <!-- end row -->
+            </div> -->
+        <!-- end copy-right-content -->
       </div>
-      <!-- end container -->
-    </section>
-    <!-- end footer-area -->
-    <!-- ================================
+      <!-- end col-lg-5 -->
+    </div>
+    <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end footer-area -->
+  <!-- ================================
        START FOOTER AREA
 ================================= -->
 
-    <!-- start back-to-top -->
-    <div id="back-to-top">
-      <i class="la la-angle-up" title="Go top"></i>
-    </div>
-    <!-- end back-to-top -->
+  <!-- start back-to-top -->
+  <div id="back-to-top">
+    <i class="la la-angle-up" title="Go top"></i>
+  </div>
+  <!-- end back-to-top -->
 
-    <!-- end modal-shared -->
-    <div class="modal-popup">
-      <div
-        class="modal fade"
-        id="signupPopupForm"
-        tabindex="-1"
-        role="dialog"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <div>
-                <h5 class="modal-title title" id="exampleModalLongTitle">
-                  Sign Up
-                </h5>
-                <p class="font-size-14">Hello! Welcome Create a New Account</p>
-              </div>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true" class="la la-close"></span>
-              </button>
+  <!-- end modal-shared -->
+  <div class="modal-popup">
+    <div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title title" id="exampleModalLongTitle">
+                Sign Up
+              </h5>
+              <p class="font-size-14">Hello! Welcome Create a New Account</p>
             </div>
-            <div class="modal-body">
-              <div class="contact-form-action">
-                <form method="post">
-                  <div class="input-box">
-                    <label class="label-text">Username</label>
-                    <div class="form-group">
-                      <span class="la la-user form-icon"></span>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="text"
-                        placeholder="Type your username"
-                      />
-                    </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="la la-close"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="contact-form-action">
+              <form method="post">
+                <div class="input-box">
+                  <label class="label-text">Username</label>
+                  <div class="form-group">
+                    <span class="la la-user form-icon"></span>
+                    <input class="form-control" type="text" name="text" placeholder="Type your username" />
                   </div>
-                  <!-- end input-box -->
-                  <div class="input-box">
-                    <label class="label-text">Email Address</label>
-                    <div class="form-group">
-                      <span class="la la-envelope form-icon"></span>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="text"
-                        placeholder="Type your email"
-                      />
-                    </div>
+                </div>
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Email Address</label>
+                  <div class="form-group">
+                    <span class="la la-envelope form-icon"></span>
+                    <input class="form-control" type="text" name="text" placeholder="Type your email" />
                   </div>
-                  <!-- end input-box -->
-                  <div class="input-box">
-                    <label class="label-text">Password</label>
-                    <div class="form-group">
-                      <span class="la la-lock form-icon"></span>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="text"
-                        placeholder="Type password"
-                      />
-                    </div>
+                </div>
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Password</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input class="form-control" type="text" name="text" placeholder="Type password" />
                   </div>
-                  <!-- end input-box -->
-                  <div class="input-box">
-                    <label class="label-text">Repeat Password</label>
-                    <div class="form-group">
-                      <span class="la la-lock form-icon"></span>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="text"
-                        placeholder="Type again password"
-                      />
-                    </div>
+                </div>
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Repeat Password</label>
+                  <div class="form-group">
+                    <span class="la la-lock form-icon"></span>
+                    <input class="form-control" type="text" name="text" placeholder="Type again password" />
                   </div>
-                  <!-- end input-box -->
-                  <div class="btn-box pt-3 pb-4">
-                    <button type="button" class="theme-btn w-100">
-                      Register Account
-                    </button>
-                  </div>
-                  <div class="action-box text-center">
-                    <p class="font-size-14">Or Sign up Using</p>
-                    <ul class="social-profile py-3">
-                      <li>
-                        <a href="#" class="bg-5 text-white"
-                          ><i class="lab la-facebook-f"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#" class="bg-6 text-white"
-                          ><i class="lab la-twitter"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#" class="bg-7 text-white"
-                          ><i class="lab la-instagram"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#" class="bg-5 text-white"
-                          ><i class="lab la-linkedin-in"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </form>
-              </div>
-              <!-- end contact-form-action -->
+                </div>
+                <!-- end input-box -->
+                <div class="btn-box pt-3 pb-4">
+                  <button type="button" class="theme-btn w-100">
+                    Register Account
+                  </button>
+                </div>
+                <div class="action-box text-center">
+                  <p class="font-size-14">Or Sign up Using</p>
+                  <ul class="social-profile py-3">
+                    <li>
+                      <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </form>
             </div>
+            <!-- end contact-form-action -->
           </div>
         </div>
       </div>
     </div>
-    <!-- end modal-popup -->
+  </div>
+  <!-- end modal-popup -->
 
-    <!-- end modal-shared -->
-    <div class="modal-popup">
-      <div
-        class="modal fade"
-        id="loginPopupForm"
-        tabindex="-1"
-        role="dialog"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <div>
-                <h5 class="modal-title title" id="exampleModalLongTitle2">
-                  Login
-                </h5>
-                <p class="font-size-14">Hello! Welcome to your account</p>
-              </div>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true" class="la la-close"></span>
-              </button>
+  <!-- end modal-shared -->
+  <div class="modal-popup">
+    <div class="modal fade" id="loginPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title title" id="exampleModalLongTitle2">
+                Login
+              </h5>
+              <p class="font-size-14">Hello! Welcome to your account</p>
             </div>
-            <div class="modal-body">
-              <div class="contact-form-action">
-                <form method="post">
-                  <div class="input-box">
-                    <label class="label-text">Username</label>
-                    <div class="form-group">
-                      <span class="la la-user form-icon"></span>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="text"
-                        placeholder="Type your username"
-                      />
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="la la-close"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="contact-form-action">
+              <form method="post">
+                <div class="input-box">
+                  <label class="label-text">Username</label>
+                  <div class="form-group">
+                    <span class="la la-user form-icon"></span>
+                    <input class="form-control" type="text" name="text" placeholder="Type your username" />
+                  </div>
+                </div>
+                <!-- end input-box -->
+                <div class="input-box">
+                  <label class="label-text">Password</label>
+                  <div class="form-group mb-2">
+                    <span class="la la-lock form-icon"></span>
+                    <input class="form-control" type="text" name="text" placeholder="Type your password" />
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="custom-checkbox mb-0">
+                      <input type="checkbox" id="rememberchb" />
+                      <label for="rememberchb">Remember me</label>
                     </div>
+                    <p class="forgot-password">
+                      <a href="recover.html">Forgot Password?</a>
+                    </p>
                   </div>
-                  <!-- end input-box -->
-                  <div class="input-box">
-                    <label class="label-text">Password</label>
-                    <div class="form-group mb-2">
-                      <span class="la la-lock form-icon"></span>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="text"
-                        placeholder="Type your password"
-                      />
-                    </div>
-                    <div
-                      class="d-flex align-items-center justify-content-between"
-                    >
-                      <div class="custom-checkbox mb-0">
-                        <input type="checkbox" id="rememberchb" />
-                        <label for="rememberchb">Remember me</label>
-                      </div>
-                      <p class="forgot-password">
-                        <a href="recover.html">Forgot Password?</a>
-                      </p>
-                    </div>
-                  </div>
-                  <!-- end input-box -->
-                  <div class="btn-box pt-3 pb-4">
-                    <button type="button" class="theme-btn w-100">
-                      Login Account
-                    </button>
-                  </div>
-                  <div class="action-box text-center">
-                    <p class="font-size-14">Or Login Using</p>
-                    <ul class="social-profile py-3">
-                      <li>
-                        <a href="#" class="bg-5 text-white"
-                          ><i class="lab la-facebook-f"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#" class="bg-6 text-white"
-                          ><i class="lab la-twitter"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#" class="bg-7 text-white"
-                          ><i class="lab la-instagram"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a href="#" class="bg-5 text-white"
-                          ><i class="lab la-linkedin-in"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </form>
-              </div>
-              <!-- end contact-form-action -->
+                </div>
+                <!-- end input-box -->
+                <div class="btn-box pt-3 pb-4">
+                  <button type="button" class="theme-btn w-100">
+                    Login Account
+                  </button>
+                </div>
+                <div class="action-box text-center">
+                  <p class="font-size-14">Or Login Using</p>
+                  <ul class="social-profile py-3">
+                    <li>
+                      <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </form>
             </div>
+            <!-- end contact-form-action -->
           </div>
         </div>
       </div>
     </div>
-    <!-- end modal-popup -->
+  </div>
+  <!-- end modal-popup -->
 
     <!-- Template JS Files -->
     <script src="js/jquery-3.4.1.min.js"></script>
@@ -6093,26 +5598,48 @@
     <script src="js/jquery.ripples-min.js"></script>
     <script src="js/quantity-input.js"></script>
     <script src="js/main.js"></script>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const tripTypeCheckboxes = document.querySelectorAll('input[name="tripType"]');
+        
+        // Add event listeners to the trip type checkboxes
+        tripTypeCheckboxes.forEach(function(checkbox) {
+            checkbox.addEventListener("change", function() {
+                // Uncheck all checkboxes except the one that was clicked
+                tripTypeCheckboxes.forEach(function(otherCheckbox) {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            });
+        });
+    });
+
+    </script>
 
 
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         // Get references to the relevant elements
-        const tripTypeSelect = document.getElementById("tripType");
-        const returnDateField = document.querySelector(".rows");
-        
+        const tripTypeRadios = document.querySelectorAll('input[name="tripType"]');
+        const returnDateField = document.querySelector('.rows');
+
         // Initially hide the return date and time fields
         returnDateField.style.display = "none";
-      
-        // Add an event listener to the trip type dropdown
-        tripTypeSelect.addEventListener("change", function() {
-          if (this.value === "roundTrip") {
-            returnDateField.style.display = "block";
-          } else {
-            returnDateField.style.display = "none";
-          }
+
+        // Add event listeners to the trip type radio buttons
+        tripTypeRadios.forEach(function(radio) {
+            radio.addEventListener("change", function() {
+                if (radio.value === "roundTrip") {
+                    returnDateField.style.display = "block";
+                } else {
+                    returnDateField.style.display = "none";
+                }
+            });
         });
-      });
+    });
+
     </script>
   
     

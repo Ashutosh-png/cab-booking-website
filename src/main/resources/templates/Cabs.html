@@ -60,7 +60,7 @@
 
         /* Style for the table */
         table {
-            width: 100%;
+            
             border-collapse: collapse;
         }
 
@@ -105,33 +105,40 @@
             height:55px;
         }
         
-       @media (max-width: 767px) {
-        .container1 {
-            display: block;
-        }
+          .contain {
+                display: none; /* Show mobile card for small screens */
+            }
 
-        .filter-buttons {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+          
+        
+        
+         @media (max-width: 767px) {
+            .contain {
+                display: block; /* Show mobile card for small screens */
+            }
 
-        .filter-button {
-            margin-right: 10px;
+            .container1 {
+                display: none; /* Hide PC card for small screens */
+            }
+            
+            .type{
+                            display: none; /* Hide PC card for small screens */
+            
+            }
+            .id{
+                            display: none; /* Hide PC card for small screens */
+            
+            }
+            .amenities{
+                            display: none; /* Hide PC card for small screens */
+            
+            }
+            
+        
         }
+        
+     
 
-        .card {
-            margin-bottom: 20px;
-            padding: 10px;
-        }
-
-        /* Adjust other styles as needed for mobile layout */
-        .car-image {
-            width: 100px;
-            height: 100px;
-        }
-
-        /* Adjust other styles as needed for mobile layout */
-    }
     </style>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
@@ -678,24 +685,278 @@
     <!-- ================================
     START HOTEL AREA
 ================================= -->
-
+<div class="contain">
+        <!-- Bootstrap container for better responsiveness -->
+        <h1>check</h1>
+        <div class="contain">
+            <div class="filter-buttons">
+                <button class="btn btn-primary filter-button" onclick="filterCabs('HATCHBACK')">Hatchback</button>
+                <button class="btn btn-primary filter-button" onclick="filterCabs('SEDAN')">Sedan</button>
+                <button class="btn btn-primary filter-button" onclick="filterCabs('SUV')">SUV</button>
+                <button class="btn btn-primary filter-button" onclick="filterCabs('MUV')">MUV</button>
+                <!-- Add more buttons for other cab types as needed -->
+            </div>
+            <div class="table-responsive">
+                <!-- Use Bootstrap's responsive table container -->
+                <div th:each="trip : ${tripinfo}">
+                    <div class="card mb-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="id">ID</th>
+                                    
+                                    <th>Cab Details</th>
+                                    <th class="type">Modeltype</th>
+                                    <th class="amenities">Amenities</th>
+                                    <th></th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cabTableBody">
+                             <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'HATCHBACK'}">
+            <td class="id" th:text="${cab.id}"></td>
+            <td  >
+          <span>Id: </span><span th:text="${cab.id}"></span><br>
+<span>Model Name: </span><span th:text="${cab.modelName}"></span><br>
+<span>Model Type: </span><span th:text="${cab.modelType}"></span><br>
+<span>Seats: </span><span th:text="${cab.seats}"></span><br>
+<span>Fuel Type: </span><span th:text="${cab.fuelType}"></span><br>
+<span>Availability: </span><span th:text="${cab.availability}"></span><br>
+<!-- <span>Price: </span><span th:text="${trip.hatchback * distance}"></span>-->
+            
+            </td>
+            <td class="type" th:text="${cab.modelType}"></td>
+            
+            <td class="amenities" style="white-space: nowrap;" > 
+                  <span>
+                    . USB Charging cable<br>
+                    . Air Conditioning<br>
+                    . Music System<br>
+                    . FastStay & 1 More<br>
+                    . Fuel type: CNG/Diesel<br>
+                    . Luggage capacity: 4+1 bags
+                </span></td> 
+                <td class="car">
+                    <img src="/images/hatchback.png" alt="Car Image" class="car-image" style="width:180px; height: 180px; margin-top: -10px;"></br>
+                     
+                </td>
+          
+               <td>
+    <!-- Add a "Book" button with an onclick event to handle the booking action -->
+    <form th:action="@{/invoice}" method="post">
+        <!-- Hidden input fields to pass cab and trip information -->
+        <input type="hidden" name="cabId" th:value="${cab.id}" />
+        <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+        <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+        <input type="hidden" name="seats" th:value="${cab.seats}" />
+        <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+        <input type="hidden" name="availability" th:value="${cab.availability}" />
+        <input type="hidden" name="price" th:value="${trip.hatchback*distance}" />
+        <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+        <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+       <input type="hidden" name="date" th:value="${date}" />
+        <input type="hidden" name="returndate" th:value="${returndate}" />
+         <input type="hidden" name="time" th:value="${time}" />
+          <input type="hidden" name="tripType" th:value="${tripType}" />
+    <input type="hidden" name="distance" th:value="${distance}" />
+        <input type="hidden" name="days" th:value="${days}" />
+    
+                                         
+                                            
+                
+       <span style="margin-bottom: 100px; color: green;font-size:30px"> ₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.hatchback * distance}"></span>
+        <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
+        
+    </form>
+</td>
+            
+            
+                    
+            
+        </tr>
+         <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'SEDAN'}">
+            <td class="id" th:text="${cab.id}"></td>
+            <td >
+             <span th:text="${cab.id}"></span><br>
+<span th:text="${cab.modelName}"></span><br>
+<span th:text="${cab.modelType}"></span><br>
+<span th:text="${cab.seats}"></span><br>
+<span th:text="${cab.fuelType}"></span><br>
+<span th:text="${cab.availability}"></span><br>
+<span th:text="${trip.sedan * distance}"></span>
+            
+            </td>
+            <td class="type" th:text="${cab.modelType}"></td>
+          
+            <td class="amenities" >
+            <span>
+                    . USB Charging cable<br>
+                    . Air Conditioning<br>
+                    . Music System<br>
+                    . FastStay & 1 More<br>
+                    . Fuel type: CNG/Diesel<br>
+                    . Luggage capacity: 3 bags
+                </span></td>
+                 <td>
+                    <img src="/images/sedan.png" alt="Car Image" class="car-image" 
+                    style="width:180px; height: 180px; margin-top: -10px;"></br>
+                     
+                </td>
+                                                             <td>
+    <!-- Add a "Book" button with an onclick event to handle the booking action -->
+    <form th:action="@{/invoice}" method="post">
+        <!-- Hidden input fields to pass cab and trip information -->
+        <input type="hidden" name="cabId" th:value="${cab.id}" />
+        <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+        <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+        <input type="hidden" name="seats" th:value="${cab.seats}" />
+        <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+        <input type="hidden" name="availability" th:value="${cab.availability}" />
+        <input type="hidden" name="price" th:value="${trip.sedan*distance}" />
+          <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                            <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                            <input type="hidden" name="date" th:value="${date}" />
+                                            <input type="hidden" name="returndate" th:value="${returndate}" />
+                                           <input type="hidden" name="time" th:value="${time}" />
+                                         <input type="hidden" name="tripType" th:value="${tripType}" />
+                                       <input type="hidden" name="distance" th:value="${distance}" />
+                                               <input type="hidden" name="days" th:value="${days}" />
+                                       
+       <span style="margin-bottom: 100px; color: green;font-size: 30px;"> ₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.sedan * distance}"></span>
+        <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
+    </form>
+</td>
+            
+        </tr>
+          <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'SUV'}">
+            <td class="id" th:text="${cab.id}"></td>
+            <td >
+             <span th:text="${cab.id}"></span><br>
+<span th:text="${cab.modelName}"></span><br>
+<span th:text="${cab.modelType}"></span><br>
+<span th:text="${cab.seats}"></span><br>
+<span th:text="${cab.fuelType}"></span><br>
+<span th:text="${cab.availability}"></span><br>
+<span th:text="${trip.suv * distance}"></span>
+            </td>
+            <td class="type" th:text="${cab.modelType}"></td>
+              <td class="amenities">
+            <span>
+                    . USB Charging cable<br>
+                    . Air Conditioning<br>
+                    . Music System<br>
+                    . FastStay & 1 More<br>
+                    . Fuel type: CNG/Diesel<br>
+                    . Luggage capacity: 3 bags
+                </span></td>
+     
+                <td class="car">
+              <img src="/images/muv.png" alt="Car Image" class="car-image" style="width:180px; height: 180px; margin-top: -10px;"></br> 
+           </td>
+             <td>                                              
+    <!-- Add a "Book" button with an onclick event to handle the booking action -->
+    <form th:action="@{/invoice}" method="post">
+        <!-- Hidden input fields to pass cab and trip information -->
+        <input type="hidden" name="cabId" th:value="${cab.id}" />
+        <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+        <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+        <input type="hidden" name="seats" th:value="${cab.seats}" />
+        <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+        <input type="hidden" name="availability" th:value="${cab.availability}" />
+        <input type="hidden" name="price" th:value="${trip.suv*distance}" />
+          <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                            <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                            <input type="hidden" name="date" th:value="${date}" />
+                                            <input type="hidden" name="returndate" th:value="${returndate}" />
+                                           <input type="hidden" name="time" th:value="${time}" />
+                                         <input type="hidden" name="tripType" th:value="${tripType}" />
+                                       <input type="hidden" name="distance" th:value="${distance}" />
+                                               <input type="hidden" name="days" th:value="${days}" />
+                                       
+        <span style="margin-bottom:100px ;color: green;font-size: 30px;">₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.suv * distance}"></span>
+        <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
+    </form>
+</td>
+            
+        </tr>
+         <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'MUV'}">
+            <td class="id" th:text="${cab.id}"></td>
+            <td >
+             <span th:text="${cab.id}"></span><br>
+<span th:text="${cab.modelName}"></span><br>
+<span th:text="${cab.modelType}"></span><br>
+<span th:text="${cab.seats}"></span><br>
+<span th:text="${cab.fuelType}"></span><br>
+<span th:text="${cab.availability}"></span><br>
+<span th:text="${trip.suvplus * distance}"></span>
+            </td>
+            <td class="type" th:text="${cab.modelType}"></td>
+           
+          <td class="amenities" >
+            <span>
+                    . USB Charging cable<br>
+                    . Air Conditioning<br>
+                    . Music System<br>
+                    . FastStay & 1 More<br>
+                    . Fuel type: CNG/Diesel<br>
+                    . Luggage capacity: 3 bags
+                </span></td>
+     
+                <td class="car">
+              <img src="/images/muv.png" alt="Car Image" class="car-image" style="width:180; height: 180px; margin-top: -10px;"></br> 
+           </td>
+                                                             <td>
+    <!-- Add a "Book" button with an onclick event to handle the booking action -->
+    <form th:action="@{/invoice}" method="post">
+        <!-- Hidden input fields to pass cab and trip information -->
+        <input type="hidden" name="cabId" th:value="${cab.id}" />
+        <input type="hidden" name="modelName" th:value="${cab.modelName}" />
+        <input type="hidden" name="modelType" th:value="${cab.modelType}" />
+        <input type="hidden" name="seats" th:value="${cab.seats}" />
+        <input type="hidden" name="fuelType" th:value="${cab.fuelType}" />
+        <input type="hidden" name="availability" th:value="${cab.availability}" />
+        <input type="hidden" name="price" th:value="${trip.suvplus*distance}" />
+          <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
+                                            <input type="hidden" name="dropLocation" th:value="${dropLocation}" />
+                                            <input type="hidden" name="date" th:value="${date}" />
+                                            <input type="hidden" name="returndate" th:value="${returndate}" />
+                                           <input type="hidden" name="time" th:value="${time}" />
+                                         <input type="hidden" name="tripType" th:value="${tripType}" />
+                                       <input type="hidden" name="distance" th:value="${distance}" />
+                                               <input type="hidden" name="days" th:value="${days}" />
+                                       
+         <span style="margin-bottom:100px; color: green; font-size: 30px;">₹ </span><span style="color:green;font-size:30px; font-family: sans-serif;" th:text="${trip.suvplus * distance}"></span>
+        <button type="submit" style="margin-right: 90px;width: 100px;height: 55px; border-radius: 5px;background-color:#FFB703">Book</button>
+    </form>
+</td>
+            
+        </tr>
+                                <!-- Use Thymeleaf to loop through the cab info and display it, but filter by modelType -->
+                                <!-- ... Your existing table content goes here ... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <!-- Buttons to filter cab types -->
   <div class="container1">
- <div class="filter-buttons">
-    <button class="filter-button" onclick="filterCabs('HATCHBACK')">Hatchback</button>
-    <button class="filter-button" onclick="filterCabs('SEDAN')">Sedan</button>
-    <button class="filter-button" onclick="filterCabs('SUV')">SUV</button>
-    <button class="filter-button" onclick="filterCabs('MUV')">MUV</button>
-    <!-- Add more buttons for other cab types as needed -->
-</div>
+    <div class="filter-buttons text-center">
+    <button class="btn btn-primary filter-button" onclick="filterCabs('HATCHBACK')">Hatchback</button>
+        <button class="btn btn-primary filter-button" onclick="filterCabs('SEDAN')">Sedan</button>
+        <button class="btn btn-primary filter-button" onclick="filterCabs('SUV')">SUV</button>
+        <button class="btn btn-primary filter-button" onclick="filterCabs('MUV')">MUV</button>
+        <!-- Add more buttons for other cab types as needed -->
+    </div>
         <div class="table-container">
 
 <div th:each="trip : ${tripinfo}">
-                <div class="card">
+                <div class="card mb-4">
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>ID</th>
@@ -876,7 +1137,7 @@
             
         </tr>
          <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'MUV'}">
-            <td th:text="${cab.id}"></td>
+            <td class="id" th:text="${cab.id}"></td>
             <td >
              <span th:text="${cab.id}"></span><br>
 <span th:text="${cab.modelName}"></span><br>
@@ -886,9 +1147,9 @@
 <span th:text="${cab.availability}"></span><br>
 <span th:text="${trip.suvplus * distance}"></span>
             </td>
-            <td th:text="${cab.modelType}"></td>
+            <td class="type" th:text="${cab.modelType}"></td>
            
-          <td >
+          <td class="amenities" >
             <span>
                     . USB Charging cable<br>
                     . Air Conditioning<br>
@@ -999,6 +1260,8 @@
      
     </div>
 </div>
+
+
     <!-- ================================
        START FOOTER AREA
 ================================= -->

@@ -29,6 +29,36 @@
             flex-direction: column;
             vertical-align: top;
         }
+        
+        
+       @media (max-width: 768px) {
+  .container {
+    padding: 15px; /* Add some padding to the container for better spacing */
+  }
+
+  .col-md-6 {
+    width: 100%; /* Make the columns full width on smaller screens */
+  }
+
+  .info-box {
+    width: 100%;
+  }
+  
+  #info{
+   width: 100%;
+  }
+
+  .info-box img {
+    max-width: 100%; /* Make sure the image scales with the container width */
+    height: auto;
+  }
+
+  .bt {
+    width: 50%; /* Make the button full width on smaller screens */
+    margin: 15px auto; /* Adjust the button's margin for center alignment */
+  }
+}
+
     </style>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
@@ -598,7 +628,7 @@
             
             <img src="./images/car.png" style="height: 350px; width: 350px;"  alt="">
         </div>
-        <div class="col-md-6 info-box inline" style="width: 200px;">
+        <div class="col-md-6 info-box inline" id="info" >
             <h5><strong>Trip Information:</strong></h5>
             <p><strong>Pickup Location:</strong> <span th:text="${pickupLocation}"></span></p>
             <p><strong>Drop Location:</strong> <span th:text="${dropLocation}"></span></p>
@@ -649,8 +679,8 @@
                         <input type="number" name="phone" class="form-control" placeholder="Phone" required/>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <button style="height: 50px; width: 300px; margin: auto; position: relative; left: 150px;" type="submit" class="btn btn-primary">Book Now</button>
+                        <div class="col-md-6" id="bt">
+                            <button style="height: 50px; width: 200px; margin: auto; position: relative; " type="submit" class="btn btn-primary">Book Now</button>
                         </div>
                     </div>
                 </form>
