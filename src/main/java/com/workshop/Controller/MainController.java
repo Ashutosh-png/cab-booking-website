@@ -20,6 +20,24 @@ public class MainController {
 	    }
 	 
 	 
+	 @GetMapping("/contact")
+	 public String contact() {
+		 return "contact1";
+	 }
+	 
+	 @GetMapping("/about")
+	 public String about() {
+		 return "about";
+	 }
+	@GetMapping("/services")
+	public String services() {
+		return "services";
+	}
+	@GetMapping("/pune")
+	public String pune() {
+		return "pune";
+	}
+	 
 	 
 	
 }
