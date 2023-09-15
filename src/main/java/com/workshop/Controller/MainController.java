@@ -37,6 +37,11 @@ public class MainController {
 	public String pune() {
 		return "pune";
 	}
+	
+	@GetMapping("/error")
+	public String error() {
+		return "error";
+	}
 	 
 	 
 	

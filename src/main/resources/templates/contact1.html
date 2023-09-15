@@ -30,14 +30,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!-- start cssload-loader -->
+<!-- start cssload-loader 
 <div class="preloader" id="preloader">
     <div class="loader">
         <svg class="spinner" viewBox="0 0 50 50">
             <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
         </svg>
     </div>
-</div>
+</div>-->
 <!-- ================================
             START HEADER AREA
 ================================= -->
@@ -238,8 +238,8 @@
                 <nav>
                   <ul>
                     <li>
-                      <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Buses <i class="la la-bus"></i></a>
-                      <!-- <ul class="dropdown-menu-item">
+                     <!--  <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Buses <i class="la la-bus"></i></a>
+                      <ul class="dropdown-menu-item">
                         <li><a href="index.html">Buses - Buses</a></li>
                         <li><a href="index2.html">Home - Cabs</a></li>
                         <li><a href="index3.html">Home - Train</a></li>
@@ -256,8 +256,8 @@
                       </ul> -->
                     </li>
                     <li>
-                      <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Cabs <i class="la la-car"></i></a>
-                      <!-- <ul class="dropdown-menu-item">
+                    <!--   <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Cabs <i class="la la-car"></i></a>
+                      <ul class="dropdown-menu-item">
                         <li>
                           <a href="tour-fullwidth.html">Tour Full width</a>
                         </li>
@@ -283,8 +283,8 @@
                       </ul> -->
                     </li>
                     <li>
-                      <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Train <i class="la la-train"></i></a>
-                      <!-- <ul class="dropdown-menu-item">
+                   <!--    <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Train <i class="la la-train"></i></a>
+                      <ul class="dropdown-menu-item">
                         <li><a href="cruises.html">Cruises</a></li>
                         <li><a href="cruises-list.html">Cruise list</a></li>
                         <li>
@@ -304,7 +304,7 @@
                       </ul> -->
                     </li>
                     <li>
-                      <a href="./Mytrip1.html" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">MyTrip <i class="la la-shopping-bag"></i></a>
+                      <a th:href="@{/getUserBooking}" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">MyTrip <i class="la la-shopping-bag"></i></a>
                       <div class="dropdown-menu-item mega-menu">
                         <!-- <ul class="row no-gutters">
                           <li class="col-lg-3 mega-menu-item">
@@ -428,7 +428,7 @@
                       </div>
                     </li>
                     <li>
-                      <!-- <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Profile<i class="la la-user"></i></a> -->
+                       <a th:href="@{/home}" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Home<i class="la la-user"></i></a> 
                       <!-- <ul class="dropdown-menu-item">
                         <li><a href="flight-grid.html">Flight grid</a></li>
                         <li><a href="flight-list.html">Flight list</a></li>
@@ -634,20 +634,21 @@
                                     <i class="la la-map-marker icon-element"></i>
                                     <h5 class="title font-size-16 pb-1">Address</h5>
                                     <p class="map__desc">
-                                        Pune, Kharadi, 109 City Vista
-                                    </p>
+Office No. 009, wing-A Downtown CityVista, Kharadi, Pune-411014
+.                                    </p>
                                 </li>
                                 <li>
                                     <i class="la la-phone icon-element"></i>
                                     <h5 class="title font-size-16 pb-1">Phone</h5>
-                                    <p class="map__desc">Telephone: 0000000000</p>
-                                    <p class="map__desc">Mobile: 00000000000</p>
+                                    <p class="map__desc">Mobile: +91 9130030054</p>
+                                    <p class="map__desc">Mobile: +91 2041295329</p>
+                                    
                                 </li>
                                 <li>
-                                    <i class="la la-envelope-o icon-element"></i>
+                                    <!--  <i class="la la-envelope-o icon-element"></i>
                                     <h5 class="title font-size-16 pb-1">Email</h5>
-                                    <p class="map__desc">aimcab@gmail.com</p>
-                                    <p class="map__desc">aimcab@gmail.com</p>
+                                  <p class="map__desc">aimcab@gmail.com</p>
+                                    <p class="map__desc">aimcab@gmail.com</p> --> 
                                 </li>
                             </ul>
                             <ul class="social-profile text-center">
@@ -676,7 +677,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="map-container">
-                    <div id="map"></div>
+                   
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15087.683187196607!2d73.93401957154852!3d18.54940334094298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c2be6c0135f7%3A0x3d22a7afafa4a527!2sCity%20Vista%20Kharadi!5e0!3m2!1sen!2sin!4v1690962899327!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
                 </div><!-- end map-container -->
             </div><!-- end col-lg-12 -->
         </div><!-- end row -->
@@ -689,96 +692,190 @@
 <!-- ================================
        START FOOTER AREA
 ================================= -->
-<section class="footer-area section-bg padding-top-100px padding-bottom-30px">
+  <section class="footer-area section-bg padding-top-100px padding-bottom-30px">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <div class="footer-logo padding-bottom-30px">
-                        <a href="index.html" class="foot__logo"><img src="images/aimcab_logo-removebg-preview.png" style="height: 90px;" alt="logo"></a>
-                    </div><!-- end logo -->
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Address</h4>
-                    <ul class="list-items pt-3">
-                        <li>Pune, Kharadi ,<br> City Vista, FL 109</li>
-                        <li>9999999999</li>
-                        <li><a href="#">Aimcab@gmail.com</a></li>
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Company</h4>
-                    <ul class="list-items list--items">
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        
-                      
-                        <li><a href="contact.html">Contact</a></li>
-                        
-                    </ul>
-                </div><!-- end footer-item -->
-            </div>
-            
-            <div class="col-lg-3 responsive-column">
-                <div class="footer-item">
-                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Cities</h4>
-                    <ul class="list-items list--items">
-                        <li><a th:href="@{/pune}">Pune</a></li>
-                 <li><a th:href="@{/pune}">Mumbai</a></li>
-                <li><a th:href="@{/pune}">Nashik</a></li>
-                <li><a th:href="@{/pune}">Aurangabad</a></li>
-               <li><a th:href="@{/pune}">Shirdi</a></li>
-                      
-                    </ul>
-                </div><!-- end footer-item -->
-            </div><!-- end col-lg-3 -->
-        </div><!-- end row -->
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <div class="term-box footer-item">
-                    <ul class="list-items list--items d-flex align-items-center">
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-8 -->
-            <div class="col-lg-4">
-                <div class="footer-social-box text-right">
-                    <ul class="social-profile">
-                        <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="lab la-twitter"></i></a></li>
-                        <li><a href="#"><i class="lab la-instagram"></i></a></li>
-                        <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- end col-lg-4 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
+      <div class="row">
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">
+              States
+            </h4>
+            <ul class="list-items list--items">
+              <li><a th:href="@{/pune}">  Maharashtra</a></li>
+              <li><a href="./pune.html">Goa</a></li>
+              <li><a href="./pune.html"> Delhi</a></li>
+              <li><a href="./pune.html">Gujarat</a></li>
+              <li><a href="./pune.html">Karnataka</a></li>
+              <li><a href="./pune.html">  Rajasthan</a></li>
+              
+            </ul>
+          </div>
+          <!-- end footer-item -->
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">
+              Company
+            </h4>
+            <ul class="list-items list--items">
+            <li><a th:href="@{/home}">Home</a></li>
+                 <li><a th:href="@{/about}">About</a></li>
+                  <li><a th:href="@{/services}">Service</a></li>
+                   <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+          </div>
+          <!-- end footer-item -->
+        </div>
+        <!-- end col-lg-3 -->
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">
+              Corporate Cab
+            </h4>
+            <ul class="list-items list--items">
+              <li><a th:href="@{/pune}">
+                Corporate Cabs in Delhi</a></li>
+              <li><a href="./pune.html">Corporate Cabs in Mumbai</a></li>
+              <li><a href="./pune.html">Corporate Cabs in Bangalore</a></li>
+              <li><a href="./pune.html">Corporate Cabs in Pune</a></li>
+              <li><a href="./pune.html">
+                Corporate Cabs in Hyderabad</a></li>
+                <li><a href="./pune.html">Corporate Cabs in Chennai</a></li>
+              
+            </ul>
+          </div>
+          <!-- end footer-item -->
+        </div>
+        <div class="col-lg-3 responsive-column">
+          <div class="footer-item">
+            <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">
+              Airport Cabs
+            </h4>
+            <ul class="list-items list--items">
+              <li><a th:href="@{/pune}">Airport Cabs in Delhi</a></li>
+              <li><a href="./pune.html">Airport Cabs in Mumbai</a></li>
+              <li><a href="./pune.html">Airport Cabs in Bangalore</a></li>
+              <li><a href="./pune.html">Airport Cabs in Pune</a></li>
+              <li><a href="./pune.html">Airport Cabs in Hyderabad</a></li>
+              <li><a href="./pune.html">Airport Cabs in Chennai</a></li>
+              
+            </ul>
+          </div>
+          <!-- end footer-item -->
+        </div>
+        
+      
+       
+        <!-- end col-lg-3 -->
+        <!-- <div class="col-lg-3 responsive-column">
+            <div class="footer-item">
+              <h4
+                class="title curve-shape pb-3 margin-bottom-20px"
+                data-text="curvs"
+              >
+                Subscribe now
+              </h4>
+              <p class="footer__desc pb-3">
+                Subscribe for latest updates & promotions
+              </p>
+              <div class="contact-form-action">
+                <form action="#">
+                  <div class="input-box">
+                    <label class="label-text">Enter email address</label>
+                    <div class="form-group mb-0">
+                      <span class="la la-envelope form-icon"></span>
+                      <input
+                        class="form-control"
+                        type="email"
+                        name="email"
+                        placeholder="Email address"
+                      />
+                      <button
+                        class="theme-btn theme-btn-small submit-btn"
+                        type="submit"
+                      >
+                        Go
+                      </button>
+                      <span class="font-size-14 pt-1"
+                        ><i class="la la-lock mr-1"></i>Your information is safe
+                        with us.</span
+                      >
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+        <!-- end footer-item -->
+      </div>
+      <!-- end col-lg-3 -->
+    </div>
+    <!-- end row -->
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="term-box footer-item">
+          <p class="copy__desc">
+            &copy; Copyright Aimcab 2020. Made with
+            <span class="la la-heart"></span> by
+            <a href="https://www.cobaztech.com/">cobaztech</a>
+          </p>
+        </div>
+      </div>
+      <!-- end col-lg-8 -->
+      <div class="col-lg-4">
+        <div class="footer-social-box text-right">
+          <ul class="social-profile">
+            <li>
+              <a href="https://www.facebook.com/Aimcab/"><i class="lab la-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="lab la-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/aimcabs"><i class="lab la-instagram"></i></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/aim-cab-77356b208/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in"><i class="lab la-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end col-lg-4 -->
+    </div>
+    <!-- end row -->
+    </div>
+    <!-- end container -->
     <div class="section-block mt-4"></div>
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="copy-right padding-top-30px">
-                    <p class="copy__desc">
-                        &copy; Copyright Aimcab 2023. Made with
-                        <span class="la la-heart"></span> by <a href="https://www.cobaztech.com/">cobaztech</a>
-                    </p>
-                </div><!-- end copy-right -->
-            </div><!-- end col-lg-7 -->
-            <div class="col-lg-5">
-                <div class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px">
-                    <!-- <h3 class="title font-size-15 pr-2">We Accept</h3> -->
-                    <!-- <img src="images/payment-img.png" alt=""> -->
-                </div><!-- end copy-right-content -->
-            </div><!-- end col-lg-5 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end footer-area -->
-<!-- ================================
-       START FOOTER AREA
-================================= -->
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <!-- <div class="copy-right padding-top-30px" >
+            <p class="copy__desc">
+              &copy; Copyright Aimcab 2020. Made with
+              <span class="la la-heart"></span> by
+              <a href="https://www.cobaztech.com/">cobaztech</a>
+            </p>
+          </div> -->
+          <!-- end copy-right -->
+        </div>
+        <!-- end col-lg-7 -->
+        <!-- <div class="col-lg-5">
+            <div
+              class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px"
+            >
+              <h3 class="title font-size-15 pr-2">We Accept</h3>
+              <img src="images/payment-img.png" alt="" />
+            </div> -->
+        <!-- end copy-right-content -->
+      </div>
+      <!-- end col-lg-5 -->
+    </div>
+    <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end footer-area -->
+  <!-- ================================
 
 <!-- start back-to-top -->
 <div id="back-to-top">
@@ -927,6 +1024,24 @@
 <script src="js/leaflet.js"></script>
 <script src="js/map.js"></script>
 <script src="js/main.js"></script>
+
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
+
+    <!-- Initialize the map using JavaScript -->
+    <script>
+        function initMap() {
+            // Define the coordinates for the center of the map
+            var mapCenter = { lat: 37.7749, lng: -122.4194 }; // Example: San Francisco
+
+            // Create a new map instance
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: mapCenter,
+                zoom: 12, // Adjust the zoom level as needed
+            });
+
+            // You can add markers or other map features here
+        }
+    </script>
 </body>
 
 <!-- Mirrored from techydevs.com/demos/trizen/html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Mar 2023 06:32:06 GMT -->

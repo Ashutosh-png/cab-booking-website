@@ -60,7 +60,7 @@ public class SecurityConfig {
 	    	
 	    	http
             .authorizeHttpRequests()
-                .requestMatchers("/resources/**", "/registration", "/home","/forgot-pass","/change-pass","/register","/css/**","/js/**","images/**","/cab","/invoice","/getUserBooking","/thankyou","/testpage","/book","/contact","/about","/services","/pune").permitAll()
+                .requestMatchers("/resources/**", "/registration", "/home","/forgot-pass","/change-pass","/register","/css/**","/js/**","/images/**","/cab","/invoice","/getUserBooking","/thankyou","/testpage","/book","/contact","/about","/services","/pune","/error").permitAll()
                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                 .requestMatchers("/user/**").hasAuthority("USER")
                 .requestMatchers("/vendor/**").hasAuthority("VENDOR")

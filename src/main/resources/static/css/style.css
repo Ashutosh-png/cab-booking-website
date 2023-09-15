@@ -5652,6 +5652,10 @@ body {
   fill: #fff; }
 
 /*===== hero-bg ======*/
+
+.hero-bg1 {
+  background-image: url("../images/vladimir-palyanov-UmMiRLfnMQU-unsplash.jpg");
+}
 .hero-bg {
   background-image: url("../images/hero-bg.jpg"); }
 
