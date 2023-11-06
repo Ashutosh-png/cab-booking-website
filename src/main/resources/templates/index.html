@@ -29,12 +29,65 @@
             overflow: hidden;
             margin: 40px;
         }
-
+        .copy__desc {
+    		text-align: center; /* Center the text horizontally in both views */
+   			 margin-left: 0;
+}
         .city-section {
             background-color: #8ECAE6;
             padding: 20px;
             height: 250px;
             position: relative;
+        }
+        .offercard2{
+			text-align:center;
+		}
+        
+           .offercard2.card2 {
+            width: 700px;
+            background-color: rgb(192, 192, 192);
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+             opacity: 0; /* Initially set to fully transparent */
+            transition: opacity 1s ease-in-out; /* Add a fade-in transition */
+            position: relative;
+            overflow: hidden;
+        }
+
+       .card2 .h1 {
+            font-size: 24px;
+            margin: 0;
+            color: rgb(255, 255, 0);
+        }
+
+     
+
+        .offer {
+            display: none;
+            color: green;
+            font-weight: bold;
+            font-size: 20px;
+            
+        }
+        
+         .card2::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+            transform: scale(0);
+            animation: ripple 0.6s ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
 
         /* Styles for the city list */
@@ -47,15 +100,18 @@
         }
 
         .city-list li {
-            font-size: 20px;
+            font-size: 15px;
             margin: 5px;
             width: 30%;
-            padding: 10px;
+            padding: 1px;
+            margin-right: 2px;
             text-align: center;
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s, background-color 0.2s;
             cursor: pointer;
+            height: 10px;
+            
         }
 
         .city-list li:hover {
@@ -76,7 +132,19 @@
                 opacity: 1;
             }
         }
+         
+         @media (min-width: 768px) {
+			 
+			 .copy__desc{
+				 align-items:center ;
+			 }
     </style>
+     <script>
+        // JavaScript to add the 'show-card' class after a delay
+        setTimeout(function() {
+            document.querySelector('.card2').classList.add('show-card');
+        }, 500); // Delay in milliseconds (e.g., 500ms)
+    </script>
 
     <!-- Template CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -307,7 +375,7 @@
                 <div class="main-menu-content">
                   <nav>
                     <ul>
-                      <li>
+                   <!--   <li>
                         <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Buses <i class="la la-bus"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li><a href="index.html">Buses - Buses</a></li>
@@ -325,7 +393,7 @@
                           </li>
                         </ul> -->
                       </li>
-                      <li>
+                   <!--   <li>
                         <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Cabs <i class="la la-car"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li>
@@ -352,7 +420,7 @@
                           </li>
                         </ul> -->
                       </li>
-                      <li>
+                     <!-- <li>
                         <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Train <i class="la la-train"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li><a href="cruises.html">Cruises</a></li>
@@ -498,7 +566,7 @@
                         </div>
                       </li>
                       <li>
-                        <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Profile<i class="la la-user"></i></a>
+                        <a th:href="@{/home}" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Home<i class="la la-home"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li><a href="flight-grid.html">Flight grid</a></li>
                           <li><a href="flight-list.html">Flight list</a></li>
@@ -619,7 +687,7 @@
                     <span class="cd-words-wrapper">
                       <b class="is-visible"></b>
                       <b>Buses</b>
-                      <b>Train</b>
+                    <!--  <b>Train</b>-->
                       <b>Cabs</b>
                       <!-- <b>Cars</b> -->
                       <!-- <b>Cruises</b>
@@ -3003,14 +3071,14 @@
           <!-- end row -->
         </div>
         <!-- end container -->
-        <svg
+       <!-- <svg
           class="hero-svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
           <path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path>
-        </svg>
+        </svg>-->
       </div>
     </section>
     <!-- end hero-wrapper -->
@@ -3044,7 +3112,7 @@
           </div>
           <!-- end col-lg-4 -->
           <div class="col-lg-4">
-            <div class="icon-box margin-top-50px">
+            <div class="icon-box margin-top-50px" style="margin-top:2px">
               <div class="info-icon">
                 <i class="la la-car"></i>
               </div>
@@ -3084,6 +3152,28 @@
       </div>
       <!-- end container -->
     </section>
+    
+    <section class="offercard2">
+		<div class="card2" style="width: 100%;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);background-color: #f0f0f0;">
+       
+        <h1 style="color:rgb(255 167 0)">Unbeatable Deal: Get <span th:text="${discountPercentage}"></span>% Off Today!</h1>
+        <div class="offer" id="offer">
+            <p>Special Offer: <span th:text="${discountPercentage}"></span>% off!</p>
+        </div>
+    </div>
+		
+	</section>
+	 <script>
+        // Check if there is an offer and display it if available
+        const offerDiv = document.getElementById("offer");
+        const hasOffer = true; // Set this to true if there is an offer, or false if not
+
+        if (hasOffer) {
+            offerDiv.style.display = "block";
+        } else {
+            offerDiv.style.display = "none";
+        }
+    </script>
     <!-- end info-area -->
     <!-- ================================
     END INFO AREA
@@ -4005,13 +4095,13 @@
   </section>
   
   
-   <section class="round-trip-flight section-padding">
+  <!-- <section class="round-trip-flight section-padding">
         <div class="card">
          
              <ul class="city-list">
-    <li><a href="#Form">Mahabaleshwar</a></li>
-    <li><a href="#Form">Panchagani</a></li>
-    <li><a href="#Form">Kolhapur</a></li>
+    <li><a href="#Form" style="margin-left: -200px;">Mahabaleshwar</a></li>
+    <li><a href="#Form" style="margin-left: -850px;">Panchagani</a></li>
+    <li><a href="#Form" style="margin-left: -1450px;">Kolhapur</a></li>
     <li><a href="#Form">Satara</a></li>
     <li><a href="#Form">Nashik</a></li>
     <li><a href="#Form">Shirdi</a></li>
@@ -4022,8 +4112,7 @@
     <li><a href="#Form">Bhimashakar</a></li>
     <li><a href="#Form">Alibag</a></li>
     <li><a href="#Form">Dapoli</a></li>
-    <li><a href="#Form">Ratnagiri</a></li>
-    <li><a href="#Form">Goa</a></li>
+   <li><a href="#Form">Goa</a></li>
     <li><a href="#Form">Trimbkeshwar</a></li>
     <li><a href="#Form">Igatpuri</a></li>
     <li><a href="#Form">Surat</a></li>
@@ -4032,8 +4121,37 @@
 
            
             <!-- Your sentence goes here with the "sentence" class for animation -->
+      <!--  </div>
+    </section>-->
+             <div style="border: 4px solid white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+            <div class="container" style="border: solid 1px white; margin-top: 20px;">
+            <div class="row" >
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10" >
+                    <b style="color:rgb(0, 0, 0);"> Popular Cities :</b>
+                   <a  href="#">Mahabaleshwar</a> &nbsp; &nbsp;
+                   <a  href="#">Panchagani</a> &nbsp; &nbsp;
+                   <a  href="#">Kolhapur</a> &nbsp; &nbsp;
+                     <a href="#">Satara</a> &nbsp; &nbsp;
+                     <a href="#">Nashik</a> &nbsp; &nbsp;
+                    <a  href="#">Shirdi</a> &nbsp; &nbsp;
+                   <a  href="#">Ahmednagar</a> &nbsp; &nbsp;
+                     <a  href="#">Sangamner</a> &nbsp; &nbsp;
+                    <a  href="#">Jalana</a> &nbsp; &nbsp;
+                    <a  href="#">Lonavala</a> &nbsp; &nbsp;
+                     <a  href="#i">Bhimashakar</a> &nbsp; &nbsp;
+                    <a href="#">Alibag</a> &nbsp; &nbsp;
+                    <a  href="#">Dapoli</a>&nbsp; &nbsp;
+                     <a  href="#">Goa</a> &nbsp; &nbsp;
+                   <a  href="#"> Trimbkeshwar</a> &nbsp; &nbsp;
+                  <a  href="#"> Igatpuri</a> &nbsp; &nbsp;
+                    <a  href="#"> Surat</a> &nbsp; &nbsp;
+                   
+                </div>
+               
+            </div>
         </div>
-    </section>
+        </div>
   <!-- end car-area -->
   <!-- ================================
     END CAR AREA
@@ -4326,8 +4444,7 @@
                 </div>
               </div>
               <div
-                class="card-footer d-flex align-items-center justify-content-between"
-              >
+                class="card-footer d-flex align-items-center justify-content-between" >
                 <div class="author-content d-flex align-items-center">
                   <div class="author-img">
                     <img src="images/small-team2.jpg" alt="testimonial image" />
@@ -4374,7 +4491,7 @@
                     <a href="blog-single.html" -->
   <!-- >By all Means, Travel to Popular Sites & Don’t Rule Out
                       Other Locations</a -->
-  >
+ 
   <!-- </h3> -->
   <!-- <p class="card-meta">
                     <span class="post__date"> 1 March, 2020</span>
