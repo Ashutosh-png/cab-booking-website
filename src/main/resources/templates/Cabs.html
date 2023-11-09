@@ -222,18 +222,22 @@
            
         }
      
-        /* Style for the table */
+        /* Style for the table 
         table {
             
             border-collapse: collapse;
-        }
+                   		font-family: serif;
+            
+        }*/
 
-        /* Style for table headers */
+        /* Style for table headers 
         th {
             background-color: #f2f2f2;
             text-align: left;
             padding: 10px;
-        }
+                   	
+            
+        }*/
 
         /* Style for table cells */
         td {
@@ -241,9 +245,7 @@
         }
 
         /* Style for even rows (alternate row coloring) */
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+      
 
         /* Style for the "Book" button */
         .book-button {
@@ -297,6 +299,18 @@
         }
       
 
+
+ th {
+    font-weight: bold; /* Make the text bold */
+    font-family: "Arial", sans-serif; 
+  }
+  
+  
+  td{
+  font-weight: bold; /* Make the text bold */
+    font-family: "Arial", sans-serif; 
+  
+  }
     </style>
     <script>
 		function startAnimation(button) {
@@ -1288,49 +1302,52 @@
         <!-- Bootstrap container for better responsiveness -->
         <div class="row row-container">
 			 
-        <div class="col-md-2">
-            <div class="filter-buttons">
-                <button class="btn btn-primary filter-button" onclick="filterCabs('HATCHBACK')">Hatchback</button>
-                <button class="btn btn-primary filter-button" onclick="filterCabs('SEDAN')">Sedan</button>
-                <button class="btn btn-primary filter-button" onclick="filterCabs('SUV')">SUV</button>
-                <button class="btn btn-primary filter-button" onclick="filterCabs('MUV')">MUV</button>
-                <!-- Add more buttons for other cab types as needed -->
-            </div>
-            </div>
+      <div class="col-md-2">
+    <div class="filter-buttons">
+        <button class="btn btn-outline-primary filter-button" style="font-size: 20px; margin-bottom: 10px; margin-left: 10px;" onclick="filterCabs('HATCHBACK')">Hatchback</button>
+        <button class="btn btn-outline-primary filter-button" style="font-size: 20px; margin-bottom: 10px;margin-left: 10px;" onclick="filterCabs('SEDAN')">Sedan</button>
+        <button class="btn btn-outline-primary filter-button" style="font-size: 20px; margin-bottom: 10px;margin-left: 10px;" onclick="filterCabs('SUV')">SUV</button>
+        <button class="btn btn-outline-primary filter-button" style="font-size: 20px; margin-bottom: 10px;margin-left: 10px;" onclick="filterCabs('MUV')">MUV</button>
+        <!-- Add more buttons for other cab types as needed -->
+    </div>
+</div>
+
+
              <div class="col-md-10">
                         <div class="table-responsive">
                 <!-- Use Bootstrap's responsive table container -->
                 <div th:each="trip : ${tripinfo}">
                     <div class="card mb-4">
-                        <table class="table">
-                            <thead>
+                        <table class="table  table-borderless table-hover table-sm">
+                            <thead  class="bg-primary">
                                 <tr>
                                     <th class="id">ID</th>
                                     
-                                    <th>Cab Details</th>
-                                    <th class="type">Modeltype</th>
+                                       <th>Cab Details</th>  
+                                  <!--  -->  <th class="type">Modeltype</th>
                                     <th class="amenities">Amenities</th>
-                                    <th></th>
+                                   <!--   <th></th>-->
                                     <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody id="cabTableBody">
                              <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'HATCHBACK'}">
-            <td class="id" th:text="${cab.id}"></td>
+            <td class="id" th:text="${cab.id}"></td>        <!--  -->
             <td  >
-          <span>Id: </span><span th:text="${cab.id}"></span><br>
-<span>Model Name: </span><span th:text="${cab.modelName}"></span><br>
-<span>Model Type: </span><span th:text="${cab.modelType}"></span><br>
-<span>Seats: </span><span th:text="${cab.seats}"></span><br>
-<span>Fuel Type: </span><span th:text="${cab.fuelType}"></span><br>
-<span>Availability: </span><span th:text="${cab.availability}"></span><br>
-<!-- <span>Price: </span><span th:text="${trip.hatchback * distance}"></span>-->
+              <!--  <span>Id: </span><span th:text="${cab.id}"></span><br>  --> 
+      <!-- <span th:text="${cab.modelName}"></span><br> -->
+  <span th:text="${cab.modelName}"></span><br>  
+     <!--<span>Seats: </span><span th:text="${cab.seats}"></span><br>   --> 
+     <!--<span>Fuel Type: </span><span th:text="${cab.fuelType}"></span><br>     -->
+<!--<span>Availability: </span><span th:text="${cab.availability}"></span><br>  -->
+<!-- <span>Price: </span><span th:text="${trip.hatchback * distance}"></span>--><!--  -->
             
             </td>
-            <td class="type" th:text="${cab.modelType}"></td>
+           <!--  -->  <td class="type" th:text="${cab.modelType}"></td> 
             
             <td class="amenities" style="white-space: nowrap;" > 
                   <span>
+                  <span th:text="${cab.modelName}"></span><br>
                     . USB Charging cable<br>
                     . Air Conditioning<br>
                     . Music System<br>
@@ -1341,9 +1358,7 @@
                 <td class="car">
                     <img src="/images/hatchback.png" alt="Car Image" class="car-image" style="width:180px; height: 180px; margin-top: -10px;"></br>
                      
-                </td>
-          
-               <td>
+               
     <!-- Add a "Book" button with an onclick event to handle the booking action -->
     <form th:action="@{/invoice}" method="post">
         <!-- Hidden input fields to pass cab and trip information -->
@@ -1379,13 +1394,13 @@
          <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'SEDAN'}">
             <td class="id" th:text="${cab.id}"></td>
             <td >
-             <span th:text="${cab.id}"></span><br>
+          <!--   <span th:text="${cab.id}"></span><br> --> 
 <span th:text="${cab.modelName}"></span><br>
-<span th:text="${cab.modelType}"></span><br>
+ <!--<span th:text="${cab.modelType}"></span><br>
 <span th:text="${cab.seats}"></span><br>
 <span th:text="${cab.fuelType}"></span><br>
 <span th:text="${cab.availability}"></span><br>
-<span th:text="${trip.sedan * distance}"></span>
+<span th:text="${trip.sedan * distance}"></span>--> 
             
             </td>
             <td class="type" th:text="${cab.modelType}"></td>
@@ -1403,8 +1418,7 @@
                     <img src="/images/sedan.png" alt="Car Image" class="car-image" 
                     style="width:180px; height: 180px; margin-top: -10px;"></br>
                      
-                </td>
-                                                             <td>
+                
     <!-- Add a "Book" button with an onclick event to handle the booking action -->
     <form th:action="@{/invoice}" method="post">
         <!-- Hidden input fields to pass cab and trip information -->
@@ -1433,13 +1447,13 @@
           <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'SUV'}">
             <td class="id" th:text="${cab.id}"></td>
             <td >
-             <span th:text="${cab.id}"></span><br>
+           <!--  <span th:text="${cab.id}"></span><br> --> 
 <span th:text="${cab.modelName}"></span><br>
-<span th:text="${cab.modelType}"></span><br>
+ <!--<span th:text="${cab.modelType}"></span><br>
 <span th:text="${cab.seats}"></span><br>
 <span th:text="${cab.fuelType}"></span><br>
 <span th:text="${cab.availability}"></span><br>
-<span th:text="${trip.suv * distance}"></span>
+<span th:text="${trip.suv * distance}"></span>-->
             </td>
             <td class="type" th:text="${cab.modelType}"></td>
               <td class="amenities">
@@ -1454,8 +1468,7 @@
      
                 <td class="car">
               <img src="/images/muv.png" alt="Car Image" class="car-image" style="width:180px; height: 180px; margin-top: -10px;"></br> 
-           </td>
-             <td>                                              
+                                                        
     <!-- Add a "Book" button with an onclick event to handle the booking action -->
     <form th:action="@{/invoice}" method="post">
         <!-- Hidden input fields to pass cab and trip information -->
@@ -1484,13 +1497,13 @@
          <tr th:each="cab : ${cabinfo}" th:if="${cab.modelType == 'MUV'}">
             <td class="id" th:text="${cab.id}"></td>
             <td >
-             <span th:text="${cab.id}"></span><br>
+            <!--   <span th:text="${cab.id}"></span><br>-->
 <span th:text="${cab.modelName}"></span><br>
-<span th:text="${cab.modelType}"></span><br>
+ <!--<span th:text="${cab.modelType}"></span><br>
 <span th:text="${cab.seats}"></span><br>
 <span th:text="${cab.fuelType}"></span><br>
 <span th:text="${cab.availability}"></span><br>
-<span th:text="${trip.suvplus * distance}"></span>
+<span th:text="${trip.suvplus * distance}"></span>-->
             </td>
             <td class="type" th:text="${cab.modelType}"></td>
            
@@ -1506,8 +1519,7 @@
      
                 <td class="car">
               <img src="/images/muv.png" alt="Car Image" class="car-image" style="width:180; height: 180px; margin-top: -10px;"></br> 
-           </td>
-                                                             <td>
+         
     <!-- Add a "Book" button with an onclick event to handle the booking action -->
     <form th:action="@{/invoice}" method="post">
         <!-- Hidden input fields to pass cab and trip information -->

@@ -60,10 +60,12 @@ public class SecurityConfig {
 	    	
 	    	http
             .authorizeHttpRequests()
-                .requestMatchers("/resources/**", "/registration", "/home","/forgot-pass","/change-pass","/fonts/**","/register","/css/**","/js/**","/images/**","/cab","/invoice","/getUserBooking","/thankyou","/testpage","/book","/contact","/about","/services","/pune","/error").permitAll()
+//                .requestMatchers("/","/resources/**", "/registration", "/home","/forgot-pass","/change-pass","/fonts/**","/register","/css/**","/js/**","/images/**","/cab","/invoice","/getUserBooking","/thankyou","/testpage","/book","/contact","/services","/pune","/error","/Pune","/Mumbai","/Dapoli","/Alibag","Trimbkeshwar","/Lgatpuri","/Une","Bangaloer","/Mahabaleshwar", "/Nashik","/Satara","/Kolhapur","/Shirdi","/Ahmednagar", "/Sangamner","/Ratnagiri","Jalana","/Goa","/Delhi","/Surat","/Indor","/Lonavala","/Bhimashankar","/Lgatpuri","/Panchagani","/Corporate","/Corporate1","/Corporate2","/Corporate3","/Telangana","/Corporate5","/Corporate6","/Corporate7","/Airport","/Airport1","/Airport2","/Airport3","/Airport4","/Airport5","/Airport6","/Airport7", "Corporate","/Corporate Cabs in Mumbai","/Corporate Cabs in Indor","/Corporate Cabs in Surat","/Airport Cabs in Delhi","/Airport Cabs in Mumbai","/Airport Cabs in Bangalore","/Airport Cabs in Pune","/Airport Cabs in Hyderabad","/Airport Cabs in Chennai","/Airport Cabs in Indor","/Airport Cabs in Surat").permitAll()
                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                 .requestMatchers("/user/**").hasAuthority("USER")
                 .requestMatchers("/vendor/**").hasAuthority("VENDOR")
+                .requestMatchers("/**").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

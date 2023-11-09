@@ -322,7 +322,7 @@ public class BookingController {
 	            // Handle any exceptions that occur during the request
 	            System.out.println("Not Successful");
 	        }
-	      
+	      System.out.println("before booking");
 	      ser.saveBooking(booking);
 	      System.out.println("Booked ");
 	      return "redirect:/testpage";

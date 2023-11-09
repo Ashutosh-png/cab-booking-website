@@ -29,66 +29,14 @@
             overflow: hidden;
             margin: 40px;
         }
-        .copy__desc {
-    		text-align: center; /* Center the text horizontally in both views */
-   			 margin-left: 0;
-}
+
         .city-section {
             background-color: #8ECAE6;
             padding: 20px;
             height: 250px;
             position: relative;
         }
-        .offercard2{
-			text-align:center;
-		}
-        
-           .offercard2.card2 {
-            width: 700px;
-            background-color: rgb(192, 192, 192);
-            border: 1px solid #ccc;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-             opacity: 0; /* Initially set to fully transparent */
-            transition: opacity 1s ease-in-out; /* Add a fade-in transition */
-            position: relative;
-            overflow: hidden;
-        }
-
-       .card2 .h1 {
-            font-size: 24px;
-            margin: 0;
-            color: rgb(255, 255, 0);
-        }
-
-     
-
-        .offer {
-            display: none;
-            color: green;
-            font-weight: bold;
-            font-size: 20px;
-            
-        }
-        
-         .card2::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
-            transform: scale(0);
-            animation: ripple 0.6s ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+       
 
         /* Styles for the city list */
         .city-list {
@@ -98,20 +46,27 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+        .center-first-word {
+      text-align: center;
+     
+      
+        }
+        .attractive-paragraph {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333; /* Customize the text color */
+    }
 
         .city-list li {
-            font-size: 15px;
+            font-size: 20px;
             margin: 5px;
             width: 30%;
-            padding: 1px;
-            margin-right: 2px;
+            padding: 10px;
             text-align: center;
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s, background-color 0.2s;
             cursor: pointer;
-            height: 10px;
-            
         }
 
         .city-list li:hover {
@@ -132,19 +87,7 @@
                 opacity: 1;
             }
         }
-         
-         @media (min-width: 768px) {
-			 
-			 .copy__desc{
-				 align-items:center ;
-			 }
     </style>
-     <script>
-        // JavaScript to add the 'show-card' class after a delay
-        setTimeout(function() {
-            document.querySelector('.card2').classList.add('show-card');
-        }, 500); // Delay in milliseconds (e.g., 500ms)
-    </script>
 
     <!-- Template CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -162,7 +105,7 @@
   </head>
   <body>
     <!-- start cssload-loader -->
-  <!--   <div class="preloader" id="preloader">
+    <div class="preloader" id="preloader">
       <div class="loader">
         <svg class="spinner" viewBox="0 0 50 50">
           <circle
@@ -175,7 +118,7 @@
           ></circle>
         </svg>
       </div>
-    </div>-->
+    </div>
     <!-- end cssload-loader -->
 
     <!-- ================================
@@ -375,7 +318,7 @@
                 <div class="main-menu-content">
                   <nav>
                     <ul>
-                   <!--   <li>
+                      <li>
                         <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Buses <i class="la la-bus"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li><a href="index.html">Buses - Buses</a></li>
@@ -393,7 +336,7 @@
                           </li>
                         </ul> -->
                       </li>
-                   <!--   <li>
+                      <li>
                         <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Cabs <i class="la la-car"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li>
@@ -420,7 +363,7 @@
                           </li>
                         </ul> -->
                       </li>
-                     <!-- <li>
+                      <li>
                         <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Train <i class="la la-train"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li><a href="cruises.html">Cruises</a></li>
@@ -566,7 +509,7 @@
                         </div>
                       </li>
                       <li>
-                        <a th:href="@{/home}" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Home<i class="la la-home"></i></a>
+                        <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Profile<i class="la la-user"></i></a>
                         <!-- <ul class="dropdown-menu-item">
                           <li><a href="flight-grid.html">Flight grid</a></li>
                           <li><a href="flight-list.html">Flight list</a></li>
@@ -669,7 +612,7 @@
     <!-- ================================
     START HERO-WRAPPER AREA
 ================================= -->
-    <section class="hero-wrapper"  id="Form">
+    <section class="hero-wrapper">
       <div class="hero-box hero-bg1">
         <!-- <span class="line-bg line-bg1"></span>
         <span class="line-bg line-bg2"></span>
@@ -687,7 +630,7 @@
                     <span class="cd-words-wrapper">
                       <b class="is-visible"></b>
                       <b>Buses</b>
-                    <!--  <b>Train</b>-->
+                      <b>Train</b>
                       <b>Cabs</b>
                       <!-- <b>Cars</b> -->
                       <!-- <b>Cruises</b>
@@ -828,7 +771,7 @@
                   <div class="tab-content" id="myTabContent3">
                     <div class="tab-pane fade show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
                         <div class="contact-form-action">
-                            <form th:action="@{/cab}" method="post" >
+                            <form th:action="@{/cab}" method="post" id="Form" >
                               <div class="mb-3">
    <label>Trip Type:</label>
 <div class="form-check form-check-inline">
@@ -3071,14 +3014,14 @@
           <!-- end row -->
         </div>
         <!-- end container -->
-       <!-- <svg
+        <svg
           class="hero-svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
           <path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path>
-        </svg>-->
+        </svg>
       </div>
     </section>
     <!-- end hero-wrapper -->
@@ -3086,1549 +3029,391 @@
     END HERO-WRAPPER AREA
 ================================= -->
 
-    <!-- ================================
-    START INFO AREA
-================================= -->
-    <section
-      class="info-area info-bg padding-top-50px padding-bottom-50px text-center"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="icon-box">
-              <div class="info-icon">
-                <i class="la la-car"></i>
-              </div>
-              <!-- end info-icon-->
-              <div class="info-content">
-                <h4 class="info__title">CORPORATE CABS</h4>
-                <p class="info__desc">
-                 reliable corporate car services,specific needs of business travelers with a commitment to professionalism and punctuality.
-                </p>
-              </div>
-              <!-- end info-content -->
-            </div>
-            <!-- end icon-box -->
-          </div>
-          <!-- end col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="icon-box margin-top-50px" style="margin-top:2px">
-              <div class="info-icon">
-                <i class="la la-car"></i>
-              </div>
-              <!-- end info-icon-->
-              <div class="info-content">
-                <h4 class="info__title">
-                 SPECIAL FUNCTIONS
-                </h4>
-                <p class="info__desc">
-                 we provide all types of cabs for all types of functions 
-                </p>
-              </div>
-              <!-- end info-content -->
-            </div>
-            <!-- end icon-box -->
-          </div>
-          <!-- end col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="icon-box">
-              <div class="info-icon">
-                <i class="la la-car"></i>
-              </div>
-              <!-- end info-icon-->
-              <div class="info-content">
-                <h4 class="info__title">RENTAL CABS</h4>
-                <p class="info__desc">
-                  We proudly offer a wide range of rental cabs to meet your diverse transportation needs
-                </p>
-              </div>
-              <!-- end info-content -->
-            </div>
-            <!-- end icon-box -->
-          </div>
-          <!-- end col-lg-4 -->
+
+
+<section class="car-area section-bg section-padding" style="padding: 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center">
+          <h2 class="sec__title">Mahabaleshwar Cab Booking</h2>
         </div>
-        <!-- end row -->
-      </div>
-      <!-- end container -->
-    </section>
-    
-    <section class="offercard2">
-		<div class="card2" style="width: 100%;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);background-color: #f0f0f0;">
-       
-        <h1 style="color:rgb(255 167 0)">Unbeatable Deal: Get <span th:text="${discountPercentage}"></span>% Off Today!</h1>
-        <div class="offer" id="offer">
-            <p>Special Offer: <span th:text="${discountPercentage}"></span>% off!</p>
-        </div>
-    </div>
-		
-	</section>
-	 <script>
-        // Check if there is an offer and display it if available
-        const offerDiv = document.getElementById("offer");
-        const hasOffer = true; // Set this to true if there is an offer, or false if not
+      <br>
 
-        if (hasOffer) {
-            offerDiv.style.display = "block";
-        } else {
-            offerDiv.style.display = "none";
-        }
-    </script>
-    <!-- end info-area -->
-    <!-- ================================
-    END INFO AREA
-================================= -->
 
-    <div class="section-block"></div>
-
-    <!-- ================================
-    START ROUND-TRIP AREA
-================================= -->
-   
-  <!-- end round-trip-flight -->
-  <!-- ================================
-    END ROUND-TRIP AREA
-================================= -->
-
-  <!-- ================================
-    START HOTEL AREA
-================================= -->
-  <!-- <section 
-      class="hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px"
-    >
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading text-center">
-              <h2 class="sec__title line-height-55">
-                Most Popular Hotel <br />
-                Destinations
-              </h2>
-            </div>
-    
-          </div>
-         
-        </div>
-       
-        <div class="row padding-top-50px">
-          <div class="col-lg-12">
-            <div class="hotel-card-wrap">
-              <div class="hotel-card-carousel carousel-action">
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img1.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Bestseller</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >The Millennium Hilton New York</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, New york</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-               
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img2.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Best Western Grant Park Hotel</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, Chicago</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img3.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Featured</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Hyatt Regency Maui Resort & Spa</a
-                      >
-                    </h3>
-                    <p class="card-meta">200 Nohea Kai Dr, Lahaina, HI</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- end card-item -->
-  <!-- <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img4.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Popular</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Four Seasons Resort Maui at Wailea</a
-                      >
-                    </h3>
-                    <p class="card-meta">3900 Wailea Alanui Drive, Kihei, HI</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
+        <p>
           
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img5.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Ibis Styles London Heathrow</a
-                      >
-                    </h3>
-                    <p class="card-meta">272 Bath Road, Harlington, England</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-            
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img6.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Hotel Europe Saint Severin Paris</a
-                      >
-                    </h3>
-                    <p class="card-meta">
-                      38-40 Rue Saint Séverin, Paris, Paris
-                    </p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div> -->
 
-  <!-- <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img1.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Bestseller</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >The Millennium Hilton New York</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, New york</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-              -->
-  <!-- <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img2.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Best Western Grant Park Hotel</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, Chicago</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-               
-              </div>
-         
-            </div>
-          </div>
-   
-        </div> -->
-
-  <!-- </div>  -->
-
-
-
-
-
-  <!-- ================================
-    START DESTINATION AREA
-================================= -->
-  <!-- <section class="destination-area section--padding">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <div class="section-heading">
-              <h2 class="sec__title">Top Visited Places</h2>
-              <p class="sec__desc pt-3">
-                Morbi convallis bibendum urna ut viverra Maecenas quis
-              </p>
-            </div>
-
-           
-          </div>
-        
-          <div class="col-lg-4">
-            <div class="btn-box btn--box text-right">
-              <a href="tour-grid.html" class="theme-btn">Discover More</a>
-            </div>
-          </div>
-        </div>
-      
-        <div class="row padding-top-50px">
-          <div class="col-lg-4">
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img2.jpg" alt="destination-img" />
-                <span class="badge">new york</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Main Street Park</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$58.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img3.jpg" alt="destination-img" />
-                <span class="badge">chicago</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Chicago Cultural Center</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$68.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-           
-          </div>
-         
-          <div class="col-lg-4">
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img4.jpg" alt="destination-img" />
-                <span class="badge">Hong Kong</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Lugard Road Lookout</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">150 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$79.00</span>
-                    <span class="price__num before-price">$89.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-           
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img5.jpg" alt="destination-img" />
-                <span class="badge">Las Vegas</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Planet Hollywood Resort</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$88.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-      
-          <div class="col-lg-4">
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img.jpg" alt="destination-img" />
-                <span class="badge">Shanghai</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Oriental Pearl TV Tower</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$58.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-         
-        </div>
-     
-      </div>
-     
-    </section> -->
-  <!-- end destination-area -->
-  <!-- ================================
-    END DESTINATION AREA
-================================= -->
-
-  <!-- ================================
-    START CAR AREA
-================================= -->
-  <section class="car-area section-bg section-padding" style="padding: 50px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading text-center">
-            <h2 class="sec__title">Book Your Cab Now!</h2>
-          </div>
-          <!-- end section-heading -->
-        </div>
-        <!-- end col-lg-12 -->
-      </div>
-      <!-- end row -->
-      <div class="row padding-top-30px">
-        <div class="col-lg-12">
-          <div class="car-wrap">
-            <div class="car-carousel carousel-action">
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/wagonr-exterior-right-front-three-quarter-3.webp" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">Bestseller</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Compact SUV</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Hatchback</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li> -->
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/swift.jpeg" alt="car-img" />
-                  </a>
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Standard</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Hatchback</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li> -->
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$33.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/c6es93a_1572125.jpg" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">featured</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Compact Elite</p> -->
-                  <h3 class="card-title">
-                    <a href="#Form">SUV</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
-                        title="Passenger">
-                        <!-- <i class="la la-users"></i><span>4</span> -->
-                      </li>
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li> -->
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">Bestseller</span> -->
-                  <!-- <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div> -->
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Fullsize Van</p> -->
-                  <h3 class="card-title">
-                    <a href="#Form">SUV</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>6</span>
-                        </li> -->
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>2</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$45.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/etios-2010-2013.webp" alt="car-img" />
-                  </a>
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Luxury</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Sedans</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
-                        title="Passenger">
-                        <!-- <i class="la la-users"></i><span>5</span> -->
-                      </li>
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>3</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/swift-dzire-car-jpg-500x500.webp" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">featured</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Mini</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Sedan</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>1</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-            </div>
-            <!-- end car-carousel -->
-          </div>
-        </div>
-        <!-- end col-lg-12 -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end container -->
-  </section>
-  
-  
-  <!-- <section class="round-trip-flight section-padding">
-        <div class="card">
-         
-             <ul class="city-list">
-    <li><a href="#Form" style="margin-left: -200px;">Mahabaleshwar</a></li>
-    <li><a href="#Form" style="margin-left: -850px;">Panchagani</a></li>
-    <li><a href="#Form" style="margin-left: -1450px;">Kolhapur</a></li>
-    <li><a href="#Form">Satara</a></li>
-    <li><a href="#Form">Nashik</a></li>
-    <li><a href="#Form">Shirdi</a></li>
-    <li><a href="#Form">Ahmednagar</a></li>
-    <li><a href="#Form">Sangamner</a></li>
-    <li><a href="#Form">Jalana</a></li>
-    <li><a href="#Form">Lonavala</a></li>
-    <li><a href="#Form">Bhimashakar</a></li>
-    <li><a href="#Form">Alibag</a></li>
-    <li><a href="#Form">Dapoli</a></li>
-   <li><a href="#Form">Goa</a></li>
-    <li><a href="#Form">Trimbkeshwar</a></li>
-    <li><a href="#Form">Igatpuri</a></li>
-    <li><a href="#Form">Surat</a></li>
-</ul>
-
-
-           
-            <!-- Your sentence goes here with the "sentence" class for animation -->
-      <!--  </div>
-    </section>-->
-         /
-  <!-- end car-area -->
-  <!-- ================================
-    END CAR AREA
-================================= -->
-
-  <!-- ================================
-       START TESTIMONIAL AREA
-
-    <section class="testimonial-area section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="section-heading">
-              <h2 class="sec__title line-height-50">
-                What our customers are saying us?
-              </h2>
-              <p class="sec__desc padding-top-30px">
-                Morbi convallis bibendum urna ut viverra. Maecenas quis
-                consequat libero
-              </p>
-              <div class="btn-box padding-top-35px">
-                <a href="#" class="theme-btn">Explore All</a>
-              </div>
-            </div>
-       
-          </div>
-     
-          <div class="col-lg-8">
-            <div class="testimonial-carousel carousel-action">
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team8.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Leroy Bell</h4>
-                    <span class="author__meta">United States</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-          
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team9.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Richard Pam</h4>
-                    <span class="author__meta">Canada</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team10.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Luke Jacobs</h4>
-                    <span class="author__meta">Australia</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-           
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team8.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Chulbul Panday</h4>
-                    <span class="author__meta">Italy</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-       
-          </div>
-         
-        </div>
-       
-      </div>
-      
-    </section> -->
-  <!-- end testimonial-area -->
-  <!-- ================================
-       START TESTIMONIAL AREA
-================================= -->
-
-  <!-- ================================
-    START CTA AREA
-================================= -->
-  <!-- <section
-      class="cta-area padding-top-100px padding-bottom-180px text-center"
-    >
-      <div class="video-bg">
-        <video autoplay loop>
-          <source src="video/video-bg.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading">
-              <h2 class="sec__title text-white line-height-55">
-                Let us show you the world <br />
-                Discover our most popular destinations
-              </h2>
-            </div> -->
-
-  <!-- <div class="btn-box padding-top-35px">
-              <a href="become-local-expert.html" class="theme-btn border-0"
-                >Join with us</a
-              >
-            </div>
-          </div> -->
-  <!-- end col-lg-12 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- </div> -->
-  <!-- end container -->
-  <!-- <svg class="cta-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path
-          d="M-31.31,170.22 C164.50,33.05 334.36,-32.06 547.11,196.88 L500.00,150.00 L0.00,150.00 Z"
-        ></path>
-      </svg>
-    </section> -->
-  <!-- end cta-area -->
-  <!-- ================================
-    END CTA AREA
-================================= -->
-
-  <!-- ================================
-       START BLOG AREA
-================================= -->
-  <!-- <section class="blog-area padding-top-30px padding-bottom-90px">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading text-center">
-              <h2 class="sec__title line-height-55">
-                Latest News & Articles <br />
-                You Might Like
-              </h2>
-            </div> -->
-  <!-- end section-heading -->
-  <!-- </div> -->
-  <!-- end col-lg-12 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- <div class="row padding-top-50px">
-          <div class="col-lg-4 responsive-column">
-            <div class="card-item blog-card">
-              <div class="card-img">
-                <img src="images/blog-img.jpg" alt="blog-img" />
-                <div class="post-format icon-element">
-                  <i class="la la-photo"></i>
-                </div>
-                <div class="card-body">
-                  <div class="post-categories">
-                    <a href="#" class="badge">Travel</a>
-                    <a href="#" class="badge">lifestyle</a>
-                  </div>
-                  <h3 class="card-title line-height-26">
-                    <a href="blog-single.html"
-                      >When Traveling Avoid Expensive Hotels & Resorts</a
-                    >
-                  </h3>
-                  <p class="card-meta">
-                    <span class="post__date"> 1 January, 2020</span>
-                    <span class="post-dot"></span>
-                    <span class="post__time">5 Mins read</span>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="card-footer d-flex align-items-center justify-content-between"
-              >
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/small-team1.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <a href="#" class="author__title">Leroy Bell</a>
-                  </div>
-                </div>
-                <div class="post-share">
-                  <ul>
-                    <li>
-                      <i class="la la-share icon-element"></i>
-                      <ul class="post-share-dropdown d-flex align-items-center">
-                        <li>
-                          <a href="#"><i class="lab la-facebook-f"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-instagram"></i></a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-  <!-- end card-item -->
-  </div>
-  <!-- end col-lg-4 -->
-  <!-- <div class="col-lg-4 responsive-column">
-            <div class="card-item blog-card">
-              <div class="card-img">
-                <img src="images/blog-img2.jpg" alt="blog-img" />
-                <div class="post-format icon-element">
-                  <i class="la la-play"></i>
-                </div>
-                <div class="card-body">
-                  <div class="post-categories">
-                    <a href="#" class="badge">Video</a>
-                  </div>
-                  <h3 class="card-title line-height-26">
-                    <a href="blog-single.html"
-                      >My Best Travel Tips: The Ultimate Travel Guide</a
-                    >
-                  </h3>
-                  <p class="card-meta">
-                    <span class="post__date"> 1 February, 2020</span>
-                    <span class="post-dot"></span>
-                    <span class="post__time">4 Mins read</span>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="card-footer d-flex align-items-center justify-content-between" >
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/small-team2.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <a href="#" class="author__title">Phillip Hunt</a>
-                  </div>
-                </div>
-                <div class="post-share">
-                  <ul>
-                    <li>
-                      <i class="la la-share icon-element"></i>
-                      <ul class="post-share-dropdown d-flex align-items-center">
-                        <li>
-                          <a href="#"><i class="lab la-facebook-f"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-instagram"></i></a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-  <!-- end card-item -->
-  <!-- </div> -->
-  <!-- end col-lg-4 -->
-  <!-- <div class="col-lg-4 responsive-column">
-            <div class="card-item blog-card">
-              <div class="card-img">
-                <img src="images/blog-img3.jpg" alt="blog-img" />
-                <div class="post-format icon-element">
-                  <i class="la la-music"></i>
-                </div>
-                <div class="card-body">
-                  <div class="post-categories">
-                    <a href="#" class="badge">audio</a>
-                  </div>
-                  <h3 class="card-title line-height-26">
-                    <a href="blog-single.html" -->
-  <!-- >By all Means, Travel to Popular Sites & Don’t Rule Out
-                      Other Locations</a -->
- 
-  <!-- </h3> -->
-  <!-- <p class="card-meta">
-                    <span class="post__date"> 1 March, 2020</span>
-                    <span class="post-dot"></span>
-                    <span class="post__time">3 Mins read</span>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="card-footer d-flex align-items-center justify-content-between"
-              >
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/small-team3.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <a href="#" class="author__title">Luke Jacobs</a>
-                  </div>
-                </div>
-                <div class="post-share">
-                  <ul>
-                    <li>
-                      <i class="la la-share icon-element"></i>
-                      <ul class="post-share-dropdown d-flex align-items-center">
-                        <li>
-                          <a href="#"><i class="lab la-facebook-f"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-instagram"></i></a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-  <!-- end card-item -->
-  <!-- </div> -->
-  <!-- end col-lg-4 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- <div class="row">
-          <div class="col-lg-12">
-            <div class="btn-box text-center pt-4">
-              <a href="blog-grid.html" class="theme-btn">Read More Post</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-  <!-- end container -->
-  <!-- </section> -->
-  <!-- end blog-area -->
-  <!-- ================================
-       START BLOG AREA
-================================= -->
-
-  <!-- ================================
-    START MOBILE AREA
-================================= -->
-  <section class="mobile-app padding-top-100px padding-bottom-50px section-bg" style="margin: 10px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="mobile-app-content">
-            <div class="section-heading">
-              <h2 class="sec__title line-height-55">
-                Aimcab Android and IOS App is Available!
-              </h2>
-            </div>
-            <!-- end section-heading -->
-            <ul class="info-list padding-top-30px">
-              <li class="d-flex align-items-center mb-3">
-                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
-                Access and change your itinerary on-the-go
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
-                Free cancellation on select hotels
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
-                Get real-time trip updates
-              </li>
-            </ul>
-            <div class="btn-box padding-top-30px">
-              <a href="https://aimcabbooking.com/aimcab.com/apk/app-release.apk" class="d-inline-block mr-3">
-                <img src="images/app-store.png" alt="" />
-              </a>
-              <a href="https://aimcabbooking.com/aimcab.com/apk/app-release.apk" class="d-inline-block">
-                <img src="images/google-play.png" alt="" />
-              </a>
-            </div>
-            <!-- end btn-box -->
-          </div>
-        </div>
-        <!-- end col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="mobile-img">
-            <img src="images/mobile-app.png" alt="mobile-img" />
-          </div>
-        </div>
-        <!-- end col-lg-5 -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end container -->
-  </section>
-  <!-- end mobile-app -->
-  <!-- ================================
-    END MOBILE AREA
-================================= -->
-
-  <!-- ================================
-       START CLIENTLOGO AREA
-================================= -->
-  <!-- <section
-      class="clientlogo-area padding-top-80px padding-bottom-80px text-center"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="client-logo">
-              <div class="client-logo-item">
-                <img src="images/client-logo.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo2.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo3.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo4.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo5.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo6.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- </div> -->
-  <!-- end client-logo -->
-  <!-- </div> -->
-  <!-- end col-lg-12 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- </div> -->
-  <!-- end container -->
-  <!-- </section> -->
-  <!-- end clientlogo-area -->
-  <!-- ================================
-       START CLIENTLOGO AREA
-================================= -->
+<h3>Looking for  Cab In Mahabaleshwar ?</h3> <br>
+MahabaleshwarCab Booking at Affordable fare. We Aim Cab Providing Quality Services for Cab Booking for OutStation, OneWay,Airport Cab and Round Trip from Mahabaleshwar Maharashtra and Other Cities. Book your next Cab with Aimcab and get discount on total fare to Mahabaleshwar.
+<br>
 <br>
 
- <!-- ================================
+Mahabaleshwar Available Cabs
+        </p>
+        <!-- end section-heading -->
+      </div>
+      <!-- end col-lg-12 -->
+    </div>
+    <!-- end row -->
+   
+              </div>
+            </div>
+            <!-- end card-item -->
+          </div>
+          <!-- end car-carousel -->
+        </div>
+      </div>
+      <!-- end col-lg-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+
+   <!-- ================================
+    START HOTEL AREA
+================================= -->
+<!-- <section
+class="hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px"
+> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="section-heading text-center">
+        <!-- <h2 class="sec__title line-height-55">
+          Cab Booking Mahabaleshwarto Mahabaleshwar <br />
+          
+        </h2> -->
+      </div>
+      <!-- end section-heading -->
+    </div>
+    <!-- end col-lg-12 -->
+  </div>
+  <!-- end row -->
+  <div class="row padding-top-50px">
+    <div class="col-lg-12">
+      <div class="hotel-card-wrap">
+        <div class="hotel-card-carousel carousel-action">
+          <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./Panchagani.html" class="d-block">
+                <img src="images/swift.jpeg" alt="hotel-img" />
+              </a>
+              <!-- <span class="badge">Bestseller</span> -->
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./Panchagani.html"
+                  >Hatchback</a
+                >
+              </h3>
+              <!-- <p class="card-meta">124 E Huron St, New york</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <a href="./Panchagani.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- end card-item -->
+          <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./Panchagani.html" class="d-block">
+                <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="hotel-img" />
+              </a>
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./Panchagani.html"
+                  >SUV</a
+                >
+              </h3>
+              <!-- <p class="card-meta">124 E Huron St, Chicago</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$58.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <a href="./Panchagani.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- end card-item -->
+          <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./Panchagani.html" class="d-block">
+                <img src="images/swift-dzire-car-jpg-500x500.webp" alt="hotel-img" />
+              </a>
+              <!-- <span class="badge">Featured</span> -->
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./Panchagani.html"
+                  >Sedan</a
+                >
+              </h3>
+              <!-- <p class="card-meta">200 Nohea Kai Dr, Lahaina, HI</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <a href="./Panchagani.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- end card-item -->
+          <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./Panchagani.html" class="d-block">
+                <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="hotel-img" / style="height: 200px;">
+              </a>
+              <!-- <span class="badge">Popular</span> -->
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./Panchagani.html"
+                  >MUV</a
+                >
+              </h3>
+              <!-- <p class="card-meta">3900 Wailea Alanui Drive, Kihei, HI</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <a href="./Panchagani.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="hotel-single.html" class="d-block">
+                <img src="images/img5.jpg" alt="hotel-img" />
+              </a>
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="hotel-single.html"
+                  >Ibis Styles London Heathrow</a
+                >
+              </h3>
+              <p class="card-meta">272 Bath Road, Harlington, England</p>
+              <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div>
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p>
+                <a href="hotel-single.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div> -->
+          </div>
+          <!-- end card-item -->
+          
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="hotel-single.html" class="d-block">
+                <img src="images/img1.jpg" alt="hotel-img" />
+              </a>
+              <span class="badge">Bestseller</span>
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="hotel-single.html"
+                  >The Millennium Hilton New York</a
+                >
+              </h3>
+              <p class="card-meta">124 E Huron St, New york</p>
+              <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div>
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p>
+                <a href="hotel-single.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <!-- end card-item -->
+         
+          </div>
+          <!-- end card-item -->
+        </div>
+        <!-- end hotel-card-carousel -->
+      </div>
+    </div>
+    <!-- end col-lg-12 -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end container-fluid -->
+</section>
+<!-- end hotel-area -->
+<!-- ================================
+END HOTEL AREA
+================================= -->
+
+
+
+
+<section class="car-area section-bg section-padding" style="padding: 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+       
+        <hr>
+        <div class="container mt-5">
+          <p class="text-center">
+            <strong>Mahabaleshwar Cab Booking Service</strong>
+          </p>
+        
+      
+         
+          <p class="text-center" style="font-size: 30px;"><strong>About Aim Cab Pvt Ltd</strong></p>
+          <br>
+          <p class="attractive-paragraph">Welcome To "AIMCAB" Cab Booking Service In Panchagani! Aimcab is an established car rental service provider in India, offering both long-term and short-term cab booking solutions. Our top priorities are ensuring safety, comfort, and reliable service for every client. With experienced and courteous drivers, we strive to provide the best possible transportation experience in Maharashtra. Since our inception in 2001, we have aimed to bring transparency to pricing and have grown rapidly to cater to a wide range of customers.</p>
+          <p class="attractive-paragraph">Aimcab is committed to providing rides that are both convenient and memorable. Aimcab is dedicated to providing convenient and unforgettable rides at all times. When you make a cab reservation with AIM CAB, you can put aside any worries about routes, cleanliness, and pricing behind. We offer a diverse range of options, including sedans and SUVs, to cater to your preferences and ensure a hassle-free experience. We Provide Comfortable Cab Rides To People From Over 1000+ Cities In India.</p>
+          <p class="attractive-paragraph">We are from Aimcab always there to ensure a hassle-free and joyful ride. Perhaps, our practices have enabled our establishment as one of the most preferred radio taxi services in various parts of the country; including Maharashtra, Delhi, Kolkata, Bengaluru, Jaipur, Shimla, Dehradun, Manali, Agra, Haridwar, Chandigarh, and Amritsar. We firmly believe in growth and outstanding services for our customers. Also, we ensure the utmost punctuality and responsibilities in our cab services. Whether you need to rush for a flight or to reach for a meeting on time; you just need to book a taxi online with Aimcab and count on us in providing a safe and comfortable ride.</p>
+        </div>
+        <!-- end section-heading -->
+      </div>
+      <!-- end col-lg-12 -->
+    </div>
+    <!-- end row -->
+   
+              </div>
+            </div>
+            <!-- end card-item -->
+          </div>
+          <!-- end car-carousel -->
+        </div>
+      </div>
+      <!-- end col-lg-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+
+
+
+
+
+
+
+      <!-- ================================
        START FOOTER AREA
     
 ================================= -->
@@ -4650,7 +3435,7 @@
               
 
             <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;">Popular Cities</h5>
-            <p style="margin-left: 15px;">
+            <p style="margin-left: 15px;"
  
             <span> <a th:href="@{/Mahabaleshwar}">Mahabaleshwar</a></span> |
             <span>  <a th:href="@{/Panchagani}">Panchagani</a></li></span> |
@@ -4667,13 +3452,13 @@
             <span>  <a th:href="@{/Alibag}">Alibag</a></span> |
             <span>  <a th:href="@{/Dapoli}">Dapoli</a></span> |
             <span>  <a th:href="@{/Trimbkeshwar}">Trimbkeshwar</a></span> |
-           <span>  <a th:href="@{/Une}">Igatpuri</a></span> |
+           <span>  <a th:href="@{/Une}">Lgatpuri</a></span> |
             <span>  <a href="#Form">Surat</a></span> |
             <span>   <a th:href="@{/Mumbai}">Mumbai</a></span> |
             <span>   <a th:href="@{/Pune}">Pune</a></span>
             </p>
             <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;">Corporate Cabs</h5>
-            <p style="margin-left: 15px;">
+            <p style="margin-left: 15px;"
             <span>  <a th:href="@{/Corporate}">
                 Corporate Cabs in Delhi</a></span>|
                 <span>   <a th:href="@{/Corporate3}">Corporate Cabs in Pune</a></span>|
@@ -4689,16 +3474,16 @@
               <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;">Airport Cabs</h5>
             <p style="margin-left: 15px;">
              <a th:href="@{/Airport}">Airport Cabs in Delhi</a> |
-              <a th:href="@{/Airport3}">Airport Cabs in Pune</a> |
+              <a th:href="@{/Airport1}">Airport Cabs in Pune</a> |
               <a th:href="@{/Airport2}">Airport Cabs in Bangalore</a> |
               <a th:href="@{/Airport3}">Airport Cabs in Mumbai </a> |
               <a th:href="@{/Airport4}">Airport Cabs in Telangana</a> |
-              <a th:href="@{/Airport6}">Airport Cabs in Surat</a> |
-              <a th:href="@{/Airport5}">Airport Cabs in Indor</a> |
+              <a th:href="@{/Airport5}">Airport Cabs in Surat</a> |
+              <a th:href="@{/Airport6}">Airport Cabs in Indor</a> |
               <a th:href="@{/Airport7}">Airport Cabs in Chennai</a>
             </p>
             <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
-            <p style="margin-left: 15px;">
+            <p style="margin-left: 15px;"
            <span> <a th:href="@{/Pune}">  Maharashtra</a></span> |
            <span>   <a th:href="@{/Goa}">Goa</a></span> |
             <span>  <a th:href="@{/Delhi}"> Delhi</a></span> |
