@@ -7,7 +7,7 @@
     <meta name="author" content="TechyDevs" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Aimcab</title>
+    <title>WTL</title>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCelDo4I5cPQ72TfCTQW-arhPZ7ALNcp8w&libraries=places"></script>
@@ -29,6 +29,19 @@
             overflow: hidden;
             margin: 40px;
         }
+        
+          /* CSS for mobile view */
+.mobile-only {
+  display: inline;  /* Show the links on mobile devices */
+}
+
+/* CSS for larger screens (e.g., laptops) */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;  /* Hide the links on screens wider than 768px */
+  }
+}
+		 
 
         .city-section {
             background-color: #8ECAE6;
@@ -279,19 +292,10 @@
                     </div>
                   </div>
                   <div class="header-right-action">
-                    <a
-                      th:href="@{/registration}"
-                     
-                      data-target="#signupPopupForm"
-                      >Sign Up</a
-                    >
-                    <a
-                      th:href="@{/login}"
-                      class="theme-btn theme-btn-small"
-                      
-                      >Login</a
-                    >
-                  </div>
+                    <a th:href="@{/registration}" data-target="#signupPopupForm" class="mobile-only" style="border: 1px solid #000; padding: 10px;">Sign Up</a>
+                         <!-- <a th:href="@{/login}" class="theme-btn theme-btn-small mobile-only" style="border: 1px solid #000; padding: 2px; background-color: #fff; width: 80px;">Login</a> -->
+                         <a th:href="@{/login}" data-target="#signupPopupForm" class="mobile-only" style="border: 1px solid #000; padding: 10px;">Login</a>
+  </div>
                 </div>
               </div>
             </div>
@@ -307,7 +311,7 @@
                   ><i class="la la-angle-down"></i
                 ></a>
                 <div class="logo">
-                  <a href="./index.html"><img src="./images/aimcab_logo-removebg-preview.png"  style="height: 70px;" alt=""><span style=" font-weight: bold; font-size: 30px; bottom: 900px; position: absolute; bottom: 20px; color: black;">Aimcab</span></a>
+                  <a href="./index.html"><img src="./images/WTL_logo-removebg-preview.png"  style="height: 70px;" alt=""><span style=" font-weight: bold; font-size: 30px; bottom: 900px; position: absolute; bottom: 20px; color: black;">WTL</span></a>
                   <div class="menu-toggler">
                     <i class="la la-bars"></i>
                     <i class="la la-times"></i>
@@ -318,216 +322,201 @@
                 <div class="main-menu-content">
                   <nav>
                     <ul>
+      
                       <li>
-                        <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Buses <i class="la la-bus"></i></a>
-                        <!-- <ul class="dropdown-menu-item">
-                          <li><a href="index.html">Buses - Buses</a></li>
-                          <li><a href="index2.html">Home - Cabs</a></li>
-                          <li><a href="index3.html">Home - Train</a></li>
-                          <li><a href="index4.html">Home - Mytrip</a></li>
-                          <li><a href="index5.html">Home - Profile</a></li>
-                          <li><a href="index6.html">Home - Flight</a></li>
-                          <li><a href="index7.html">Home - City Tour</a></li>
-                          <li>
-                            <a href="index8.html"
-                              >Home - Bus
-                              <span class="badge bg-2 text-white">New</span></a
-                            >
-                          </li>
-                        </ul> -->
-                      </li>
-                      <li>
-                        <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Cabs <i class="la la-car"></i></a>
-                        <!-- <ul class="dropdown-menu-item">
-                          <li>
-                            <a href="tour-fullwidth.html">Tour Full width</a>
-                          </li>
-                          <li><a href="tour-grid.html">Tour Grid</a></li>
-                          <li><a href="tour-list.html">Tour List</a></li>
-                          <li>
-                            <a href="tour-left-sidebar.html"
-                              >Tour Left Sidebar</a
-                            >
-                          </li>
-                          <li>
-                            <a href="tour-right-sidebar.html"
-                              >Tour Right Sidebar</a
-                            >
-                          </li>
-                          <li><a href="tour-details.html">Tour details</a></li>
-                          <li><a href="tour-booking.html">Tour Booking</a></li>
-                          <li>
-                            <a href="tour-search-result.html"
-                              >Tour Search Result</a
-                            >
-                          </li>
-                        </ul> -->
-                      </li>
-                      <li>
-                        <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Train <i class="la la-train"></i></a>
-                        <!-- <ul class="dropdown-menu-item">
-                          <li><a href="cruises.html">Cruises</a></li>
-                          <li><a href="cruises-list.html">Cruise list</a></li>
-                          <li>
-                            <a href="cruise-sidebar.html">Cruise Sidebar</a>
-                          </li>
-                          <li>
-                            <a href="cruise-details.html">Cruise details</a>
-                          </li>
-                          <li>
-                            <a href="cruise-booking.html">Cruise Booking</a>
-                          </li>
-                          <li>
-                            <a href="cruise-search-result.html"
-                              >Cruise Search Result</a
-                            >
-                          </li>
-                        </ul> -->
-                      </li>
-                      <li>
-                        <a  th:href="@{/getUserBooking}" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">MyTrip <i class="la la-shopping-bag"></i></a>
+                        <a th:href="@{/getUserBooking}"
+                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">MyTrip
+                          <i class="la la-shopping-bag"></i></a>
                         <div class="dropdown-menu-item mega-menu">
                           <!-- <ul class="row no-gutters">
-                            <li class="col-lg-3 mega-menu-item">
-                              <ul>
-                                <li><a href="add-hotel.html">add hotel </a></li>
-                                <li>
-                                  <a href="add-flight.html">add flight </a>
-                                </li>
-                                <li><a href="add-tour.html">add tour </a></li>
-                                <li>
-                                  <a href="add-cruise.html">add cruise </a>
-                                </li>
-                                <li><a href="add-car.html">add car</a></li>
-                                <li>
-                                  <a href="user-dashboard.html"
-                                    >User Dashboard</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="admin-dashboard.html"
-                                    >Admin Dashboard</a
-                                  >
-                                </li>
-                                <li><a href="career.html">career</a></li>
-                                <li>
-                                  <a href="route-map.html"
-                                    >route map<span
-                                      class="badge bg-2 text-white"
-                                      >New</span
-                                    ></a
-                                  >
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="col-lg-3 mega-menu-item">
-                              <ul>
-                                <li>
-                                  <a href="route.html"
-                                    >route<span class="badge bg-2 text-white"
-                                      >New</span
-                                    ></a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="route-destination.html"
-                                    >route destination<span
-                                      class="badge bg-2 text-white"
-                                      >New</span
-                                    ></a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="career-details.html"
-                                    >career details</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="user-profile.html">User profile</a>
-                                </li>
-                                <li>
-                                  <a href="become-local-expert.html"
-                                    >Become Local Expert</a
-                                  >
-                                </li>
-                                <li><a href="contact.html">contact</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li>
-                                  <a href="recover.html">recover password</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="col-lg-3 mega-menu-item">
-                              <ul>
-                                <li>
-                                  <a href="payment-received.html"
-                                    >payment received</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="payment-complete.html"
-                                    >payment complete</a
-                                  >
-                                </li>
-                                <li>
-                                  <a href="destinations.html">Destinations</a>
-                                </li>
-                                <li><a href="about.html">about</a></li>
-                                <li>
-                                  <a href="services.html">Our Services</a>
-                                </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="pricing.html">pricing</a></li>
-                                <li><a href="faq.html">faq</a></li>
-                                <li>
-                                  <a href="add-new-post.html">add new post</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="col-lg-3 mega-menu-item">
-                              <ul>
-                                <li>
-                                  <a href="blog-full-width.html"
-                                    >blog full width</a
-                                  >
-                                </li>
-                                <li><a href="blog-grid.html">blog grid</a></li>
-                                <li>
-                                  <a href="blog-sidebar.html">blog sidebar</a>
-                                </li>
-                                <li>
-                                  <a href="blog-single.html">blog details</a>
-                                </li>
-                                <li>
-                                  <a href="coming-soon.html">Coming Soon</a>
-                                </li>
-                                <li><a href="page-404.html">404 page</a></li>
-                              </ul>
-                            </li>
-                          </ul> -->
+                              <li class="col-lg-3 mega-menu-item">
+                                <ul>
+                                  <li><a href="add-hotel.html">add hotel </a></li>
+                                  <li>
+                                    <a href="add-flight.html">add flight </a>
+                                  </li>
+                                  <li><a href="add-tour.html">add tour </a></li>
+                                  <li>
+                                    <a href="add-cruise.html">add cruise </a>
+                                  </li>
+                                  <li><a href="add-car.html">add car</a></li>
+                                  <li>
+                                    <a href="user-dashboard.html"
+                                      >User Dashboard</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="admin-dashboard.html"
+                                      >Admin Dashboard</a
+                                    >
+                                  </li>
+                                  <li><a href="career.html">career</a></li>
+                                  <li>
+                                    <a href="route-map.html"
+                                      >route map<span
+                                        class="badge bg-2 text-white"
+                                        >New</span
+                                      ></a
+                                    >
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="col-lg-3 mega-menu-item">
+                                <ul>
+                                  <li>
+                                    <a href="route.html"
+                                      >route<span class="badge bg-2 text-white"
+                                        >New</span
+                                      ></a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="route-destination.html"
+                                      >route destination<span
+                                        class="badge bg-2 text-white"
+                                        >New</span
+                                      ></a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="career-details.html"
+                                      >career details</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="user-profile.html">User profile</a>
+                                  </li>
+                                  <li>
+                                    <a href="become-local-expert.html"
+                                      >Become Local Expert</a
+                                    >
+                                  </li>
+                                  <li><a href="contact.html">contact</a></li>
+                                  <li><a href="cart.html">Cart</a></li>
+                                  <li><a href="checkout.html">Checkout</a></li>
+                                  <li>
+                                    <a href="recover.html">recover password</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="col-lg-3 mega-menu-item">
+                                <ul>
+                                  <li>
+                                    <a href="payment-received.html"
+                                      >payment received</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="payment-complete.html"
+                                      >payment complete</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="destinations.html">Destinations</a>
+                                  </li>
+                                  <li><a href="about.html">about</a></li>
+                                  <li>
+                                    <a href="services.html">Our Services</a>
+                                  </li>
+                                  <li><a href="gallery.html">Gallery</a></li>
+                                  <li><a href="pricing.html">pricing</a></li>
+                                  <li><a href="faq.html">faq</a></li>
+                                  <li>
+                                    <a href="add-new-post.html">add new post</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li class="col-lg-3 mega-menu-item">
+                                <ul>
+                                  <li>
+                                    <a href="blog-full-width.html"
+                                      >blog full width</a
+                                    >
+                                  </li>
+                                  <li><a href="blog-grid.html">blog grid</a></li>
+                                  <li>
+                                    <a href="blog-sidebar.html">blog sidebar</a>
+                                  </li>
+                                  <li>
+                                    <a href="blog-single.html">blog details</a>
+                                  </li>
+                                  <li>
+                                    <a href="coming-soon.html">Coming Soon</a>
+                                  </li>
+                                  <li><a href="page-404.html">404 page</a></li>
+                                </ul>
+                              </li>
+                            </ul> -->
                         </div>
                       </li>
                       <li>
-                        <a href="#" style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Profile<i class="la la-user"></i></a>
+                        <a th:href="@{/home}"
+                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Home<i
+                            class="la la-home"></i></a>
                         <!-- <ul class="dropdown-menu-item">
-                          <li><a href="flight-grid.html">Flight grid</a></li>
-                          <li><a href="flight-list.html">Flight list</a></li>
-                          <li>
-                            <a href="flight-sidebar.html">Flight sidebar </a>
-                          </li>
-                          <li>
-                            <a href="flight-single.html">Flight details</a>
-                          </li>
-                          <li>
-                            <a href="flight-booking.html">Flight Booking</a>
-                          </li>
-                          <li>
-                            <a href="flight-search-result.html"
-                              >Flight Search Result</a
-                            >
-                          </li>
-                        </ul> -->
+                            <li><a href="flight-grid.html">Flight grid</a></li>
+                            <li><a href="flight-list.html">Flight list</a></li>
+                            <li>
+                              <a href="flight-sidebar.html">Flight sidebar </a>
+                            </li>
+                            <li>
+                              <a href="flight-single.html">Flight details</a>
+                            </li>
+                            <li>
+                              <a href="flight-booking.html">Flight Booking</a>
+                            </li>
+                            <li>
+                              <a href="flight-search-result.html"
+                                >Flight Search Result</a
+                              >
+                            </li>
+                          </ul> -->
+                      </li>
+                      <li>
+                        <a th:href="@{/login}"
+                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Login<i
+                            ></i></a>
+                        <!-- <ul class="dropdown-menu-item">
+                            <li><a href="flight-grid.html">Flight grid</a></li>
+                            <li><a href="flight-list.html">Flight list</a></li>
+                            <li>
+                              <a href="flight-sidebar.html">Flight sidebar </a>
+                            </li>
+                            <li>
+                              <a href="flight-single.html">Flight details</a>
+                            </li>
+                            <li>
+                              <a href="flight-booking.html">Flight Booking</a>
+                            </li>
+                            <li>
+                              <a href="flight-search-result.html"
+                                >Flight Search Result</a
+                              >
+                            </li>
+                          </ul> -->
+                      </li>
+                      <li>
+                        <a th:href="@{/registration}"
+                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Sing Up<i
+                            ></i></a>
+                        <!-- <ul class="dropdown-menu-item">
+                            <li><a href="flight-grid.html">Flight grid</a></li>
+                            <li><a href="flight-list.html">Flight list</a></li>
+                            <li>
+                              <a href="flight-sidebar.html">Flight sidebar </a>
+                            </li>
+                            <li>
+                              <a href="flight-single.html">Flight details</a>
+                            </li>
+                            <li>
+                              <a href="flight-booking.html">Flight Booking</a>
+                            </li>
+                            <li>
+                              <a href="flight-search-result.html"
+                                >Flight Search Result</a
+                              >
+                            </li>
+                          </ul> -->
                       </li>
                       <!-- <li>
                         
@@ -608,7 +597,7 @@
     <!-- ================================
          END HEADER AREA
 ================================= -->
-
+<hr>
     <!-- ================================
     START HERO-WRAPPER AREA
 ================================= -->
@@ -3045,7 +3034,7 @@
           
 
 <h3>Looking for  Cab In Hyderabad ?</h3> <br>
-Hyderabad Cab Booking at Affordable fare. We Aim Cab Providing Quality Services for Cab Booking for OutStation, OneWay,Airport Cab and Round Trip From Hyderabad and Other Cities. Book your next Cab with Aimcab and get discount on total fare to Hyderabad.
+Hyderabad Cab Booking at Affordable fare. We WTL Providing Quality Services for Cab Booking for OutStation, OneWay,Airport Cab and Round Trip From Hyderabad and Other Cities. Book your next Cab with WTL and get discount on total fare to Hyderabad.
 <br>
 <br>
 
@@ -3381,11 +3370,11 @@ END HOTEL AREA
         
       
          
-          <p class="text-center" style="font-size: 30px;"><strong>About Aim Cab Pvt Ltd</strong></p>
+          <p class="text-center" style="font-size: 30px;"><strong>About WTL Pvt Ltd</strong></p>
           <br>
-          <p class="attractive-paragraph">Welcome To "AIMCAB" Cab Booking Service In pune! Aimcab is an established car rental service provider in India, offering both long-term and short-term cab booking solutions. Our top priorities are ensuring safety, comfort, and reliable service for every client. With experienced and courteous drivers, we strive to provide the best possible transportation experience in Maharashtra. Since our inception in 2001, we have aimed to bring transparency to pricing and have grown rapidly to cater to a wide range of customers.</p>
-          <p class="attractive-paragraph">Aimcab is committed to providing rides that are both convenient and memorable. Aimcab is dedicated to providing convenient and unforgettable rides at all times. When you make a cab reservation with AIM CAB, you can put aside any worries about routes, cleanliness, and pricing behind. We offer a diverse range of options, including sedans and SUVs, to cater to your preferences and ensure a hassle-free experience. We Provide Comfortable Cab Rides To People From Over 1000+ Cities In India.</p>
-          <p class="attractive-paragraph">We are from Aimcab always there to ensure a hassle-free and joyful ride. Perhaps, our practices have enabled our establishment as one of the most preferred radio taxi services in various parts of the country; including Maharashtra, Delhi, Kolkata, Bengaluru, Jaipur, Shimla, Dehradun, Manali, Agra, Haridwar, Chandigarh, and Amritsar. We firmly believe in growth and outstanding services for our customers. Also, we ensure the utmost punctuality and responsibilities in our cab services. Whether you need to rush for a flight or to reach for a meeting on time; you just need to book a taxi online with Aimcab and count on us in providing a safe and comfortable ride.</p>
+          <p class="attractive-paragraph">Welcome To "WTL" Cab Booking Service In pune! WTL is an established car rental service provider in India, offering both long-term and short-term cab booking solutions. Our top priorities are ensuring safety, comfort, and reliable service for every client. With experienced and courteous drivers, we strive to provide the best possible transportation experience in Maharashtra. Since our inception in 2001, we have aimed to bring transparency to pricing and have grown rapidly to cater to a wide range of customers.</p>
+          <p class="attractive-paragraph">WTL is committed to providing rides that are both convenient and memorable. WTL is dedicated to providing convenient and unforgettable rides at all times. When you make a cab reservation with WTL, you can put aside any worries about routes, cleanliness, and pricing behind. We offer a diverse range of options, including sedans and SUVs, to cater to your preferences and ensure a hassle-free experience. We Provide Comfortable Cab Rides To People From Over 1000+ Cities In India.</p>
+          <p class="attractive-paragraph">We are from WTL always there to ensure a hassle-free and joyful ride. Perhaps, our practices have enabled our establishment as one of the most preferred radio taxi services in various parts of the country; including Maharashtra, Delhi, Kolkata, Bengaluru, Jaipur, Shimla, Dehradun, Manali, Agra, Haridwar, Chandigarh, and Amritsar. We firmly believe in growth and outstanding services for our customers. Also, we ensure the utmost punctuality and responsibilities in our cab services. Whether you need to rush for a flight or to reach for a meeting on time; you just need to book a taxi online with WTL and count on us in providing a safe and comfortable ride.</p>
         </div>
         <!-- end section-heading -->
       </div>
@@ -3502,7 +3491,7 @@ END HOTEL AREA
       <div class="col-lg-8">
         <div class="term-box footer-item" style="margin-top: 10px;">
           <p class="copy__desc">
-            &copy; Copyright Aimcab 2023 Made with
+           &copy; Copyright WTL 2023 Made with
             <span class="la la-heart"></span> by
             <a href="https://www.cobaztech.com/">cobaztech</a>
           </p>

@@ -355,7 +355,14 @@ public class BookingController {
 	    ) {
 	        // Store form data in the model
 		  List<Trip> tripinfo = new ArrayList<>();
-		    int Dist = Integer.parseInt(distance.replaceAll("[^0-9]", ""));
+		  System.out.println(distance);
+	        String numericString = distance.replaceAll("[^0-9.]", "");
+	        double floatValue = Double.parseDouble(numericString);
+
+		    int Dist = (int) floatValue;
+		   // int Dist = Integer.parseInt(distance);
+		  
+
 		    int Distance =0;
 		    int days =0;
 		  System.out.println(Distance);
@@ -375,6 +382,7 @@ public class BookingController {
 	      if ("oneWay".equals(tripType)) {
 	          tripinfo= tripSer.getonewayTrip(cityName, cityName1);
 	          Distance = Dist;
+	          System.out.println(Distance);
 	      } else if ("roundTrip".equals(tripType)) {
 	    	  
 	    	  
