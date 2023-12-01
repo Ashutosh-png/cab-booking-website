@@ -85,8 +85,8 @@ public class UserRegistrationController {
 		    
 		    service.save(userregistrationDto);
 	        redirectAttributes.addFlashAttribute("register", "Registered Succesfully");
-
-		    return "redirect:/registration";
+//changed register to login 
+		    return "redirect:/login";
 		} catch (Exception e) {
 	        redirectAttributes.addFlashAttribute("message", "Username already exists");
 

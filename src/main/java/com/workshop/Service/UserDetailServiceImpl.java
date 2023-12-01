@@ -1,6 +1,8 @@
 package com.workshop.Service;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -83,8 +86,41 @@ public class UserDetailServiceImpl implements UserService{
 	return 	repo.findById(id).get();
 	}
 	
-	
-	
+	  public String getDistanceByPickupAndDrop(String pickup, String drop, String apiKey) {
+	        try {
+	            // URL encode the city names
+	            String encodedPickup = URLEncoder.encode(pickup, "UTF-8");
+	            String encodedDrop = URLEncoder.encode(drop, "UTF-8");
+
+	            // Build the URL with encoded city names
+	            String apiUrl = UriComponentsBuilder
+	                    .fromUriString("https://maps.googleapis.com/maps/api/distancematrix/json")
+	                    .queryParam("origins", encodedPickup)
+	                    .queryParam("destinations", encodedDrop)
+	                    .queryParam("key", apiKey)
+	                    .toUriString();
+
+	            RestTemplate restTemplate = new RestTemplate();
+	            ResponseEntity<String> response = restTemplate.getForEntity(apiUrl, String.class);
+
+	            ObjectMapper objectMapper = new ObjectMapper();
+	            JsonNode root = objectMapper.readTree(response.getBody());
+	            
+	            // Ensure there is at least one row and one element in the response
+	            if (root.has("rows") && root.get("rows").isArray() && root.get("rows").size() > 0) {
+	                JsonNode elements = root.get("rows").get(0).path("elements");
+	                if (elements.isArray() && elements.size() > 0) {
+	                    String distanceText = elements.get(0).path("distance").path("text").asText();
+	                    return distanceText;
+	                }
+	            }
+
+	            return "Distance information not found in the response.";
+	        } catch (  IOException e) {
+	            e.printStackTrace();
+	            return "Error retrieving distance.";
+	        }
+	    }
 	
 	 public String getLongNameByCity(String city, String apiKey) {
 	        String apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=" + apiKey;

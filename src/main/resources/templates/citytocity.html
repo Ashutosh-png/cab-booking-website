@@ -7,10 +7,12 @@
     <meta name="author" content="TechyDevs" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="Explore seamless and cost-effective outstation cab booking services with WorldTripLink. Enjoy the fastest service across major cities worldwide. Make your journeys safe, comfortable, and hassle-free with WorldTripLink reliable cab services." />
-    <meta name="keywords"
-        content="WorldTripLink, car, cabs near me, taxis, book cab, book cabs online, car booking, taxi near me, cab booking online, taxi service, cab, cab service near me, car rental, car rental near me, taxi booking,  car rentals, tours and travels, luxury car, taxi, make my trip India,  cab service, easy my trip, swift dzire, cab booking, sedan, honda civic, BMW X5, Honda city, taxi service near me, airport taxi, trip, road trip, my trip, travels, book a taxi, car service, car service near me, cars in India, google travel, tourism, tours and travels near me, online cab booking, summer season, hill stations near me, cab rental services in India, trip, pune car rental, car rental in pune, cab in Pune, Outstation cab all over India." />
-    <title>World Trip Link</title>
+    <meta name="description" th:content="'Book a cab from ' + ${city1.city} + ' to ' + ${city2.city} + '. Explore seamless and cost-effective outstation cab booking services between ' + ${city1.city} + ' and ' + ${city2.city} + '. Enjoy the fastest service across major cities worldwide. Make your journeys safe, comfortable, and hassle-free with WorldTripLink\'s reliable cab services.'" />
+    
+  <title th:text="${city1.city + ' to ' + city2.city + ' Cab Booking'}"></title>
+  
+  <meta name="keywords" th:content="|car, taxi, cab, rental, outstation, one way, round trip, affordable fare cab, affordable rental car, airport transport, daily pickup drop, car rental service in ${city1.city} to ${city2.city}, ${city1.city} to ${city2.city} cab, ${city1.city} to ${city2.city} cab booking, ${city1.city} to ${city2.city} car booking, ${city1.city} to ${city2.city} cars, ${city1.city} to ${city2.city} cab service, ${city1.city} to ${city2.city} car rental, tours and travels in ${city1.city}, car booking in ${city1.city}, cab for outstation in ${city1.city}, outstation cab booking in ${city1.city}, outstation cab for ${city2.city} in ${city1.city}, cab booking service in ${city2.city}|"/>
+  
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCelDo4I5cPQ72TfCTQW-arhPZ7ALNcp8w&libraries=places"></script>
@@ -32,9 +34,9 @@
             overflow: hidden;
             margin: 40px;
         }
-        
-        
-          /* CSS for mobile view */
+
+     
+         /* CSS for mobile view */
 .mobile-only {
   display: inline;  /* Show the links on mobile devices */
 }
@@ -45,67 +47,14 @@
     display: none;  /* Hide the links on screens wider than 768px */
   }
 }
-		 
-        .copy__desc {
-    		text-align: center; /* Center the text horizontally in both views */
-   			 margin-left: 0;
-}
+
         .city-section {
             background-color: #8ECAE6;
             padding: 20px;
             height: 250px;
             position: relative;
         }
-        .offercard2{
-			text-align:center;
-		}
-        
-           .offercard2.card2 {
-            width: 700px;
-            background-color: rgb(192, 192, 192);
-            border: 1px solid #ccc;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-             opacity: 0; /* Initially set to fully transparent */
-            transition: opacity 1s ease-in-out; /* Add a fade-in transition */
-            position: relative;
-            overflow: hidden;
-        }
-
-       .card2 .h1 {
-            font-size: 24px;
-            margin: 0;
-            color: rgb(255, 255, 0);
-        }
-
-     
-
-        .offer {
-            display: none;
-            color: green;
-            font-weight: bold;
-            font-size: 20px;
-            
-        }
-        
-         .card2::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
-            transform: scale(0);
-            animation: ripple 0.6s ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+       
 
         /* Styles for the city list */
         .city-list {
@@ -115,20 +64,30 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+        .center-first-word {
+      text-align: center;
+     
+      
+        }
+
+        
+        
+        .attractive-paragraph {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333; /* Customize the text color */
+    }
 
         .city-list li {
-            font-size: 15px;
+            font-size: 20px;
             margin: 5px;
             width: 30%;
-            padding: 1px;
-            margin-right: 2px;
+            padding: 10px;
             text-align: center;
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s, background-color 0.2s;
             cursor: pointer;
-            height: 10px;
-            
         }
 
         .city-list li:hover {
@@ -149,62 +108,72 @@
                 opacity: 1;
             }
         }
-         
-         @media (min-width: 768px) {
-			 
-			 .copy__desc{
-				 align-items:center ;
-			 }
     </style>
-     <script>
-        // JavaScript to add the 'show-card' class after a delay
-        setTimeout(function() {
-            document.querySelector('.card2').classList.add('show-card');
-        }, 500); // Delay in milliseconds (e.g., 500ms)
-    </script>
+    
+    <style>
+		
+		
+		
+		
+		
+	</style>
+	
+	 <style>
+    .city-ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center; /* Center the list items horizontally */
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: center; /* Center items horizontally in the container */
+    }
+
+    /* Style for each list item */
+    .city-li {
+        flex: 0 0 23%; /* Set the flex-basis to 23% for four items in a row (plus some margin) */
+       
+        vertical-align: top; /* Align list items at the top */
+        box-sizing: border-box; /* Include padding and border in the total width and height */
+    }
+
+    /* Style for the links */
+    .city-a {
+        text-decoration: none;
+        color: #333; /* Text color */
+       
+        border: 1px solid #ccc; /* Border color */
+        border-radius: 5px;
+        transition: background-color 0.3s ease; /* Add a smooth transition effect on hover */
+        display: block; /* Make the link a block element for consistent spacing */
+    }
+
+    /* Hover effect */
+    .city-a:hover {
+        background-color: #f0f0f0; /* Change background color on hover */
+    }
+       .city-h1{
+    text-align: center;
+    }
+</style>
+	
 
     <!-- Template CSS Files -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="css/line-awesome.css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="css/daterangepicker.css" />
-    <link rel="stylesheet" href="css/animate.min.css" />
-    <link rel="stylesheet" href="css/animated-headline.css" />
-    <link rel="stylesheet" href="css/jquery-ui.css" />
-    <link rel="stylesheet" href="css/flag-icon.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11406460451">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11406460451');
-</script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/css/line-awesome.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/daterangepicker.css" />
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/animated-headline.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <!-- start cssload-loader -->
-  <!--   <div class="preloader" id="preloader">
-      <div class="loader">
-        <svg class="spinner" viewBox="0 0 50 50">
-          <circle
-            class="path"
-            cx="25"
-            cy="25"
-            r="20"
-            fill="none"
-            stroke-width="5"
-          ></circle>
-        </svg>
-      </div>
-    </div>-->
+    
     <!-- end cssload-loader -->
 
     <!-- ================================
@@ -240,136 +209,21 @@
                 >
                   <div class="header-right-action">
                     <div class="select-contain select--contain w-auto">
-                      <!-- <select class="select-contain-select">
-                        <option
-                          data-content='<span class="flag-icon flag-icon-id mr-1"></span> Bahasa Indonesia'
-                        >
-                          Bahasa Indonesia
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-de mr-1"></span> Deutsch'
-                        >
-                          Deutsch
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-us mr-1"></span> English(US)'
-                          selected
-                        >
-                          English US
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-gb-eng mr-1"></span> English(UK)'
-                        >
-                          English UK
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-ro mr-1"></span> Romanian'
-                        >
-                          Romanian
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-es mr-1"></span> Español'
-                        >
-                          Español
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-fr mr-1"></span> Francais'
-                        >
-                          Francais
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-it mr-1"></span> Italiano'
-                        >
-                          Italiano
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-pl mr-1"></span> Polski'
-                        >
-                          Polski
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-pt mr-1"></span> Portuguese'
-                        >
-                          Portuguese
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-tr mr-1"></span> Turkish'
-                        >
-                          Turkish
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-ru mr-1"></span> Russian'
-                        >
-                          Russian
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-jp mr-1"></span> Japanese'
-                        >
-                          Japanese
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-cn mr-1"></span> Mandarin'
-                        >
-                          Mandarin
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-tw mr-1"></span> Mandarin Chinese'
-                        >
-                          Mandarin Chinese
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-kr mr-1"></span> Korean'
-                        >
-                          Korean
-                        </option>
-                        <option
-                          data-content='<span class="flag-icon flag-icon-in mr-1"></span> Hindi'
-                        >
-                          Hindi
-                        </option>
-                      </select> -->
+                    
                     </div>
                   </div>
                   <div class="header-right-action">
                     <div class="select-contain select--contain w-auto">
                       <!-- <select class="select-contain-select">
-                        <option value="1">AED</option>
-                        <option value="2">AUD</option>
-                        <option value="3">BRL</option>
-                        <option value="4">CAD</option>
-                        <option value="5">CHF</option>
-                        <option value="6">CNY</option>
-                        <option value="7">EUR</option>
-                        <option value="8">GBP</option>
-                        <option value="9">HKD</option>
-                        <option value="10">IDR</option>
-                        <option value="11">INR</option>
-                        <option value="12">JPY</option>
-                        <option value="13">KRW</option>
-                        <option value="14">MYR</option>
-                        <option value="15">NZD</option>
-                        <option value="16">PHP</option>
-                        <option value="17">PLN</option>
-                        <option value="18">RUB</option>
-                        <option value="19">SAR</option>
-                        <option value="20">SGD</option>
-                        <option value="21">THB</option>
-                        <option value="22">TRY</option>
-                        <option value="23">TWD</option>
-                        <option value="24" selected>USD</option>
-                        <option value="25">VND</option>
-                        <option value="26">MXN</option>
-                        <option value="27">ARS</option>
-                        <option value="28">INR</option>
+                      
                       </select> -->
                     </div>
                   </div>
                   <div class="header-right-action">
                     <a th:href="@{/registration}" data-target="#signupPopupForm" class="mobile-only" style="border: 1px solid #000; padding: 10px;">Sign Up</a>
                          <!-- <a th:href="@{/login}" class="theme-btn theme-btn-small mobile-only" style="border: 1px solid #000; padding: 2px; background-color: #fff; width: 80px;">Login</a> -->
-   <th:block th:if="${!loggedIn}">
-        <a th:href="@{/login}" data-target="#signupPopupForm" class="mobile-only" style="border: 1px solid #000; padding: 10px;">Login</a>
-    </th:block>  </div>
+                         <a th:href="@{/login}" data-target="#signupPopupForm" class="mobile-only" style="border: 1px solid #000; padding: 10px;">Login</a>
+  </div>
                 </div>
               </div>
             </div>
@@ -403,122 +257,7 @@
                         <div class="dropdown-menu-item mega-menu">
                           <!-- <ul class="row no-gutters">
                               <li class="col-lg-3 mega-menu-item">
-                                <ul>
-                                  <li><a href="add-hotel.html">add hotel </a></li>
-                                  <li>
-                                    <a href="add-flight.html">add flight </a>
-                                  </li>
-                                  <li><a href="add-tour.html">add tour </a></li>
-                                  <li>
-                                    <a href="add-cruise.html">add cruise </a>
-                                  </li>
-                                  <li><a href="add-car.html">add car</a></li>
-                                  <li>
-                                    <a href="user-dashboard.html"
-                                      >User Dashboard</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="admin-dashboard.html"
-                                      >Admin Dashboard</a
-                                    >
-                                  </li>
-                                  <li><a href="career.html">career</a></li>
-                                  <li>
-                                    <a href="route-map.html"
-                                      >route map<span
-                                        class="badge bg-2 text-white"
-                                        >New</span
-                                      ></a
-                                    >
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="col-lg-3 mega-menu-item">
-                                <ul>
-                                  <li>
-                                    <a href="route.html"
-                                      >route<span class="badge bg-2 text-white"
-                                        >New</span
-                                      ></a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="route-destination.html"
-                                      >route destination<span
-                                        class="badge bg-2 text-white"
-                                        >New</span
-                                      ></a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="career-details.html"
-                                      >career details</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="user-profile.html">User profile</a>
-                                  </li>
-                                  <li>
-                                    <a href="become-local-expert.html"
-                                      >Become Local Expert</a
-                                    >
-                                  </li>
-                                  <li><a href="contact.html">contact</a></li>
-                                  <li><a href="cart.html">Cart</a></li>
-                                  <li><a href="checkout.html">Checkout</a></li>
-                                  <li>
-                                    <a href="recover.html">recover password</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="col-lg-3 mega-menu-item">
-                                <ul>
-                                  <li>
-                                    <a href="payment-received.html"
-                                      >payment received</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="payment-complete.html"
-                                      >payment complete</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="destinations.html">Destinations</a>
-                                  </li>
-                                  <li><a href="about.html">about</a></li>
-                                  <li>
-                                    <a href="services.html">Our Services</a>
-                                  </li>
-                                  <li><a href="gallery.html">Gallery</a></li>
-                                  <li><a href="pricing.html">pricing</a></li>
-                                  <li><a href="faq.html">faq</a></li>
-                                  <li>
-                                    <a href="add-new-post.html">add new post</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="col-lg-3 mega-menu-item">
-                                <ul>
-                                  <li>
-                                    <a href="blog-full-width.html"
-                                      >blog full width</a
-                                    >
-                                  </li>
-                                  <li><a href="blog-grid.html">blog grid</a></li>
-                                  <li>
-                                    <a href="blog-sidebar.html">blog sidebar</a>
-                                  </li>
-                                  <li>
-                                    <a href="blog-single.html">blog details</a>
-                                  </li>
-                                  <li>
-                                    <a href="coming-soon.html">Coming Soon</a>
-                                  </li>
-                                  <li><a href="page-404.html">404 page</a></li>
-                                </ul>
-                              </li>
+                               
                             </ul> -->
                         </div>
                       </li>
@@ -527,124 +266,7 @@
                           style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Home<i
                             class="la la-home"></i></a>
                         <!-- <ul class="dropdown-menu-item">
-                            <li><a href="flight-grid.html">Flight grid</a></li>
-                            <li><a href="flight-list.html">Flight list</a></li>
-                            <li>
-                              <a href="flight-sidebar.html">Flight sidebar </a>
-                            </li>
-                            <li>
-                              <a href="flight-single.html">Flight details</a>
-                            </li>
-                            <li>
-                              <a href="flight-booking.html">Flight Booking</a>
-                            </li>
-                            <li>
-                              <a href="flight-search-result.html"
-                                >Flight Search Result</a
-                              >
-                            </li>
-                          </ul> -->
-                      </li>
-                       <th:block th:if="${!loggedIn}">
-                      <li>
-                        <a th:href="@{/login}"
-                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Login<i
-                            ></i></a>
-                           
-                       
-                      </li>
-                      <li>
-                        <a th:href="@{/registration}"
-                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Sing Up<i
-                            ></i></a>
-                             </th:block>
-                              <th:block th:if="${loggedIn}">
-                              <li>
-                        <a th:href="@{/logout}"
-                          style=" border: 1px solid; padding: 5px; border-radius: 10px; background-color: #219ebc; color: #fff;">Logout<i
-                            ></i></a>
                             
-                            
-                              <li>
-        <span th:text="${username}" style="color: red;"></span>
-    </li>
-                             </th:block>
-                        <!-- <ul class="dropdown-menu-item">
-                            <li><a href="flight-grid.html">Flight grid</a></li>
-                            <li><a href="flight-list.html">Flight list</a></li>
-                            <li>
-                              <a href="flight-sidebar.html">Flight sidebar </a>
-                            </li>
-                            <li>
-                              <a href="flight-single.html">Flight details</a>
-                            </li>
-                            <li>
-                              <a href="flight-booking.html">Flight Booking</a>
-                            </li>
-                            <li>
-                              <a href="flight-search-result.html"
-                                >Flight Search Result</a
-                              >
-                            </li>
-                          </ul> -->
-                      </li>
-                      <!-- <li>
-                        
-                        <a href="#">Login <i class="la la-angle-down"></i></a>
-                        <ul class="dropdown-menu-item">
-                          <li><a href="hotel-grid.html">Hotel grid</a></li>
-                          <li><a href="hotel-list.html">Hotel list</a></li>
-                          <li>
-                            <a href="hotel-sidebar.html">Hotel sidebar </a>
-                          </li>
-                          <li><a href="hotel-single.html">Hotel details</a></li>
-                          <li>
-                            <a href="hotel-booking.html">Hotel Booking</a>
-                          </li>
-                          <li>
-                            <a href="hotel-search-result.html"
-                              >Hotel Search Result</a
-                            >
-                          </li>
-                          <li>
-                            <a href="#">Rooms <i class="la la-plus"></i></a>
-                            <ul class="sub-menu">
-                              <li><a href="room-list.html">Room List</a></li>
-                              <li><a href="room-grid.html">Room Grid</a></li>
-                              <li>
-                                <a href="room-search-result.html"
-                                  >Search Result</a
-                                >
-                              </li>
-                              <li>
-                                <a href="room-search-result-list.html"
-                                  >Search Result list</a
-                                >
-                              </li>
-                              <li>
-                                <a href="room-details.html">Room Details</a>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li> -->
-                        <!-- <a href="#">Register <i class="la la-angle-down"></i></a> -->
-                        <!-- <ul class="dropdown-menu-item">
-                          <li><a href="car-grid.html">car grid</a></li>
-                          <li><a href="car-list.html">car list</a></li>
-                          <li><a href="car-sidebar.html">car sidebar </a></li>
-                          <li><a href="car-single.html">car details</a></li>
-                          <li><a href="car-booking.html">Car Booking</a></li>
-                          <li>
-                            <a href="car-search-result.html"
-                              >Car Search Result</a
-                            >
-                          </li>
-                        </ul> -->
-                      </li>
-                    </ul>
-                  </nav>
                 </div>
                 <!-- end main-menu-content -->
                 <!-- <div class="nav-btn">
@@ -669,10 +291,11 @@
 ================================= -->
 <hr>
 
+
     <!-- ================================
     START HERO-WRAPPER AREA
 ================================= -->
-    <section class="hero-wrapper"  id="Form">
+    <section class="hero-wrapper">
       <div class="hero-box hero-bg1">
         <!-- <span class="line-bg line-bg1"></span>
         <span class="line-bg line-bg2"></span>
@@ -690,18 +313,22 @@
                     <span class="cd-words-wrapper">
                       <b class="is-visible"></b>
                       <b>Buses</b>
-                    <!--  <b>Train</b>-->
+                      <b>Train</b>
                       <b>Cabs</b>
                       <!-- <b>Cars</b> -->
-                      <!-- <b>Cruises</b> -->
+                      <!-- <b>Cruises</b>
                       <b>Package Deals</b>
                       <b>Fun</b>
-                      <!-- <b>People</b> --> 
+                      <b>People</b> -->
                     </span>
                     Waiting for You
                   </h2>
                 </div>
               </div>
+              <br>
+              <br>
+              <br>
+              
               <!-- end hero-content -->
               <div class="section-tab text-center pl-4">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -831,7 +458,7 @@
                   <div class="tab-content" id="myTabContent3">
                     <div class="tab-pane fade show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
                         <div class="contact-form-action">
-                            <form th:action="@{/cab}" method="post" >
+                            <form th:action="@{/cab}" method="post" id="Form" >
                               <div class="mb-3">
    <label>Trip Type:</label>
 <div class="form-check form-check-inline">
@@ -849,13 +476,13 @@
 </div>
 
 
-                                <div class="mb-3" style="display: inline-block; width: 48%;">
-                                    <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
-                                        required="required" autocomplete="off" placeholder="Pickup Location">
-                                </div>
+                              <div class="mb-3" style="display: inline-block; width: 48%;">
+    <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
+           required="required" autocomplete="off" th:value="${city1.city}">
+</div>
                                 <div class="mb-3" style="display: inline-block; width: 48%;">
                                     <input type="text" id="dropLocation" name="dropLocation" class="form-control"
-                                        required="required" autocomplete="off" placeholder="Drop Location">
+                                        required="required" autocomplete="off" placeholder="Drop Location" th:value="${city2.city}">
                                 </div>
                                 
                                 <div class="mb-3" style="display: inline-block; width: 48%;">
@@ -905,7 +532,7 @@
                           </div>
                           <div class="mb-3" style="display: inline-block; width: 48%;">
                               <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
-                                  required="required" autocomplete="off" placeholder="pickupLocation">
+                                  required="required" autocomplete="off" placeholder= th:placeholder="${city.city}">
                           </div>
                           <div class="mb-3" style="display: inline-block; width: 48%;">
                               <input type="text" id="dropLocation" name="dropLocation" class="form-control"
@@ -958,32 +585,105 @@
                                       <option selected="selected" value="">
                                         No preference
                                       </option>
-                                      <option value="AN">Air India</option>
-                                      <option value="A3">Indigo</option>
-                                      <option value="EI">Jet Airways</option>
+                                      <option value="AN">Advanced Air</option>
+                                      <option value="A3">Aegean</option>
+                                      <option value="EI">Aer Lingus</option>
                                       <option value="5G">
-                                        SpiceJet
+                                        Aerocuahonte / Mayair
                                       </option>
                                       <option value="SU">
-                                        Air India Express
+                                        Aeroflot-Russian Airlines
                                       </option>
                                       <option value="AR">
-                                        GoFirst
+                                        Aerolineas Argentinas
                                       </option>
                                       <option value="VW">
-                                        Vistara
+                                        Aeromar Airlines
                                       </option>
-                                      <option value="AM">Indian Airlines</option>
-                                      <option value="ZI">Alliance Air</option>
-                                      <option value="AH">TruJet</option>
-                                      <option value="KC">Air India Limited</option>
-                                      <option value="UU">Kingfisher Airlines</option>
-                                      <option value="BT">Taj Air</option>
-                                   
+                                      <option value="AM">Aeromexico</option>
+                                      <option value="ZI">Aigle Azur</option>
+                                      <option value="AH">Air Algerie</option>
+                                      <option value="KC">Air Astana</option>
+                                      <option value="UU">Air Austral</option>
+                                      <option value="BT">Air Baltic</option>
+                                      <option value="BP">Air Botswana</option>
+                                      <option value="AC">Air Canada</option>
+                                      <option value="TX">Air Caraibes</option>
+                                      <option value="CA">Air China</option>
+                                      <option value="3E">Air Choice One</option>
+                                      <option value="XK">Air Corsica</option>
+                                      <option value="UX">Air Europa</option>
+                                      <option value="X4">
+                                        Air Excursions LLC
+                                      </option>
+                                      <option value="AF">Air France</option>
+                                      <option value="NY">
+                                        Air Iceland Connect
+                                      </option>
                                       <option value="AI">Air India</option>
-                                     
-                                  
-                                 
+                                      <option value="IG">Air Italy</option>
+                                      <option value="MD">Air Madagascar</option>
+                                      <option value="KM">Air Malta</option>
+                                      <option value="MK">Air Mauritius</option>
+                                      <option value="9U">Air Moldova</option>
+                                      <option value="NZ">
+                                        Air New Zealand
+                                      </option>
+                                      <option value="PX">Air Niugini</option>
+                                      <option value="OG">Air Onix</option>
+                                      <option value="JU">Air Serbia</option>
+                                      <option value="TN">Air Tahiti Nui</option>
+                                      <option value="TS">Air Transat</option>
+                                      <option value="H/">
+                                        AirAsia with baggage
+                                      </option>
+                                      <option value="AS">
+                                        Alaska Airlines
+                                      </option>
+                                      <option value="AZ">Alitalia</option>
+                                      <option value="NH">
+                                        All Nippon Airways
+                                      </option>
+                                      <option value="G4">Allegiant Air</option>
+                                      <option value="AA">
+                                        American Airlines
+                                      </option>
+                                      <option value="OY">
+                                        Andes Lineas Aereas
+                                      </option>
+                                      <option value="OZ">
+                                        Asiana Airlines
+                                      </option>
+                                      <option value="KP">ASKY</option>
+                                      <option value="OS">
+                                        Austrian Airlines
+                                      </option>
+                                      <option value="AV">Avianca</option>
+                                      <option value="2K">
+                                        Avianca Ecuador
+                                      </option>
+                                      <option value="9V">Avior Airlines</option>
+                                      <option value="J2">
+                                        Azerbaijan Airlines
+                                      </option>
+                                      <option value="AD">Azul</option>
+                                      <option value="JD">
+                                        Beijing Capital Airlines
+                                      </option>
+                                      <option value="0B">BlueAir</option>
+                                      <option value="OB">
+                                        Boliviana De Aviacion
+                                      </option>
+                                      <option value="4B">Boutique Air</option>
+                                      <option value="BA">
+                                        British Airways
+                                      </option>
+                                      <option value="SN">
+                                        Brussels Airlines
+                                      </option>
+                                      <option value="A7">
+                                        Calafia Airlines
+                                      </option>
                                       <option value="K6">
                                         Cambodia Angkor Air
                                       </option>
@@ -1543,13 +1243,15 @@
                               <option value="rentalTrip">Rental Trip</option>
                           </select>
                       </div>
-                      <div class="mb-3" style="display: inline-block; width: 48%;">
-                          <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
-                              required="required" autocomplete="off" placeholder="pickupLocation">
-                      </div>
+                    <div class="mb-3" style="display: inline-block; width: 48%;">
+    <input type="text" id="pickupLocation" name="pickupLocation" class="form-control"
+           required="required" autocomplete="off" th:placeholder="${city1.city}">
+</div>
+
+
                       <div class="mb-3" style="display: inline-block; width: 48%;">
                           <input type="text" id="dropLocation" name="dropLocation" class="form-control"
-                              required="required" autocomplete="off" placeholder="dropLocation">
+                              required="required" autocomplete="off" placeholder="dropLocation"  th:placeholder="${city2.city}">
                       </div>
                       
                       <div class="mb-3" style="display: inline-block; width: 48%;">
@@ -1568,7 +1270,7 @@
                       <button type="submit" class="btn btn-primary">Submit</button>
                       <input type="hidden" id="distanceInput" name="distance">
                       <div class="mt-3">
-                          <h2>Distance:</h2>
+                          <h2>Distanceasasa:</h2>
                           <span id="distance"></span>
                       </div>
                       <div class="rows"></div>
@@ -2566,22 +2268,22 @@
                       <div class="row">
                         <div class="col-lg-3 pr-0">
                           <div class="input-box">
-                            <label class="label-text">Cab type</label>
+                            <label class="label-text">Car type</label>
                             <div class="form-group">
                               <div class="select-contain w-auto">
                                 <select class="select-contain-select">
                                   <option value="1">No preference</option>
-                                  <option value="2">Economy cab</option>
-                                  <option value="3">Compact cab</option>
-                                  <option value="4">Midsize cab</option>
-                                  <option value="5">Standard cab</option>
-                                  <option value="6">Fullsize cab</option>
-                                  <option value="7">Premium cab</option>
-                                  <option value="8">Luxury cab</option>
-                                  <option value="9">Convertible cab</option>
-                                  <option value="10">Minivan cab</option>
-                                  <option value="11">Sport Utility cab</option>
-                                  <option value="12">Sports cab</option>
+                                  <option value="2">Economy</option>
+                                  <option value="3">Compact</option>
+                                  <option value="4">Midsize</option>
+                                  <option value="5">Standard</option>
+                                  <option value="6">Fullsize</option>
+                                  <option value="7">Premium</option>
+                                  <option value="8">Luxury</option>
+                                  <option value="9">Convertible</option>
+                                  <option value="10">Minivan</option>
+                                  <option value="11">Sport Utility</option>
+                                  <option value="12">Sports car</option>
                                 </select>
                               </div>
                             </div>
@@ -2590,23 +2292,24 @@
                         <!-- end col-lg-3 -->
                         <div class="col-lg-3 pr-0">
                           <div class="input-box">
-                            <label class="label-text">Rental cab company</label>
+                            <label class="label-text">Rental car company</label>
                             <div class="form-group">
                               <div class="select-contain w-auto">
                                 <select class="select-contain-select">
                                   <option value="">No preference</option>
-                                  <option value="AC">Rent A Cab</option>
+                                  <option value="AC">ACE Rent A Car</option>
                                   <option value="AD">
-                                    Advantage Rent-A-Cab
+                                    Advantage Rent-A-Car
                                   </option>
-                                  <option value="AL">Zapji Travel Rent A Cab</option>
-                                  <option value="ZI">Hertz car rental</option>
-                                  <option value="ZD">Abis car rental</option>
-                                  <option value="ZR">Zoomcar rental</option>
-                                  <option value="EY">Myles car rental</option>
-                                  <option value="ET">Revv car rental</option>
-                                  <option value="EP">Worldtriplink cab booking</option>
-                                  <option value="FX"></option>
+                                  <option value="AL">Alamo Rent A Car</option>
+                                  <option value="ZI">Avis</option>
+                                  <option value="ZD">Budget</option>
+                                  <option value="ZR">Dollar Rent A Car</option>
+                                  <option value="EY">Economy Rent a Car</option>
+                                  <option value="ET">Enterprise</option>
+                                  <option value="EP">Europcar</option>
+                                  <option value="FX">Fox Rental Cars</option>
+                                  <option value="ZE">Hertz</option>
                                   <option value="MW">Midway Car Rental</option>
                                   <option value="ZL">
                                     National Car Rental
@@ -2671,17 +2374,17 @@
                               <select class="select-contain-select">
                                 <option value="">Select destination</option>
                                 <optgroup label="Most Popular">
-                                  <option value="caribbean">Pune</option>
-                                  <option value="bahamas">Mumbai</option>
-                                  <option value="mexico">Nashik</option>
-                                  <option value="alaska">SambhajiNagar</option>
+                                  <option value="caribbean">Caribbean</option>
+                                  <option value="bahamas">Bahamas</option>
+                                  <option value="mexico">Mexico</option>
+                                  <option value="alaska">Alaska</option>
                                   <option value="europe">Europe</option>
                                   <option value="bermuda">Bermuda</option>
                                   <option value="hawaii">Hawaii</option>
                                   <option value="nepal">Nepal</option>
                                   <option value="italy">Italy</option>
                                   <option value="canada-new-england">
-                                    cab 
+                                    Canada / New England
                                   </option>
                                 </optgroup>
                                 <optgroup label="Other Destinations">
@@ -3000,14 +2703,14 @@
           <!-- end row -->
         </div>
         <!-- end container -->
-       <!-- <svg
+        <!-- <svg
           class="hero-svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
           <path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path>
-        </svg>-->
+        </svg> -->
       </div>
     </section>
     <!-- end hero-wrapper -->
@@ -3015,2107 +2718,1106 @@
     END HERO-WRAPPER AREA
 ================================= -->
 
-    <!-- ================================
-    START INFO AREA
-================================= -->
-    <section
-      class="info-area info-bg padding-top-50px padding-bottom-50px text-center"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="icon-box">
-              <div class="info-icon">
-                <i class="la la-car"></i>
-              </div>
-              <!-- end info-icon-->
-              <div class="info-content">
-                <h4 class="info__title">CORPORATE CABS</h4>
-                <p class="info__desc">
-                 reliable corporate car services,specific needs of business travelers with a commitment to professionalism and punctuality.
-                </p>
-              </div>
-              <!-- end info-content -->
-            </div>
-            <!-- end icon-box -->
-          </div>
-          <!-- end col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="icon-box margin-top-50px" style="margin-top:2px">
-              <div class="info-icon">
-                <i class="la la-car"></i>
-              </div>
-              <!-- end info-icon-->
-              <div class="info-content">
-                <h4 class="info__title">
-                 SPECIAL FUNCTIONS
-                </h4>
-                <p class="info__desc">
-                 we provide all types of cabs for all types of functions 
-                </p>
-              </div>
-              <!-- end info-content -->
-            </div>
-            <!-- end icon-box -->
-          </div>
-          <!-- end col-lg-4 -->
-          <div class="col-lg-4">
-            <div class="icon-box">
-              <div class="info-icon">
-                <i class="la la-car"></i>
-              </div>
-              <!-- end info-icon-->
-              <div class="info-content">
-                <h4 class="info__title">RENTAL CABS</h4>
-                <p class="info__desc">
-                  We proudly offer a wide range of rental cabs to meet your diverse transportation needs
-                </p>
-              </div>
-              <!-- end info-content -->
-            </div>
-            <!-- end icon-box -->
-          </div>
-          <!-- end col-lg-4 -->
+
+
+<section class="car-area section-bg section-padding" style="padding: 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center">
+         <h2 class="sec__title" th:text="${city1.city +' to '+city2.city +' Cab Booking'}"></h2>
+         
+        
+              
+
         </div>
-        <!-- end row -->
+      <br>
+
+
+        <p>
+          
+
+<h3 th:text="${'Looking for  Cab from '+city1.city+' to '+city2.city }"></h3> <br>
+  <p th:text="${city1.paragraphinfo}">City information goes here.</p>
+    <p th:text="${city2.paragraphinfo}">City information goes here.</p>
+  
+
+<br>
+<br>
+
+
+        </p>
+        <!-- end section-heading -->
       </div>
-      <!-- end container -->
-    </section>
-    
-    <section class="offercard2">
-		<div class="card2" style="width: 100%;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);background-color: #f0f0f0;">
-       
-        <h1 style="color:rgb(255 167 0)">Unbeatable Deal: Get <span th:text="${discountPercentage}"></span>% Off Today!</h1>
-        <div class="offer" id="offer">
-            <p>Special Offer: <span th:text="${discountPercentage}"></span>% off!</p>
-        </div>
+      <!-- end col-lg-12 -->
     </div>
-		
-	</section>
-	 <script>
-        // Check if there is an offer and display it if available
-        const offerDiv = document.getElementById("offer");
-        const hasOffer = true; // Set this to true if there is an offer, or false if not
-
-        if (hasOffer) {
-            offerDiv.style.display = "block";
-        } else {
-            offerDiv.style.display = "none";
-        }
-    </script>
-    <!-- end info-area -->
-    <!-- ================================
-    END INFO AREA
-================================= -->
-
-    <div class="section-block"></div>
-
-    <!-- ================================
-    START ROUND-TRIP AREA
-================================= -->
+    <!-- end row -->
    
-  <!-- end round-trip-flight -->
-  <!-- ================================
-    END ROUND-TRIP AREA
-================================= -->
+              </div>
+            </div>
+            <!-- end card-item -->
+          </div>
+          <!-- end car-carousel -->
+        </div>
+      </div>
+      <!-- end col-lg-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
 
-  <!-- ================================
+   <!-- ================================
     START HOTEL AREA
 ================================= -->
-  <!-- <section 
-      class="hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px"
-    >
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading text-center">
-              <h2 class="sec__title line-height-55">
-                Most Popular Hotel <br />
-                Destinations
-              </h2>
-            </div>
-    
-          </div>
-         
-        </div>
-       
-        <div class="row padding-top-50px">
-          <div class="col-lg-12">
-            <div class="hotel-card-wrap">
-              <div class="hotel-card-carousel carousel-action">
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img1.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Bestseller</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >The Millennium Hilton New York</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, New york</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-               
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img2.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Best Western Grant Park Hotel</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, Chicago</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img3.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Featured</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Hyatt Regency Maui Resort & Spa</a
-                      >
-                    </h3>
-                    <p class="card-meta">200 Nohea Kai Dr, Lahaina, HI</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- end card-item -->
-  <!-- <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img4.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Popular</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Four Seasons Resort Maui at Wailea</a
-                      >
-                    </h3>
-                    <p class="card-meta">3900 Wailea Alanui Drive, Kihei, HI</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
+<!-- <section
+class="hotel-area section-bg section-padding overflow-hidden padding-right-100px padding-left-100px"
+> -->
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="section-heading text-center"> -->
+        <!-- <h2 class="sec__title line-height-55">
+          Cab Booking Ratnagirito Ratnagiri <br />
           
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img5.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Ibis Styles London Heathrow</a
-                      >
-                    </h3>
-                    <p class="card-meta">272 Bath Road, Harlington, England</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-            
-                <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img6.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Hotel Europe Saint Severin Paris</a
-                      >
-                    </h3>
-                    <p class="card-meta">
-                      38-40 Rue Saint Séverin, Paris, Paris
-                    </p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div> -->
-
-  <!-- <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img1.jpg" alt="hotel-img" />
-                    </a>
-                    <span class="badge">Bestseller</span>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >The Millennium Hilton New York</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, New york</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$88.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-              -->
-  <!-- <div class="card-item mb-0">
-                  <div class="card-img">
-                    <a href="hotel-single.html" class="d-block">
-                      <img src="images/img2.jpg" alt="hotel-img" />
-                    </a>
-                    <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Bookmark"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      <a href="hotel-single.html"
-                        >Best Western Grant Park Hotel</a
-                      >
-                    </h3>
-                    <p class="card-meta">124 E Huron St, Chicago</p>
-                    <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div>
-                    <div
-                      class="card-price d-flex align-items-center justify-content-between"
-                    >
-                      <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per night</span>
-                      </p>
-                      <a href="hotel-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-               
-              </div>
-         
-            </div>
-          </div>
-   
-        </div> -->
-
-  <!-- </div>  -->
-
-
-
-
-
-  <!-- ================================
-    START DESTINATION AREA
-================================= -->
-  <!-- <section class="destination-area section--padding">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8">
-            <div class="section-heading">
-              <h2 class="sec__title">Top Visited Places</h2>
-              <p class="sec__desc pt-3">
-                Morbi convallis bibendum urna ut viverra Maecenas quis
-              </p>
-            </div>
-
-           
-          </div>
-        
-          <div class="col-lg-4">
-            <div class="btn-box btn--box text-right">
-              <a href="tour-grid.html" class="theme-btn">Discover More</a>
-            </div>
-          </div>
-        </div>
-      
-        <div class="row padding-top-50px">
-          <div class="col-lg-4">
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img2.jpg" alt="destination-img" />
-                <span class="badge">new york</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Main Street Park</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$58.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img3.jpg" alt="destination-img" />
-                <span class="badge">chicago</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Chicago Cultural Center</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$68.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-           
-          </div>
-         
-          <div class="col-lg-4">
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img4.jpg" alt="destination-img" />
-                <span class="badge">Hong Kong</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Lugard Road Lookout</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">150 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$79.00</span>
-                    <span class="price__num before-price">$89.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-           
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img5.jpg" alt="destination-img" />
-                <span class="badge">Las Vegas</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Planet Hollywood Resort</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star-o"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$88.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-      
-          <div class="col-lg-4">
-            <div class="card-item destination-card">
-              <div class="card-img">
-                <img src="images/destination-img.jpg" alt="destination-img" />
-                <span class="badge">Shanghai</span>
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">
-                  <a href="tour-details.html">Oriental Pearl TV Tower</a>
-                </h3>
-                <div class="card-rating d-flex align-items-center">
-                  <span class="ratings d-flex align-items-center mr-1">
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                    <i class="la la-star"></i>
-                  </span>
-                  <span class="rating__text">(70694 Reviews)</span>
-                </div>
-                <div
-                  class="card-price d-flex align-items-center justify-content-between"
-                >
-                  <p class="tour__text">50 Tours</p>
-                  <p>
-                    <span class="price__from">Price</span>
-                    <span class="price__num">$58.00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-         
-        </div>
-     
+        </h2> -->
       </div>
-     
-    </section> -->
-  <!-- end destination-area -->
-  <!-- ================================
-    END DESTINATION AREA
-================================= -->
-
-  <!-- ================================
-    START CAR AREA
-================================= -->
-  <section class="car-area section-bg section-padding" style="padding: 50px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading text-center">
-            <h2 class="sec__title">Book Your Cab Now!</h2>
-          </div>
-          <!-- end section-heading -->
-        </div>
-        <!-- end col-lg-12 -->
-      </div>
-      <!-- end row -->
-      <div class="row padding-top-30px">
-        <div class="col-lg-12">
-          <div class="car-wrap">
-            <div class="car-carousel carousel-action">
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/wagonr-exterior-right-front-three-quarter-3.webp" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">Bestseller</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Compact SUV</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Hatchback</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li> -->
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/swift.jpeg" alt="car-img" />
-                  </a>
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Standard</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Hatchback</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li> -->
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$33.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/c6es93a_1572125.jpg" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">featured</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Compact Elite</p> -->
-                  <h3 class="card-title">
-                    <a href="#Form">SUV</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
-                        title="Passenger">
-                        <!-- <i class="la la-users"></i><span>4</span> -->
-                      </li>
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Luggage"
-                        >
-                          <i class="la la-suitcase"></i><span>1</span>
-                        </li> -->
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">Bestseller</span> -->
-                  <!-- <div
-                      class="add-to-wishlist icon-element"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Save for later"
-                    >
-                      <i class="la la-heart-o"></i>
-                    </div> -->
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Fullsize Van</p> -->
-                  <h3 class="card-title">
-                    <a href="#Form">SUV</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>6</span>
-                        </li> -->
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>2</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$45.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/etios-2010-2013.webp" alt="car-img" />
-                  </a>
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Luxury</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Sedans</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
-                        title="Passenger">
-                        <!-- <i class="la la-users"></i><span>5</span> -->
-                      </li>
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>3</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/swift-dzire-car-jpg-500x500.webp" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">featured</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Mini</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Sedan</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>1</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-            </div>
-            <!-- end car-carousel -->
-          </div>
-        </div>
-        <!-- end col-lg-12 -->
-      </div>
-      <!-- end row -->
+      <!-- end section-heading -->
     </div>
-    <!-- end container -->
-  </section>
-  
-  
-  <!-- <section class="round-trip-flight section-padding">
-        <div class="card">
+    <!-- end col-lg-12 -->
+  </div>
+  <!-- end row -->
+  <!-- <div class="row padding-top-50px">
+    <div class="col-lg-12">
+      <div class="hotel-card-wrap">
+        <div class="hotel-card-carousel carousel-action">
+          <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./pune.html" class="d-block">
+                <img src="images/swift.jpeg" alt="hotel-img" />
+              </a> -->
+              <!-- <span class="badge">Bestseller</span> -->
+              <!-- <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./pune.html"
+                  >Hatchback</a
+                >
+              </h3> -->
+              <!-- <p class="card-meta">124 E Huron St, New york</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <!-- <div
+                class="card-price d-flex align-items-center justify-content-between"
+              > -->
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <!-- <a href="./pune.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./pune.html" class="d-block">
+                <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="hotel-img" />
+              </a>
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./pune.html"
+                  >SUV</a
+                >
+              </h3> -->
+              <!-- <p class="card-meta">124 E Huron St, Chicago</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <!-- <div
+                class="card-price d-flex align-items-center justify-content-between"
+              > -->
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$58.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <!-- <a href="./pune.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./pune.html" class="d-block">
+                <img src="images/swift-dzire-car-jpg-500x500.webp" alt="hotel-img" />
+              </a> -->
+              <!-- <span class="badge">Featured</span> -->
+              <!-- <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./pune.html"
+                  >Sedan</a
+                >
+              </h3> -->
+              <!-- <p class="card-meta">200 Nohea Kai Dr, Lahaina, HI</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <!-- <div
+                class="card-price d-flex align-items-center justify-content-between"
+              > -->
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <!-- <a href="./pune.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="./pune.html" class="d-block">
+                <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="hotel-img" / style="height: 200px;">
+              </a> -->
+              <!-- <span class="badge">Popular</span> -->
+              <!-- <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="./pune.html"
+                  >MUV</a
+                > -->
+              <!-- </h3> -->
+              <!-- <p class="card-meta">3900 Wailea Alanui Drive, Kihei, HI</p> -->
+              <!-- <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div> -->
+              <!-- <div
+                class="card-price d-flex align-items-center justify-content-between"
+              > -->
+                <!-- <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p> -->
+                <!-- <a href="./pune.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="hotel-single.html" class="d-block">
+                <img src="images/img5.jpg" alt="hotel-img" />
+              </a>
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="hotel-single.html"
+                  >Ibis Styles London Heathrow</a
+                >
+              </h3>
+              <p class="card-meta">272 Bath Road, Harlington, England</p>
+              <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div>
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p>
+                <a href="hotel-single.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div> -->
+          </div>
+          <!-- end card-item -->
+          
+          <!-- end card-item -->
+          <!-- <div class="card-item mb-0">
+            <div class="card-img">
+              <a href="hotel-single.html" class="d-block">
+                <img src="images/img1.jpg" alt="hotel-img" />
+              </a>
+              <span class="badge">Bestseller</span>
+              <div
+                class="add-to-wishlist icon-element"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Bookmark"
+              >
+                <i class="la la-heart-o"></i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="hotel-single.html"
+                  >The Millennium Hilton New York</a
+                >
+              </h3>
+              <p class="card-meta">124 E Huron St, New york</p>
+              <div class="card-rating">
+                <span class="badge text-white">4.4/5</span>
+                <span class="review__text">Average</span>
+                <span class="rating__text">(30 Reviews)</span>
+              </div>
+              <div
+                class="card-price d-flex align-items-center justify-content-between"
+              >
+                <p>
+                  <span class="price__from">From</span>
+                  <span class="price__num">$88.00</span>
+                  <span class="price__text">Per night</span>
+                </p>
+                <a href="hotel-single.html" class="btn-text"
+                  >See details<i class="la la-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <!-- end card-item -->
          
-             <ul class="city-list">
-    <li><a href="#Form" style="margin-left: -200px;">Mahabaleshwar</a></li>
-    <li><a href="#Form" style="margin-left: -850px;">Panchagani</a></li>
-    <li><a href="#Form" style="margin-left: -1450px;">Kolhapur</a></li>
-    <li><a href="#Form">Satara</a></li>
-    <li><a href="#Form">Nashik</a></li>
-    <li><a href="#Form">Shirdi</a></li>
-    <li><a href="#Form">Ahmednagar</a></li>
-    <li><a href="#Form">Sangamner</a></li>
-    <li><a href="#Form">Jalana</a></li>
-    <li><a href="#Form">Lonavala</a></li>
-    <li><a href="#Form">Bhimashakar</a></li>
-    <li><a href="#Form">Alibag</a></li>
-    <li><a href="#Form">Dapoli</a></li>
-   <li><a href="#Form">Goa</a></li>
-    <li><a href="#Form">Trimbkeshwar</a></li>
-    <li><a href="#Form">Igatpuri</a></li>
-    <li><a href="#Form">Surat</a></li>
+          </div>
+          <!-- end card-item -->
+        </div>
+        <!-- end hotel-card-carousel -->
+      </div>
+    </div>
+    <!-- end col-lg-12 -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end container-fluid -->
+</section>
+<!-- end hotel-area -->
+<!-- ================================
+END HOTEL AREA
+================================= -->
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+<div class="card">
+  
+  <div class="card-body">
+   <h3 class="card-title" th:text="${' Book Your ' +  city1.city +' to '+city2.city +'  One-Way Trip with WTL Today!'}">Text goes here</h3>
+
+    </h3>
+  
+ 
+        <p>Experience the charm of <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's one-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your one-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible adventure.</p>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title" th:text="${' Book Your ' +  city1.city+'  to '+ city2.city + '  Round-Way Trip with WTL Today!'}">Text goes here</h3>
+
+    
+     <p>Experience the charm of <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's round-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your round-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible adventure.</p>
+   
+  </div>
+  <div class="card-body">
+	   <h3 class="card-title" th:text="${' Book Your ' + city1.city+'  to '+ city2.city + '  Rental Trip with WTL Today!'}">Text goes here</h3>
+
+     <p>Experience the charm of  <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's rental-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your rental-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible  adventure.</p>
+    
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="card" style="background-color: #f0f0f0;">
+  <div class="card-body">
+	   <h3 class="card-title" th:text="${' WTL  Trip: Explore ' +  city1.city + ' to '+city2.city + '  with Comfort and Convenience'}">Text goes here</h3>
+
+	  
+      
+     <p class="card-subtitle mb-2 text-muted" th:text="${'Are you ready to embark on a remarkable journey from  ' + city1.city +' to '+city2.city+ ' ?'}"></p>
+<p class="card-subtitle mb-2 text-muted" th:text="'Look no further than WTL\'s exclusive one-way trip service to this picturesque destination. WTL is dedicated to providing an unforgettable travel experience, and our ' + ${city1.city} +'to '+ ${city2.city} + ' one-way trip is designed to make your adventure seamless, comfortable, and memorable.'"></p>
+
+      <br>
+
+     
+        <h3 class="card-title" th:text="${' Why Choose WTL for Your ' + city1.city + ' to '+city2.city + ' Trip?'}">Text goes here</h3>
+      <ul class="list-group list-group-flush" >
+          <!-- Effortless Booking -->
+<li class="list-group-item" th:text="'Effortless Booking: With WTL, booking your one-way trip to ' + city1.city + ' to '+city2.city + ' is a breeze. Our user-friendly website and mobile app allow you to schedule your trip in a matter of minutes. Simply enter your travel details, and we\'ll take care of the rest.'"></li>
+
+<!-- Comfortable Rides -->
+<li class="list-group-item" th:text="'Comfortable Rides: We pride ourselves on offering a diverse fleet of well-maintained and air-conditioned vehicles. Whether you\'re traveling solo or with a group, we have the perfect ride to suit your needs.'"></li>
+
+<!-- Experienced Drivers -->
+<li class="list-group-item" th:text="'Experienced Drivers: Our drivers are experienced professionals who know the routes to ' + city1.city + ' to '+city2.city + ' like the back of their hand. They are committed to ensuring a safe and smooth journey for you.'"></li>
+
+<!-- Scenic Views -->
+<li class="list-group-item" th:text="'Scenic Views: ' + city1.city + ' to '+city2.city + ', with its pristine beaches, lush greenery, and historical attractions, promises a visual treat. Our one-way trip allows you to savor these mesmerizing landscapes without worrying about driving.'"></li>
+
+<!-- Flexible Pick-Up and Drop-Off -->
+<li class="list-group-item" th:text="'Flexible Pick-Up and Drop-Off: WTL\'s one-way trip service is designed to accommodate your specific needs. Choose your preferred pick-up location, and we\'ll drop you off at your desired destination in ' +city1.city + ' to '+city2.city + '.'"></li>
+
+<!-- Transparent Pricing -->
+<li class="list-group-item" th:text="'Transparent Pricing: Say goodbye to hidden charges. WTL offers transparent pricing, allowing you to budget your trip accurately.'"></li>
+
+<!-- Reliable Service -->
+<li class="list-group-item" th:text="'Reliable Service: We understand that punctuality is crucial. WTL ensures that your ride arrives promptly to ensure you reach ' + ${city1.city + ' to '+city2.city} + ' on schedule.'"></li>
+
+<!-- 24/7 Customer Support -->
+<li class="list-group-item" th:text="'24/7 Customer Support: If you have any questions or need assistance during your trip, our 24/7 customer support team is just a call away, ready to help you.'"></li>
+
+      </ul>
+      <br>
+
+     
+      
+        <h3 class="card-title" th:text="${' What to Explore in ' + city1.city + ' to '+city2.city + '?'}">Text goes here</h3>
+          <ul class="list-group list-group-flush">
+          <p class="list-group-item"  th:text="${city1.paragraphinfocard}">City information goes here.</p></br>
+            <p class="list-group-item"  th:text="${city2.paragraphinfocard}">City information goes here.</p>
+           </ul>
+   
+      
+   </div>
+</div>
+
+
+<div class="">
+    <div class="">
+		   <div class="" style="max-width: 100%;">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">
+                       About WTL 
+                    </h3>
+                    <p class="card-text">
+                         Car Rental Service In <span th:text="${city1.city}"></span> with WTL is a well-established cab and car rental service provider company in India, specialized in rendering comprehensive long and short-term car rental solutions in <span th:text="${city1.city}"></span>. The attributes of our services assure safety, comfort, and reliability to every customer. We have a professional team of chauffeurs who believe in empowering safe, reliable, and easily accessible cab services in India.
+                    </p>
+                    <p class="card-text">
+                        Our journey began in 2001, encouraging a system of transparency in pricing and deals with an idea to make it a reality. Since then, our cab services have expanded with a wide range of valuable customers from <span th:text="${city1.city}"></span>.
+                    </p>
+                    <p class="card-text">
+                        We are from WTL, always there to ensure hassle-free and joyful rides from <span th:text="${city1.city}"></span>. Our practices have enabled us to establish as one of the most preferred radio taxi services in various parts of the country, including Maharashtra, Delhi, Kolkata, Bengaluru, Jaipur, Shimla, Dehradun, Manali, Agra, Haridwar, Chandigarh, and Amritsar.
+                    </p>
+                    <p class="card-text">
+                        We firmly believe in growth and outstanding services for our customers. Also, we ensure the utmost punctuality and responsibility in our cab services. Whether you need to rush for a flight or reach a meeting on time, you just need to book a taxi online with Aimcab and count on us to provide a safe and comfortable ride.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- <h1 class="city-h1">All Routes From </h1>
+
+<ul class="city-ul">
+   
+    <li class="city-li" th:each="cityi : ${cityinfo}">
+       
+        <a class="city-a" th:href="@{/citytocity/{name}(name=${city1.city}+'_to_'+${cityi.city})}" th:text="${city1.city + ' to ' + cityi.city}"></a>
+    </li>
 </ul>
 
 
-           
-            <!-- Your sentence goes here with the "sentence" class for animation -->
-      <!--  </div>
-    </section>-->
-         /
-  <!-- end car-area -->
-  <!-- ================================
-    END CAR AREA
-================================= -->
 
-  <!-- ================================
-       START TESTIMONIAL AREA
+<h1 class="city-h1">All Routes From </h1>
 
-    <section class="testimonial-area section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="section-heading">
-              <h2 class="sec__title line-height-50">
-                What our customers are saying us?
-              </h2>
-              <p class="sec__desc padding-top-30px">
-                Morbi convallis bibendum urna ut viverra. Maecenas quis
-                consequat libero
-              </p>
-              <div class="btn-box padding-top-35px">
-                <a href="#" class="theme-btn">Explore All</a>
-              </div>
-            </div>
-       
-          </div>
-     
-          <div class="col-lg-8">
-            <div class="testimonial-carousel carousel-action">
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team8.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Leroy Bell</h4>
-                    <span class="author__meta">United States</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-          
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team9.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Richard Pam</h4>
-                    <span class="author__meta">Canada</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team10.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Luke Jacobs</h4>
-                    <span class="author__meta">Australia</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-           
-              <div class="testimonial-card">
-                <div class="testi-desc-box">
-                  <p class="testi__desc">
-                    Excepteur sint occaecat cupidatat non proident sunt in culpa
-                    officia deserunt mollit anim laborum sint occaecat cupidatat
-                    non proident. Occaecat cupidatat non proident des.
-                  </p>
-                </div>
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/team8.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <h4 class="author__title">Chulbul Panday</h4>
-                    <span class="author__meta">Italy</span>
-                    <span class="ratings d-flex align-items-center">
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                      <i class="la la-star"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-       
-          </div>
-         
-        </div>
-       
-      </div>
-      
-    </section> -->
-  <!-- end testimonial-area -->
-  <!-- ================================
-       START TESTIMONIAL AREA
-================================= -->
+<ul class="city-ul">
+   
+    <li class="city-li"  th:each="cityi : ${cityinfo}">
+        
+        <a class="city-a" th:href="@{/citytocity/{name}(name=${city2.city}+'_to_'+${cityi.city})}" th:text="${city2.city + ' to ' + cityi.city}"></a>
+    </li>
+</ul>-->
 
-  <!-- ================================
-    START CTA AREA
-================================= -->
-  <!-- <section
-      class="cta-area padding-top-100px padding-bottom-180px text-center"
-    >
-      <div class="video-bg">
-        <video autoplay loop>
-          <source src="video/video-bg.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading">
-              <h2 class="sec__title text-white line-height-55">
-                Let us show you the world <br />
-                Discover our most popular destinations
-              </h2>
-            </div> -->
 
-  <!-- <div class="btn-box padding-top-35px">
-              <a href="become-local-expert.html" class="theme-btn border-0"
-                >Join with us</a
-              >
-            </div>
-          </div> -->
-  <!-- end col-lg-12 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- </div> -->
-  <!-- end container -->
-  <!-- <svg class="cta-svg" viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path
-          d="M-31.31,170.22 C164.50,33.05 334.36,-32.06 547.11,196.88 L500.00,150.00 L0.00,150.00 Z"
-        ></path>
-      </svg>
-    </section> -->
-  <!-- end cta-area -->
-  <!-- ================================
-    END CTA AREA
-================================= -->
 
-  <!-- ================================
-       START BLOG AREA
-================================= -->
-  <!-- <section class="blog-area padding-top-30px padding-bottom-90px">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-heading text-center">
-              <h2 class="sec__title line-height-55">
-                Latest News & Articles <br />
-                You Might Like
-              </h2>
-            </div> -->
-  <!-- end section-heading -->
-  <!-- </div> -->
-  <!-- end col-lg-12 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- <div class="row padding-top-50px">
-          <div class="col-lg-4 responsive-column">
-            <div class="card-item blog-card">
-              <div class="card-img">
-                <img src="images/blog-img.jpg" alt="blog-img" />
-                <div class="post-format icon-element">
-                  <i class="la la-photo"></i>
-                </div>
-                <div class="card-body">
-                  <div class="post-categories">
-                    <a href="#" class="badge">Travel</a>
-                    <a href="#" class="badge">lifestyle</a>
-                  </div>
-                  <h3 class="card-title line-height-26">
-                    <a href="blog-single.html"
-                      >When Traveling Avoid Expensive Hotels & Resorts</a
-                    >
-                  </h3>
-                  <p class="card-meta">
-                    <span class="post__date"> 1 January, 2020</span>
-                    <span class="post-dot"></span>
-                    <span class="post__time">5 Mins read</span>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="card-footer d-flex align-items-center justify-content-between"
-              >
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/small-team1.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <a href="#" class="author__title">Leroy Bell</a>
-                  </div>
-                </div>
-                <div class="post-share">
-                  <ul>
-                    <li>
-                      <i class="la la-share icon-element"></i>
-                      <ul class="post-share-dropdown d-flex align-items-center">
-                        <li>
-                          <a href="#"><i class="lab la-facebook-f"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-instagram"></i></a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-  <!-- end card-item -->
-  </div>
-  <!-- end col-lg-4 -->
-  <!-- <div class="col-lg-4 responsive-column">
-            <div class="card-item blog-card">
-              <div class="card-img">
-                <img src="images/blog-img2.jpg" alt="blog-img" />
-                <div class="post-format icon-element">
-                  <i class="la la-play"></i>
-                </div>
-                <div class="card-body">
-                  <div class="post-categories">
-                    <a href="#" class="badge">Video</a>
-                  </div>
-                  <h3 class="card-title line-height-26">
-                    <a href="blog-single.html"
-                      >My Best Travel Tips: The Ultimate Travel Guide</a
-                    >
-                  </h3>
-                  <p class="card-meta">
-                    <span class="post__date"> 1 February, 2020</span>
-                    <span class="post-dot"></span>
-                    <span class="post__time">4 Mins read</span>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="card-footer d-flex align-items-center justify-content-between" >
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/small-team2.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <a href="#" class="author__title">Phillip Hunt</a>
-                  </div>
-                </div>
-                <div class="post-share">
-                  <ul>
-                    <li>
-                      <i class="la la-share icon-element"></i>
-                      <ul class="post-share-dropdown d-flex align-items-center">
-                        <li>
-                          <a href="#"><i class="lab la-facebook-f"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-instagram"></i></a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-  <!-- end card-item -->
-  <!-- </div> -->
-  <!-- end col-lg-4 -->
-  <!-- <div class="col-lg-4 responsive-column">
-            <div class="card-item blog-card">
-              <div class="card-img">
-                <img src="images/blog-img3.jpg" alt="blog-img" />
-                <div class="post-format icon-element">
-                  <i class="la la-music"></i>
-                </div>
-                <div class="card-body">
-                  <div class="post-categories">
-                    <a href="#" class="badge">audio</a>
-                  </div>
-                  <h3 class="card-title line-height-26">
-                    <a href="blog-single.html" -->
-  <!-- >By all Means, Travel to Popular Sites & Don’t Rule Out
-                      Other Locations</a -->
- 
-  <!-- </h3> -->
-  <!-- <p class="card-meta">
-                    <span class="post__date"> 1 March, 2020</span>
-                    <span class="post-dot"></span>
-                    <span class="post__time">3 Mins read</span>
-                  </p>
-                </div>
-              </div>
-              <div
-                class="card-footer d-flex align-items-center justify-content-between"
-              >
-                <div class="author-content d-flex align-items-center">
-                  <div class="author-img">
-                    <img src="images/small-team3.jpg" alt="testimonial image" />
-                  </div>
-                  <div class="author-bio">
-                    <a href="#" class="author__title">Luke Jacobs</a>
-                  </div>
-                </div>
-                <div class="post-share">
-                  <ul>
-                    <li>
-                      <i class="la la-share icon-element"></i>
-                      <ul class="post-share-dropdown d-flex align-items-center">
-                        <li>
-                          <a href="#"><i class="lab la-facebook-f"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-twitter"></i></a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="lab la-instagram"></i></a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
-  <!-- end card-item -->
-  <!-- </div> -->
-  <!-- end col-lg-4 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- <div class="row">
-          <div class="col-lg-12">
-            <div class="btn-box text-center pt-4">
-              <a href="blog-grid.html" class="theme-btn">Read More Post</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-  <!-- end container -->
-  <!-- </section> -->
-  <!-- end blog-area -->
-  <!-- ================================
-       START BLOG AREA
-================================= -->
 
-  <!-- ================================
-    START MOBILE AREA
-================================= -->
-  <section class="mobile-app padding-top-100px padding-bottom-50px section-bg" style="margin: 10px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="mobile-app-content">
-            <div class="section-heading">
-              <h2 class="sec__title line-height-55">
-                WTL Android and IOS App is Available!
-              </h2>
-            </div>
-            <!-- end section-heading -->
-            <ul class="info-list padding-top-30px">
-              <li class="d-flex align-items-center mb-3">
-                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
-                Access and change your itinerary on-the-go
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
-                Free cancellation on select hotels
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <span class="la la-check icon-element flex-shrink-0 ml-0"></span>
-                Get real-time trip updates
-              </li>
-            </ul>
-            <div class="btn-box padding-top-30px">
-              <a href="https://aimcabbooking.com/aimcab.com/apk/app-release.apk" class="d-inline-block mr-3">
-                <img src="images/app-store.png" alt="" />
-              </a>
-              <a href="https://aimcabbooking.com/aimcab.com/apk/app-release.apk" class="d-inline-block">
-                <img src="images/google-play.png" alt="" />
-              </a>
-            </div>
-            <!-- end btn-box -->
-          </div>
-        </div>
-        <!-- end col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="mobile-img">
-            <img src="images/mobile-app.png" alt="mobile-img" />
-          </div>
-        </div>
-        <!-- end col-lg-5 -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end container -->
-  </section>
-  <!-- end mobile-app -->
-  <!-- ================================
-    END MOBILE AREA
-================================= -->
+<h1 class="city-h1" th:text="${' All Routes From ' + city1.city }">Text goes here</h1>
 
-  <!-- ================================
-       START CLIENTLOGO AREA
-================================= -->
-  <!-- <section
-      class="clientlogo-area padding-top-80px padding-bottom-80px text-center"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="client-logo">
-              <div class="client-logo-item">
-                <img src="images/client-logo.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo2.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo3.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo4.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo5.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- <div class="client-logo-item">
-                <img src="images/client-logo6.png" alt="brand image" />
-              </div> -->
-  <!-- end client-logo-item -->
-  <!-- </div> -->
-  <!-- end client-logo -->
-  <!-- </div> -->
-  <!-- end col-lg-12 -->
-  <!-- </div> -->
-  <!-- end row -->
-  <!-- </div> -->
-  <!-- end container -->
-  <!-- </section> -->
-  <!-- end clientlogo-area -->
-  <!-- ================================
-       START CLIENTLOGO AREA
-================================= -->
-<br>
+<ul class="city-ul">
+    <!-- Iterate over the list of cities -->
+    <li class="city-li" th:each="cityi : ${cityinfo}" th:if="${cityi.state == 'Maharashtra'}">
+        <!-- Display the city name -->
+        <a class="city-a" th:href="@{/citytocity/{name}(name=${city1.city}+'_to_'+${cityi.city})}" th:text="${city1.city + ' to ' + cityi.city}"></a>
+    </li>
+</ul>
 
- <!-- ================================
+<h1 class="city-h1" th:text="${' All Routes From ' + city2.city }">Text goes here</h1>
+
+
+
+
+
+
+   <ul class="city-ul">
+    <!-- Iterate over the list of cities -->
+    <li class="city-li" th:each="cityi : ${cityinfo}" th:if="${cityi.state == 'Maharashtra'}">
+        <!-- Display the city name -->
+        <a class="city-a" th:href="@{/citytocity/{name}(name=${city2.city}+'_to_'+${cityi.city})}" th:text="${city2.city + ' to ' + cityi.city}"></a>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+   <!-- ================================
        START FOOTER AREA
     
 ================================= -->
 
 
-   
+    
     
        
            
-            <div class="block">
-                <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px; color: #333;">Company Links</h5>
-                <p style="margin-left: 15px;">
-                    <a th:href="@{/home}">Home</a> |
-                    <a th:href="@{/about}">About</a> |
-                    <a th:href="@{/services}">Service</a> |
-                    <a th:href="@{/contact}">Contact</a>
-                </p>
-             </div>
-              
+<div class="block">
+  <h5 class="text-primary" style="margin-top: 10px; margin-left: 15px;">Company Links</h5>
+  <p style="margin-left: 15px;">
+      <a th:href="@{/home}">Home</a> |
+      <a th:href="@{/about}">About</a> |
+      <a th:href="@{/services}">Service</a> |
+      <a th:href="@{/contact}">Contact</a>
+  </p>
+</div>
 
-           <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;">Popular Cities</h5>
-            <p style="margin-left: 15px;">
- 
-            <span> <a th:href="@{city/Pune}">Pune</a></span> |
-            <span>  <a th:href="@{city/Mumbai}">Mumbai</a></li></span> |
-            <span>  <a th:href="@{city/Kolhapur}">Kolhapur</a></li></span> |
-            <span>  <a th:href="@{city/Satara}">Satara</a></span> |
-            <span>  <a th:href="@{city/Nashik}">Nashik</a></span> |
-               <span>  <a th:href="@{city/Ratnagiri}">Ratnagiri</a></span> |
-            <span>  <a th:href="@{city/Shirdi}">Shirdi</a></span> |
-            <span>  <a th:href="@{city/Ahmednagar}">Ahmednagar</a></span> |
-            <span>   <a th:href="@{city/Beed}">Beed</a></span> |
-            <span>  <a th:href="@{city/Jalna}">Jalna</a></span> |
-            <span>  <a th:href="@{city/Lonavala}">Lonavala</a></span> |
-            <span>  <a th:href="@{city/Akola}">Akola</a></span> |
-            <span>  <a th:href="@{city/Sindhudurg}">Sindhudurg</a></span> |
-            <span>  <a th:href="@{city/Latur}">Latur</a></span> |
-            <span>  <a th:href="@{city/Osmanabad}">Osmanabad</a></span> |
-           <span>  <a th:href="@{city/Nanded}">Nanded</a></span> |
-             <span>  <a th:href="@{city/Washim}">Washim</a></span> |
-            <span>  <a th:href="@{city/Wardha}">Wardha</a></span> |
-            <span>  <a th:href="@{city/Palghar}">Palghar</a></span> |
-            <span>  <a th:href="@{city/Chandarpur}">Chandarpur</a></span> |
-           <span>  <a th:href="@{city/Gondia}">Gondia</a></span> |
-             <span>  <a th:href="@{city/Gadchiroli}">Gadchiroli</a></span> |
-           
-          
+
+<h5 class="text-primary" style="margin-top: 10px; margin-left: 15px;">Popular Cities</h5>
+<p style="margin-left: 15px;">
+
+<span><a th:text="${city1.footercity1}" th:href="@{'/city/' + ${city1.footercity1}}"></a></span>|
+<span><a th:text="${city1.footercity2}" th:href="@{'/city/' + ${city1.footercity2}}"></a></span>|
+<span><a th:text="${city1.footercity3}" th:href="@{'/city/' + ${city1.footercity3}}"></a></span>|
+<span><a th:text="${city1.footercity4}" th:href="@{'/city/' + ${city1.footercity4}}"></a></span>|
+
+<span><a th:text="${city1.footercity5}" th:href="@{'/city/' + ${city1.footercity5}}"></a></span>|
+<span><a th:text="${city1.footercity6}" th:href="@{'/city/' + ${city1.footercity6}}"></a></span>|
+
+<span><a th:text="${city1.footercity7}" th:href="@{'/city/' + ${city1.footercity7}}"></a></span>|
+<span><a th:text="${city1.footercity8}" th:href="@{'/city/' + ${city1.footercity8}}"></a></span>|
+
+<span><a th:text="${city1.footercity9}" th:href="@{'/city/' + ${city1.footercity9}}"></a></span>|
+<span><a th:text="${city1.footercity10}" th:href="@{'/city/' + ${city1.footercity10}}"></a></span>|
+
+<span><a th:text="${city1.footercity11}" th:href="@{'/city/' + ${city1.footercity11}}"></a></span>|
+<span><a th:text="${city1.footercity12}" th:href="@{'/city/' + ${city1.footercity12}}"></a></span>|
+
+<span><a th:text="${city1.footercity13}" th:href="@{'/city/' + ${city1.footercity13}}"></a></span>|
+<span><a th:text="${city1.footercity14}" th:href="@{'/city/' + ${city1.footercity14}}"></a></span>|
+
+<span><a th:text="${city1.footercity15}" th:href="@{'/city/' + ${city1.footercity15}}"></a></span>|
+<span><a th:text="${city1.footercity16}" th:href="@{'/city/' + ${city1.footercity16}}"></a></span>|
+
+<span><a th:text="${city1.footercity17}" th:href="@{'/city/' + ${city1.footercity17}}"></a></span>|
+<span><a th:text="${city1.footercity18}" th:href="@{'/city/' + ${city1.footercity18}}"></a></span>|
+
+<span><a th:text="${city1.footercity19}" th:href="@{'/city/' + ${city1.footercity19}}"></a></span>|
+<span><a th:text="${city1.footercity20}" th:href="@{'/city/' + ${city1.footercity20}}"></a></span>|
+
+
+
+
+
+
+
+
+</p>
+
+
+<ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap;">
+    <!-- Iterate over the list of cities -->
+    <li th:each="cityi, iterStat : ${cityinfo}" style="margin-left:10px; margin-right: 10px; margin-bottom: 10px;"
+        th:if="${cityi.state == city1.state or cityi.state == city2.state}">
+        <!-- Display the city name -->
+        <a th:href="@{'/city/' + ${cityi.city}}" th:text="${cityi.city}"></a>
         
-            <span>  <a th:href="@{city/Amravati}">Amravati</a></span> |
-            <span>  <a th:href="@{city/Aurangabad}">Aurangabad</a></span> |
-            <span>  <a th:href="@{city/Bhandara}">Bhandara</a></span> |
-           <span>  <a th:href="@{city/Buldhana}">Buldhana</a></span> |
-             <span>  <a th:href="@{city/Dhule}">Dhule</a></span> |
-            <span>  <a th:href="@{city/Hingoli}">Hingoli</a></span> |
-            <span>  <a th:href="@{city/Nagpur}">Nagpur</a></span> |
-            <span>  <a th:href="@{city/Parbhani}">Parbhani</a></span> |
-         
-             <span>  <a th:href="@{city/Sangli}">Sangli</a></span> |
-            <span>  <a th:href="@{city/Raigad}">Raigad</a></span> |
-            <span>  <a th:href="@{city/Solapur}">Solapur</a></span> |
-            <span>  <a th:href="@{city/Thane}">Thane</a></span> |
-           <span>  <a th:href="@{city/Yavatmal}">Yavatmal</a></span> |
-           
-           
-            </p>
-            <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;">Corporate Cabs</h5>
+        <!-- Add a line break after every 15 cities -->
+        <th:block th:if="${iterStat.index % 15 == 14}">&#10;</th:block>
+    </li>
+</ul>
+
+
+
+<h5 class="text-primary" style="margin-top: 10px; margin-left: 15px;">Corporate Cabs</h5>
+<p style="margin-left: 15px;">
+<span>  <a th:href="@{/pune}">
+  Corporate Cabs in Delhi</a></span>
+  <span>   <a href="./pune.html">Corporate Cabs in Pune</a></span>|
+  <span>  <a href="./pune.html">Corporate Cabs in Bangalore</a> </span>|
+  <span>  <a  th:href="@{/Corporate Cabs in Mumbai.html}">Corporate Cabs in Mumbai</a>|
+    <span> <a href="./pune.html">
+  Corporate Cabs in Telangana</a></span> |
+  <span>  <a href="./pune.html">Corporate Cabs in Chennai</a></span>
+  <span>  <a href="./pune.html">Corporate Cabs in Gujarat</a></span> |
+  <span>  <a href="./pune.html">Corporate Cabs in Indor</a></span>
+</p>
+<h5 class="text-primary" style="margin-top: 10px; margin-left: 15px;">Airport Cabs</h5>
+<p style="margin-left: 15px;">
+<a th:href="@{/pune}">Airport Cabs in Delhi</a> |
+<a href="./pune.html">Airport Cabs in Pune</a> |
+<a href="./pune.html">Airport Cabs in Bangalore</a> |
+<a href="./pune.html">Airport Cabs in Mumbai </a> |
+<a href="./pune.html">Airport Cabs in Telangana</a> |
+<a href="./pune.html">Airport Cabs in Surat</a> |
+<a href="./pune.html">Airport Cabs in Indor</a> |
+<a href="./pune.html">Airport Cabs in Chennai</a>
+</p>
+ <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
             <p style="margin-left: 15px;">
-            <span>  <a th:href="@{/Corporate}">
-                Corporate Cabs in Delhi</a></span>|
-                <span>   <a th:href="@{/Corporate3}">Corporate Cabs in Pune</a></span>|
-                <span>  <a th:href="@{/Corporate2}">Corporate Cabs in Bangalore</a> </span>|
-                <span>  <a  th:href="@{/Corporate3}">Corporate Cabs in Mumbai</a> |
-                <span>  <a  th:href="@{/Telangana}">Corporate Cabs in Telangana</a></span>|
-             
-        
-                <span>  <a  th:href="@{/Corporate5}">Corporate Cabs in Chennai</a></span>|
-                <span>  <a  th:href="@{/Corporate6}">Corporate Cabs in Indor</a></span> |
-                <span>  <a  th:href="@{/Corporate7}">Corporate Cabs in Surat</a></span>
-              </p>
-              <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;">Airport Cabs</h5>
-            <p style="margin-left: 15px;">
-             <a th:href="@{/Airport}">Airport Cabs in Delhi</a> |
-              <a th:href="@{/Airport3}">Airport Cabs in Pune</a> |
-              <a th:href="@{/Airport2}">Airport Cabs in Bangalore</a> |
-              <a th:href="@{/Airport3}">Airport Cabs in Mumbai </a> |
-              <a th:href="@{/Airport4}">Airport Cabs in Telangana</a> |
-              <a th:href="@{/Airport6}">Airport Cabs in Surat</a> |
-              <a th:href="@{/Airport5}">Airport Cabs in Indor</a> |
-              <a th:href="@{/Airport7}">Airport Cabs in Chennai</a>
-            </p>
-           <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
-            <p style="margin-left: 15px;">
-           <span> <a th:href="@{state/Maharashtra}">  Maharashtra</a></span> |
-           <span>   <a th:href="@{state/Goa}">Goa</a></span> |
-            <span>  <a th:href="@{state/Delhi}"> Delhi</a></span> |
-            <span>  <a th:href="@{state/Gujarat}">Gujarat</a></span> |
-            <span>  <a th:href="@{state/Madhya Pradesh}">MP</a></span> |
-            <span>  <a th:href="@{state/Karnataka}">Karnataka</a></span> |
-             <span> <a th:href="@{state/Telangana}">Telangana</a></span> |
-             <span>  <a th:href="@{state/Uttar pradesh}">up</a></span> |
-            <span>  <a th:href="@{state/Rajasthan}">Rajasthan</a></span> |
-             <span> <a th:href="@{state/west Bengal}">West Bengal</a></span>
+           <span> <a th:href="@{/state/Maharashtra}">  Maharashtra</a></span> |
+           <span>   <a th:href="@{/state/Goa}">Goa</a></span> |
+            <span>  <a th:href="@{/state/Delhi}"> Delhi</a></span> |
+            <span>  <a th:href="@{/state/Gujarat}">Gujarat</a></span> |
+            <span>  <a th:href="@{/state/Madhya Pradesh}">MP</a></span> |
+            <span>  <a th:href="@{/state/Karnataka}">Karnataka</a></span> |
+             <span> <a th:href="@{/state/Telangana}">Telangana</a></span> |
+             <span>  <a th:href="@{/state/Uttar pradesh}">up</a></span> |
+            <span>  <a th:href="@{/state/Rajasthan}">Rajasthan</a></span> |
+             <span> <a th:href="@{/state/west Bengal}">West Bengal</a></span>
               </p>
-           
-            
-          </div>
-      
-     
-        <div class="row align-items-center" style="background-color: #f5f7fc;">
-      <div class="col-lg-8">
-        <div class="term-box footer-item" style="margin-top: 10px;">
-          <p class="copy__desc">
-           &copy; Copyright WTL 2023 Made with
-            <span class="la la-heart"></span> by
-            <a href="https://www.cobaztech.com/">cobaztech</a>
-          </p>
-        </div>
-      </div>
-      <!-- end col-lg-8 -->
-      <div class="col-lg-4">
-        <div class="footer-social-box text-right">
-          <ul class="social-profile">
-            <li>
-              <a href="https://www.facebook.com/Aimcab/"><i class="lab la-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="lab la-twitter"></i></a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/aimcabs"><i class="lab la-instagram"></i></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/aim-cab-77356b208/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in"><i class="lab la-linkedin-in"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- end col-lg-4 -->
-    </div>
-      
+
 
 
 </div>
-  <!-- end footer-area -->
-  <!-- ================================
-  <!-- start back-to-top -->
-  <div id="back-to-top">
-    <i class="la la-angle-up" title="Go top"></i>
-  </div>
-  <!-- end back-to-top -->
 
-  <!-- end modal-shared -->
-  <div class="modal-popup">
-    <div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div>
-              <h5 class="modal-title title" id="exampleModalLongTitle">
-                Sign Up
-              </h5>
-              <p class="font-size-14">Hello! Welcome Create a New Account</p>
-            </div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" class="la la-close"></span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="contact-form-action">
-              <form method="post">
-                <div class="input-box">
-                  <label class="label-text">Username</label>
-                  <div class="form-group">
-                    <span class="la la-user form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type your username" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Email Address</label>
-                  <div class="form-group">
-                    <span class="la la-envelope form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type your email" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Password</label>
-                  <div class="form-group">
-                    <span class="la la-lock form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type password" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Repeat Password</label>
-                  <div class="form-group">
-                    <span class="la la-lock form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type again password" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="btn-box pt-3 pb-4">
-                  <button type="button" class="theme-btn w-100">
-                    Register Account
-                  </button>
-                </div>
-                <div class="action-box text-center">
-                  <p class="font-size-14">Or Sign up Using</p>
-                  <ul class="social-profile py-3">
-                    <li>
-                      <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </form>
-            </div>
-            <!-- end contact-form-action -->
-          </div>
-        </div>
-      </div>
+
+<div class="row align-items-center" style="background-color: #f5f7fc;">
+<div class="col-lg-8">
+<div class="term-box footer-item" style="margin-top: 10px;">
+<p class="copy__desc">
+&copy; Copyright WTL 2023 Made with
+<span class="la la-heart"></span> by
+<a href="https://www.cobaztech.com/">cobaztech</a>
+</p>
+</div>
+</div>
+<!-- end col-lg-8 -->
+<div class="col-lg-4">
+<div class="footer-social-box text-right">
+<ul class="social-profile">
+<li>
+<a href="https://www.facebook.com/WTL/"><i class="lab la-facebook-f"></i></a>
+</li>
+<li>
+<a href="#"><i class="lab la-twitter"></i></a>
+</li>
+<li>
+<a href="https://www.instagram.com/WTLs"><i class="lab la-instagram"></i></a>
+</li>
+<li>
+<a href="https://www.linkedin.com/in/aim-cab-77356b208/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in"><i class="lab la-linkedin-in"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<!-- end col-lg-4 -->
+</div>
+
+
+
+</div>
+<!-- end footer-area -->
+<!-- ================================
+<!-- start back-to-top -->
+<div id="back-to-top">
+<i class="la la-angle-up" title="Go top"></i>
+</div>
+<!-- end back-to-top -->
+
+<!-- end modal-shared -->
+<div class="modal-popup">
+<div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<div>
+<h5 class="modal-title title" id="exampleModalLongTitle">
+  Sign Up
+</h5>
+<p class="font-size-14">Hello! Welcome Create a New Account</p>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true" class="la la-close"></span>
+</button>
+</div>
+<div class="modal-body">
+<div class="contact-form-action">
+<form method="post">
+  <div class="input-box">
+    <label class="label-text">Username</label>
+    <div class="form-group">
+      <span class="la la-user form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type your username" />
     </div>
   </div>
-  <!-- ================================
-       START FOOTER AREA
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Email Address</label>
+    <div class="form-group">
+      <span class="la la-envelope form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type your email" />
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Password</label>
+    <div class="form-group">
+      <span class="la la-lock form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type password" />
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Repeat Password</label>
+    <div class="form-group">
+      <span class="la la-lock form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type again password" />
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="btn-box pt-3 pb-4">
+    <button type="button" class="theme-btn w-100">
+      Register Account
+    </button>
+  </div>
+  <div class="action-box text-center">
+    <p class="font-size-14">Or Sign up Using</p>
+    <ul class="social-profile py-3">
+      <li>
+        <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
+      </li>
+    </ul>
+  </div>
+</form>
+</div>
+<!-- end contact-form-action -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================================
+START FOOTER AREA
 ================================= -->
 
-  <!-- start back-to-top -->
-  <div id="back-to-top">
-    <i class="la la-angle-up" title="Go top"></i>
-  </div>
-  <!-- end back-to-top -->
+<!-- start back-to-top -->
+<div id="back-to-top">
+<i class="la la-angle-up" title="Go top"></i>
+</div>
+<!-- end back-to-top -->
 
-  <!-- end modal-shared -->
-  <div class="modal-popup">
-    <div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div>
-              <h5 class="modal-title title" id="exampleModalLongTitle">
-                Sign Up
-              </h5>
-              <p class="font-size-14">Hello! Welcome Create a New Account</p>
-            </div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" class="la la-close"></span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="contact-form-action">
-              <form method="post">
-                <div class="input-box">
-                  <label class="label-text">Username</label>
-                  <div class="form-group">
-                    <span class="la la-user form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type your username" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Email Address</label>
-                  <div class="form-group">
-                    <span class="la la-envelope form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type your email" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Password</label>
-                  <div class="form-group">
-                    <span class="la la-lock form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type password" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Repeat Password</label>
-                  <div class="form-group">
-                    <span class="la la-lock form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type again password" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="btn-box pt-3 pb-4">
-                  <button type="button" class="theme-btn w-100">
-                    Register Account
-                  </button>
-                </div>
-                <div class="action-box text-center">
-                  <p class="font-size-14">Or Sign up Using</p>
-                  <ul class="social-profile py-3">
-                    <li>
-                      <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </form>
-            </div>
-            <!-- end contact-form-action -->
-          </div>
-        </div>
-      </div>
+<!-- end modal-shared -->
+<div class="modal-popup">
+<div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<div>
+<h5 class="modal-title title" id="exampleModalLongTitle">
+  Sign Up
+</h5>
+<p class="font-size-14">Hello! Welcome Create a New Account</p>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true" class="la la-close"></span>
+</button>
+</div>
+<div class="modal-body">
+<div class="contact-form-action">
+<form method="post">
+  <div class="input-box">
+    <label class="label-text">Username</label>
+    <div class="form-group">
+      <span class="la la-user form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type your username" />
     </div>
   </div>
-  <!-- end modal-popup -->
-
-  <!-- end modal-shared -->
-  <div class="modal-popup">
-    <div class="modal fade" id="loginPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div>
-              <h5 class="modal-title title" id="exampleModalLongTitle2">
-                Login
-              </h5>
-              <p class="font-size-14">Hello! Welcome to your account</p>
-            </div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" class="la la-close"></span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="contact-form-action">
-              <form method="post">
-                <div class="input-box">
-                  <label class="label-text">Username</label>
-                  <div class="form-group">
-                    <span class="la la-user form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type your username" />
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="input-box">
-                  <label class="label-text">Password</label>
-                  <div class="form-group mb-2">
-                    <span class="la la-lock form-icon"></span>
-                    <input class="form-control" type="text" name="text" placeholder="Type your password" />
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between">
-                    <div class="custom-checkbox mb-0">
-                      <input type="checkbox" id="rememberchb" />
-                      <label for="rememberchb">Remember me</label>
-                    </div>
-                    <p class="forgot-password">
-                      <a href="recover.html">Forgot Password?</a>
-                    </p>
-                  </div>
-                </div>
-                <!-- end input-box -->
-                <div class="btn-box pt-3 pb-4">
-                  <button type="button" class="theme-btn w-100">
-                    Login Account
-                  </button>
-                </div>
-                <div class="action-box text-center">
-                  <p class="font-size-14">Or Login Using</p>
-                  <ul class="social-profile py-3">
-                    <li>
-                      <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
-                    </li>
-                    <li>
-                      <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </form>
-            </div>
-            <!-- end contact-form-action -->
-          </div>
-        </div>
-      </div>
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Email Address</label>
+    <div class="form-group">
+      <span class="la la-envelope form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type your email" />
     </div>
   </div>
-  <!-- end modal-popup -->
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Password</label>
+    <div class="form-group">
+      <span class="la la-lock form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type password" />
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Repeat Password</label>
+    <div class="form-group">
+      <span class="la la-lock form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type again password" />
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="btn-box pt-3 pb-4">
+    <button type="button" class="theme-btn w-100">
+      Register Account
+    </button>
+  </div>
+  <div class="action-box text-center">
+    <p class="font-size-14">Or Sign up Using</p>
+    <ul class="social-profile py-3">
+      <li>
+        <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
+      </li>
+    </ul>
+  </div>
+</form>
+</div>
+<!-- end contact-form-action -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- end modal-popup -->
 
-  <!-- Template JS Files -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap-select.min.js"></script>
-  <script src="js/moment.min.js"></script>
-  <script src="js/daterangepicker.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.countTo.min.js"></script>
-  <script src="js/animated-headline.js"></script>
-  <script src="js/jquery.ripples-min.js"></script>
-  <script src="js/quantity-input.js"></script>
-  <script src="js/main.js"></script>
+<!-- end modal-shared -->
+<div class="modal-popup">
+<div class="modal fade" id="loginPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<div>
+<h5 class="modal-title title" id="exampleModalLongTitle2">
+  Login
+</h5>
+<p class="font-size-14">Hello! Welcome to your account</p>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true" class="la la-close"></span>
+</button>
+</div>
+<div class="modal-body">
+<div class="contact-form-action">
+<form method="post">
+  <div class="input-box">
+    <label class="label-text">Username</label>
+    <div class="form-group">
+      <span class="la la-user form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type your username" />
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="input-box">
+    <label class="label-text">Password</label>
+    <div class="form-group mb-2">
+      <span class="la la-lock form-icon"></span>
+      <input class="form-control" type="text" name="text" placeholder="Type your password" />
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="custom-checkbox mb-0">
+        <input type="checkbox" id="rememberchb" />
+        <label for="rememberchb">Remember me</label>
+      </div>
+      <p class="forgot-password">
+        <a href="recover.html">Forgot Password?</a>
+      </p>
+    </div>
+  </div>
+  <!-- end input-box -->
+  <div class="btn-box pt-3 pb-4">
+    <button type="button" class="theme-btn w-100">
+      Login Account
+    </button>
+  </div>
+  <div class="action-box text-center">
+    <p class="font-size-14">Or Login Using</p>
+    <ul class="social-profile py-3">
+      <li>
+        <a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a>
+      </li>
+      <li>
+        <a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a>
+      </li>
+    </ul>
+  </div>
+</form>
+</div>
+<!-- end contact-form-action -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- end modal-popup -->
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tripTypeCheckboxes = document.querySelectorAll('input[name="tripType"]');
+<!-- Template JS Files -->
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap-select.min.js"></script>
+<script src="/js/moment.min.js"></script>
+<script src="/js/daterangepicker.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.fancybox.min.js"></script>
+<script src="/js/jquery.countTo.min.js"></script>
+<script src="/js/animated-headline.js"></script>
+<script src="/js/jquery.ripples-min.js"></script>
+<script src="/js/quantity-input.js"></script>
+<script src="/js/main.js"></script>
 
-      // Add event listeners to the trip type checkboxes
-      tripTypeCheckboxes.forEach(function (checkbox) {
-        checkbox.addEventListener("change", function () {
-          // Uncheck all checkboxes except the one that was clicked
-          tripTypeCheckboxes.forEach(function (otherCheckbox) {
-            if (otherCheckbox !== checkbox) {
-              otherCheckbox.checked = false;
-            }
-          });
-        });
-      });
-    });
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+const tripTypeCheckboxes = document.querySelectorAll('input[name="tripType"]');
 
-  </script>
+// Add event listeners to the trip type checkboxes
+tripTypeCheckboxes.forEach(function (checkbox) {
+checkbox.addEventListener("change", function () {
+// Uncheck all checkboxes except the one that was clicked
+tripTypeCheckboxes.forEach(function (otherCheckbox) {
+if (otherCheckbox !== checkbox) {
+otherCheckbox.checked = false;
+}
+});
+});
+});
+});
 
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Get references to the relevant elements
-      const tripTypeRadios = document.querySelectorAll('input[name="tripType"]');
-      const returnDateField = document.querySelector('.rows');
-
-      // Initially hide the return date and time fields
-      returnDateField.style.display = "none";
-
-      // Add event listeners to the trip type radio buttons
-      tripTypeRadios.forEach(function (radio) {
-        radio.addEventListener("change", function () {
-          if (radio.value === "roundTrip") {
-            returnDateField.style.display = "block";
-          } else {
-            returnDateField.style.display = "none";
-          }
-        });
-      });
-    });
-
-  </script>
+</script>
 
 
-  <script>
-    var pickupInput = document.getElementById('pickupLocation');
-    var dropInput = document.getElementById('dropLocation');
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+// Get references to the relevant elements
+const tripTypeRadios = document.querySelectorAll('input[name="tripType"]');
+const returnDateField = document.querySelector('.rows');
 
-    var options = {
-      types: ['geocode']
-    };
+// Initially hide the return date and time fields
+returnDateField.style.display = "none";
 
-    var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
-    var dropAutocomplete = new google.maps.places.Autocomplete(dropInput, options);
+// Add event listeners to the trip type radio buttons
+tripTypeRadios.forEach(function (radio) {
+radio.addEventListener("change", function () {
+if (radio.value === "roundTrip") {
+returnDateField.style.display = "block";
+} else {
+returnDateField.style.display = "none";
+}
+});
+});
+});
 
-    function calculateDistance() {
-      var origin = document.getElementById('pickupLocation').value;
-      var destination = document.getElementById('dropLocation').value;
+</script>
 
-      var service = new google.maps.DistanceMatrixService();
-      service.getDistanceMatrix({
-        origins: [origin],
-        destinations: [destination],
-        travelMode: google.maps.TravelMode.DRIVING
-      }, function (response, status) {
-        if (status === 'OK') {
-          var distance = response.rows[0].elements[0].distance.text;
-          document.getElementById('distance').textContent = 'Distance: ' + distance;
-          document.getElementById('distanceInput').value = distance;
-        } else {
-          document.getElementById('distance').textContent = 'Error calculating distance.';
-        }
 
-        // Submit the form after calculating the distance
-        document.querySelector('form').submit();
-      });
-    }
+<script>
+var pickupInput = document.getElementById('pickupLocation');
+var dropInput = document.getElementById('dropLocation');
 
-    // Attach the calculateDistance function to the form's submit event
-    document.querySelector('form').addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission
-      calculateDistance();
-    });
-  </script>
-  </script>
+var options = {
+types: ['geocode']
+};
 
-  <script>
-    function validateForm() {
-      var checkboxes = document.getElementsByName('tripType');
-      var isChecked = false;
+var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
+var dropAutocomplete = new google.maps.places.Autocomplete(dropInput, options);
 
-      for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-          isChecked = true;
-          break;
-        }
-      }
+function calculateDistance() {
+var origin = document.getElementById('pickupLocation').value;
+var destination = document.getElementById('dropLocation').value;
 
-      if (!isChecked) {
-        alert("Please select at least one trip type.");
-        return false; // Prevent form submission
-      }
+var service = new google.maps.DistanceMatrixService();
+service.getDistanceMatrix({
+origins: [origin],
+destinations: [destination],
+travelMode: google.maps.TravelMode.DRIVING
+}, function (response, status) {
+if (status === 'OK') {
+var distance = response.rows[0].elements[0].distance.text;
+document.getElementById('distance').textContent = 'Distance: ' + distance;
+document.getElementById('distanceInput').value = distance;
+} else {
+document.getElementById('distance').textContent = 'Error calculating distance.';
+}
 
-      // Check for Round Trip and Return Date
-      var roundTripCheckbox = document.getElementById('roundTrip');
-      var returnDateInput = document.getElementById('Returndate');
+// Submit the form after calculating the distance
+document.querySelector('form').submit();
+});
+}
 
-      if (roundTripCheckbox.checked && returnDateInput.value === '') {
-        alert("Please select a Return Date for Round Trip.");
-        return false; // Prevent form submission
-      }
+// Attach the calculateDistance function to the form's submit event
+document.querySelector('form').addEventListener('submit', function (event) {
+event.preventDefault(); // Prevent the default form submission
+calculateDistance();
+});
+</script>
+</script>
 
-      return true; // Allow the form to submit
-    }
-  </script>
+<script>
+function validateForm() {
+var checkboxes = document.getElementsByName('tripType');
+var isChecked = false;
 
-  <script>
-    // Function to disable previous dates in the date picker
-    function disablePreviousDates() {
-      const currentDate = new Date();
-      const startDateInput = document.getElementById('date');
-      const returnDateInput = document.getElementById('Returndate');
+for (var i = 0; i < checkboxes.length; i++) {
+if (checkboxes[i].checked) {
+isChecked = true;
+break;
+}
+}
 
-      // Set the minimum date for the "Start Date" input
-      startDateInput.min = formatDate(currentDate);
+if (!isChecked) {
+alert("Please select at least one trip type.");
+return false; // Prevent form submission
+}
 
-      // Set the minimum date for the "Return Date" input
-      returnDateInput.min = formatDate(currentDate);
-    }
+// Check for Round Trip and Return Date
+var roundTripCheckbox = document.getElementById('roundTrip');
+var returnDateInput = document.getElementById('Returndate');
 
-    // Function to format a date as "YYYY-MM-DD"
-    function formatDate(date) {
-      const year = date.getFullYear();
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const day = date.getDate().toString().padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    }
+if (roundTripCheckbox.checked && returnDateInput.value === '') {
+alert("Please select a Return Date for Round Trip.");
+return false; // Prevent form submission
+}
 
-    // Call the function when the page loads
-    window.addEventListener('load', disablePreviousDates);
-  </script>
+return true; // Allow the form to submit
+}
+</script>
+
+<script>
+// Function to disable previous dates in the date picker
+function disablePreviousDates() {
+const currentDate = new Date();
+const startDateInput = document.getElementById('date');
+const returnDateInput = document.getElementById('Returndate');
+
+// Set the minimum date for the "Start Date" input
+startDateInput.min = formatDate(currentDate);
+
+// Set the minimum date for the "Return Date" input
+returnDateInput.min = formatDate(currentDate);
+}
+
+// Function to format a date as "YYYY-MM-DD"
+function formatDate(date) {
+const year = date.getFullYear();
+const month = (date.getMonth() + 1).toString().padStart(2, '0');
+const day = date.getDate().toString().padStart(2, '0');
+return `${year}-${month}-${day}`;
+}
+
+// Call the function when the page loads
+window.addEventListener('load', disablePreviousDates);
+</script>
 
 
 </body>

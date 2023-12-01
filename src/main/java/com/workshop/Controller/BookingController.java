@@ -366,15 +366,26 @@ public class BookingController {
 		    int Distance =0;
 		    int days =0;
 		  System.out.println(Distance);
-		  
+		  String cityName="";
 		  String city1 = userService.getLongNameByCity(dropLocation, apiKey);
-	      String[] parts = city1.split(" ");
-	      String cityName = parts[0];
+		  if ("Administrative Area Level 3 not found.".equals(city1) ) {
+			    city1 = dropLocation;
+			    String[] parts = city1.split(", ");
+			       cityName = parts[0];
+			}else if("North Goa".equals(city1)|| "South Goa".equals(city1)) {
+				 String[] parts = city1.split(", ");
+			       cityName = parts[0];
+			}
+		  else {
+				 String[] parts = city1.split(" ");
+			       cityName = parts[0];		
+			}
+	     
 	      String city2 = userService.getLongNameByCity(pickupLocation, apiKey);
 	      String[] parts1 = city2.split(" ");
 	      String cityName1 = parts1[0];
 	      
-	      System.out.println(city1);
+	      System.out.println(city1+" this is city 1 values");
 	      System.out.println(city2);
 	      System.out.println(cityName);
 	      System.out.println(cityName1);
