@@ -244,7 +244,7 @@ public class MainController {
 			return "Surat";
 		}
 		
-		@GetMapping ("/Indor")
+		@GetMapping ("/Indore")
 		public String  Indor() {
 			return "Indor";
 		}

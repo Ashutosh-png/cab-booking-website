@@ -23,7 +23,27 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
       rel="stylesheet"
     />
-    
+    <style>
+ .call-button {
+    position: fixed;
+    bottom: 80px; /* Adjust the vertical position as needed */
+    right: 20px; /* Adjust the horizontal position as needed */
+    display: inline-block;
+    background-color: #fc0398;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    z-index: 999;
+}
+
+.call-button i {
+    margin-right: 5px;
+}
+.call-button:hover {
+    background-color: blue;
+}
+    </style>
      <style>
         /* Base styles for the card and city section */
         .card {
@@ -239,7 +259,7 @@
                   ><i class="la la-angle-down"></i
                 ></a>
                 <div class="logo">
-<a href="./index.html"><img src="/images/wtl-logos.png"  style="height: 70px;" alt=""><span style=" font-weight: bold; font-size: 30px; bottom: 900px; position: absolute; bottom: 20px; color: black;"></span></a>                  <div class="menu-toggler">
+<a href="./"><img src="/images/wtl-logos.png"  style="height: 70px;" alt=""><span style=" font-weight: bold; font-size: 30px; bottom: 900px; position: absolute; bottom: 20px; color: black;"></span></a>                  <div class="menu-toggler">
                     <i class="la la-bars"></i>
                     <i class="la la-times"></i>
                   </div>
@@ -2664,11 +2684,11 @@
                         </div>
                         <div class="custom-checkbox d-inline-block mr-4">
                           <input type="checkbox" id="tourChb3" />
-                          <label for="tourChb3">Escorted Tours</label>
+                          <label for="tourChb3">cab</label>
                         </div>
                         <div class="custom-checkbox d-inline-block mr-4">
                           <input type="checkbox" id="tourChb4" />
-                          <label for="tourChb4">Group Tours</label>
+                          <label for="tourChb4">cab booking</label>
                         </div>
                         <div class="custom-checkbox d-inline-block mr-4">
                           <input type="checkbox" id="tourChb5" />
@@ -2737,7 +2757,7 @@
         <p>
           
 
-<h3 th:text="${'Looking for  Cab from '+city1.city+' to '+city2.city }"></h3> <br>
+<h2 th:text="${'Looking for  Cab from '+city1.city+' to '+city2.city }"></h2> <br>
   <p th:text="${city1.paragraphinfo}">City information goes here.</p>
     <p th:text="${city2.paragraphinfo}">City information goes here.</p>
   
@@ -3074,18 +3094,18 @@ END HOTEL AREA
 <div class="card">
   
   <div class="card-body">
-   <h3 class="card-title" th:text="${' Book Your ' +  city1.city +' to '+city2.city +'  One-Way Trip with WTL Today!'}">Text goes here</h3>
+   <h2 class="card-title" th:text="${' Book Your ' +  city1.city +' to '+city2.city +'  One-Way Trip with WTL Today!'}">Text goes here</h2>
 
-    </h3>
+    </h2>
   
  
-        <p>Experience the charm of <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's one-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your one-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible adventure.</p>
+        <p>Experience the charm of outstation cab booking from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's one-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your one-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible adventure.</p>
   </div>
   <div class="card-body">
     <h3 class="card-title" th:text="${' Book Your ' +  city1.city+'  to '+ city2.city + '  Round-Way Trip with WTL Today!'}">Text goes here</h3>
 
     
-     <p>Experience the charm of <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's round-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your round-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible adventure.</p>
+     <p>Experience the charm of outstation cab booking from  <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> cab without the stress of travel logistics. WTL's round-way trip service is your gateway to a hassle-free journey to this coastal gem. So, why wait? Book your round-way trip from <span th:text="${city1.city}"></span>to <span th:text="${city2.city}"></span> with WTL and embark on an incredible adventure.</p>
    
   </div>
   <div class="card-body">
@@ -3110,7 +3130,7 @@ END HOTEL AREA
 
 <div class="card" style="background-color: #f0f0f0;">
   <div class="card-body">
-	   <h3 class="card-title" th:text="${' WTL  Trip: Explore ' +  city1.city + ' to '+city2.city + '  with Comfort and Convenience'}">Text goes here</h3>
+	   <h2 class="card-title" th:text="${' WTL  Trip: Explore ' +  city1.city + ' to '+city2.city + '  with Comfort and Convenience'}">Text goes here</h2>
 
 	  
       
@@ -3120,22 +3140,22 @@ END HOTEL AREA
       <br>
 
      
-        <h3 class="card-title" th:text="${' Why Choose WTL for Your ' + city1.city + ' to '+city2.city + ' Trip?'}">Text goes here</h3>
+        <h2 class="card-title" th:text="${' Why Choose WTL for Your ' + city1.city + ' to '+city2.city + ' Trip?'}">Text goes here</h2>
       <ul class="list-group list-group-flush" >
           <!-- Effortless Booking -->
-<li class="list-group-item" th:text="'Effortless Booking: With WTL, booking your one-way trip to ' + city1.city + ' to '+city2.city + ' is a breeze. Our user-friendly website and mobile app allow you to schedule your trip in a matter of minutes. Simply enter your travel details, and we\'ll take care of the rest.'"></li>
+<li class="list-group-item" th:text="'Effortless Booking: With WTL, booking your one-way trip to ' + ${city1.city} + ' to ' + ${city2.city} + ' is a breeze. Our user-friendly website and mobile app allow you to schedule your trip in a matter of minutes. Simply enter your travel details, and we\'ll take care of the rest.'"></li>
 
 <!-- Comfortable Rides -->
 <li class="list-group-item" th:text="'Comfortable Rides: We pride ourselves on offering a diverse fleet of well-maintained and air-conditioned vehicles. Whether you\'re traveling solo or with a group, we have the perfect ride to suit your needs.'"></li>
 
 <!-- Experienced Drivers -->
-<li class="list-group-item" th:text="'Experienced Drivers: Our drivers are experienced professionals who know the routes to ' + city1.city + ' to '+city2.city + ' like the back of their hand. They are committed to ensuring a safe and smooth journey for you.'"></li>
+<li class="list-group-item" th:text="'Experienced Drivers: Our drivers are experienced professionals who know the routes to ' +  ${city1.city} + ' to '+${city2.city} + ' like the back of their hand. They are committed to ensuring a safe and smooth journey for you.'"></li>
 
 <!-- Scenic Views -->
-<li class="list-group-item" th:text="'Scenic Views: ' + city1.city + ' to '+city2.city + ', with its pristine beaches, lush greenery, and historical attractions, promises a visual treat. Our one-way trip allows you to savor these mesmerizing landscapes without worrying about driving.'"></li>
+<li class="list-group-item" th:text="'Scenic Views: ' + ${city1.city} + ' to '+${city2.city} + ', with its pristine beaches, lush greenery, and historical attractions, promises a visual treat. Our one-way trip allows you to savor these mesmerizing landscapes without worrying about driving.'"></li>
 
 <!-- Flexible Pick-Up and Drop-Off -->
-<li class="list-group-item" th:text="'Flexible Pick-Up and Drop-Off: WTL\'s one-way trip service is designed to accommodate your specific needs. Choose your preferred pick-up location, and we\'ll drop you off at your desired destination in ' +city1.city + ' to '+city2.city + '.'"></li>
+<li class="list-group-item" th:text="'Flexible Pick-Up and Drop-Off: WTL\'s one-way trip service is designed to accommodate your specific needs. Choose your preferred pick-up location, and we\'ll drop you off at your desired destination in ' +${city1.city} + ' to '+${city2.city} + '.'"></li>
 
 <!-- Transparent Pricing -->
 <li class="list-group-item" th:text="'Transparent Pricing: Say goodbye to hidden charges. WTL offers transparent pricing, allowing you to budget your trip accurately.'"></li>
@@ -3151,7 +3171,7 @@ END HOTEL AREA
 
      
       
-        <h3 class="card-title" th:text="${' What to Explore in ' + city1.city + ' to '+city2.city + '?'}">Text goes here</h3>
+        <h2 class="card-title" th:text="${' What to Explore in ' + city1.city + ' to '+city2.city + '?'}">Text goes here</h2>
           <ul class="list-group list-group-flush">
           <p class="list-group-item"  th:text="${city1.paragraphinfocard}">City information goes here.</p></br>
             <p class="list-group-item"  th:text="${city2.paragraphinfocard}">City information goes here.</p>
@@ -3167,22 +3187,31 @@ END HOTEL AREA
 		   <div class="" style="max-width: 100%;">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4">
+                    <h2 class="card-title text-center mb-4">
                        About WTL 
-                    </h3>
+                    </h2>
                     <p class="card-text">
-                         Car Rental Service In <span th:text="${city1.city}"></span> with WTL is a well-established cab and car rental service provider company in India, specialized in rendering comprehensive long and short-term car rental solutions in <span th:text="${city1.city}"></span>. The attributes of our services assure safety, comfort, and reliability to every customer. We have a professional team of chauffeurs who believe in empowering safe, reliable, and easily accessible cab services in India.
+                         Car Rental Service from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span> with WTL is a well-established cab and car rental service provider company in India, specialized in rendering comprehensive long and short-term car rental solutions from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span>. The attributes of our services assure safety, comfort, and reliability to every customer. We have a professional team of chauffeurs who believe in empowering safe, reliable, and easily accessible cab services in India.
                     </p>
                     <p class="card-text">
-                        Our journey began in 2001, encouraging a system of transparency in pricing and deals with an idea to make it a reality. Since then, our cab services have expanded with a wide range of valuable customers from <span th:text="${city1.city}"></span>.
+                        Our journey began in outstation cab booking , encouraging a system of transparency in pricing and deals with an idea to make it a reality. Since then, our cab services have expanded with a wide range of valuable customers  from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span>.
                     </p>
                     <p class="card-text">
-                        We are from WTL, always there to ensure hassle-free and joyful rides from <span th:text="${city1.city}"></span>. Our practices have enabled us to establish as one of the most preferred radio taxi services in various parts of the country, including Maharashtra, Delhi, Kolkata, Bengaluru, Jaipur, Shimla, Dehradun, Manali, Agra, Haridwar, Chandigarh, and Amritsar.
+                        We are from WTL, always there to ensure hassle-free and joyful rides  from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span>. Our practices have enabled us to establish as one of the most preferred radio taxi services in various parts of the country, including Maharashtra,Pune,Mumbai,Nagpur,Indor,Surat, Delhi, Kolkata, Bengaluru, Jaipur, Shimla, Dehradun, Manali, Agra, Haridwar, Chandigarh, and Amritsar.
                     </p>
                     <p class="card-text">
                         We firmly believe in growth and outstanding services for our customers. Also, we ensure the utmost punctuality and responsibility in our cab services. Whether you need to rush for a flight or reach a meeting on time, you just need to book a taxi online with Aimcab and count on us to provide a safe and comfortable ride.
                     </p>
-                    
+                 <p class="card-text">
+						 
+						 Experience the epitome of transportation excellence with our premier outstation cab service  from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span>. Whether you're in need of a swift city cab, reliable airport transport, or an executive cab for that touch of luxury, we've got you covered. Our services extend  from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span>. ensuring convenient rides with our cab  from  <span th:text="${city1.city}"></span> to  <span th:text="${city2.city}"></span>. taxi and cab options. Enjoy seamless point-to-point transfers, corporate transportation, and even hourly car rentals for your tailored needs. Embrace the future of travel with our user-friendly online platform, offering easy cab booking, mobile reservations, and app-based convenience. Safety and quality are our top priorities, featuring professional drivers, impeccably maintained cab, and a commitment to reliability. Choose from our specialized services, including luxury cab options, premium car service, eco-friendly rides, and accommodations for wheelchairs and pets. Elevate your journey with exclusive promotions, discounts, and seasonal deals on taxi rides, ensuring affordability without compromising excellence. Experience hassle-free transportation with our easy booking process, 24/7 customer support, and a punctual cab service dedicated to your satisfaction. Your journey begins with us – where excellence meets convenience seamlessly.
+
+
+
+
+
+
+						   </p>           
                 </div>
             </div>
         </div>
@@ -3349,9 +3378,9 @@ END HOTEL AREA
 <a href="./pune.html">Airport Cabs in Indor</a> |
 <a href="./pune.html">Airport Cabs in Chennai</a>
 </p>
- <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
+   <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
             <p style="margin-left: 15px;">
-           <span> <a th:href="@{/state/Maharashtra}">  Maharashtra</a></span> |
+       <span> <a th:href="@{/state/Maharashtra}">  Maharashtra</a></span> |
            <span>   <a th:href="@{/state/Goa}">Goa</a></span> |
             <span>  <a th:href="@{/state/Delhi}"> Delhi</a></span> |
             <span>  <a th:href="@{/state/Gujarat}">Gujarat</a></span> |
@@ -3360,8 +3389,25 @@ END HOTEL AREA
              <span> <a th:href="@{/state/Telangana}">Telangana</a></span> |
              <span>  <a th:href="@{/state/Uttar pradesh}">up</a></span> |
             <span>  <a th:href="@{/state/Rajasthan}">Rajasthan</a></span> |
-             <span> <a th:href="@{/state/west Bengal}">West Bengal</a></span>
+             <span> <a th:href="@{/state/west Bengal}">West Bengal</a></span>|
+            <span> <a th:href="@{/state/HP}">HP</a></span>|
+             <span> <a th:href="@{/state/Kerala}">Kerala</a></span>|
+          <span> <a th:href="@{/state/Tamil Nadu}">Tamil Nadu</a></span>|
+              <span> <a th:href="@{/state/Andhra Pradesh}">Andra Pradesh</a></span>|
+                        <span> <a th:href="@{/state/Punjab}">Punjab</a></span>|
+                     <span> <a th:href="@{/state/Odisha}">Odisha</a></span>|
+                     <span> <a th:href="@{/state/Chhattisgarh}">Chhattisgarh</a></span>|
+                       <span> <a th:href="@{/state/Arunachal Pradesh}">Arunachal Pradesh</a></span>|
+                         <span> <a th:href="@{/state/Haryana}"> Haryana</a></span>|
+                            <span> <a th:href="@{/state/Bihar}">Bihar</a></span>|
+                      <span> <a th:href="@{/state/Assam}">Assam</a></span>|
+                                            <span> <a th:href="@{/state/Jharkhand}">Jharkhand</a></span>|
+                                    <span> <a th:href="@{/state/Manipur}">Manipur</a></span>|
+                                    <span> <a th:href="@{/state/Uttarakhand}">Uttarakhand</a></span>|
+                                      <span> <a th:href="@{/state/JK}">JK</a></span>|
+             
               </p>
+           
 
 
 
@@ -3660,7 +3706,10 @@ START FOOTER AREA
 </div>
 </div>
 <!-- end modal-popup -->
-
+ <!--call button-->
+    <a href="tel:+919130030054" class="call-button">
+<i class="las la-phone-volume"> Call</i>   
+ </a>
 <!-- Template JS Files -->
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/jquery-ui.js"></script>
@@ -3818,7 +3867,27 @@ return `${year}-${month}-${day}`;
 // Call the function when the page loads
 window.addEventListener('load', disablePreviousDates);
 </script>
+<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+<script>
+    var wa_btnSetting = {
+        "btnColor": "#16BE45",
+        "ctaText": "",
+        "cornerRadius": 150,
+        "marginBottom": 20,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "btnPosition": "left",
+        "whatsAppNumber": "+919130030054",  // Remove the space after the plus sign
+        "welcomeMessage": "",
+        "zIndex": 999999,
+        "btnColorScheme": "light"
+    };
+    window.onload = () => {
+        _waEmbed(wa_btnSetting);
+    };
+</script>
 
+   
 
 </body>
 </html>

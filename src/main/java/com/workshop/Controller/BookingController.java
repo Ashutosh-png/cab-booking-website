@@ -36,10 +36,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.workshop.Entity.Booking;
 import com.workshop.Entity.CabInfo;
+import com.workshop.Entity.Popup;
 import com.workshop.Entity.User;
+import com.workshop.Entity.onewayTrip;
+import com.workshop.Entity.roundTrip;
 import com.workshop.Repo.Trip;
 import com.workshop.Service.BookingService;
 import com.workshop.Service.CabInfoService;
+import com.workshop.Service.PopupService;
 import com.workshop.Service.TripService;
 import com.workshop.Service.UserDetailServiceImpl;
 
@@ -54,6 +58,10 @@ public class BookingController {
 	 
 	 @Autowired
 	 CabInfoService cabser;
+	 
+	 
+	 @Autowired
+		PopupService service;
 	  
 	 
 	 @Autowired
@@ -270,7 +278,7 @@ public class BookingController {
 	        String jsonRequestBody = requestBody.toString();
 
 	        try {
-	            String apiURL = "https://aimcabbooking.com/confirm-round-api.php";
+	            String apiURL = "https://aimcabbooking.com/confirm-round-api-wtl.php";
 
 	            // Create the URL
 	            URL url = new URL(apiURL);
@@ -372,6 +380,7 @@ public class BookingController {
 			    city1 = dropLocation;
 			    String[] parts = city1.split(", ");
 			       cityName = parts[0];
+			       System.out.println(cityName+" test");
 			}else if("North Goa".equals(city1)|| "South Goa".equals(city1)) {
 				 String[] parts = city1.split(", ");
 			       cityName = parts[0];
@@ -390,8 +399,45 @@ public class BookingController {
 	      System.out.println(cityName);
 	      System.out.println(cityName1);
 	      
+	      
+	      if(cityName.equals("Bengaluru") ) {
+	    	  cityName  = "Bangalore";
+	      }else if(cityName1.equals("Bengaluru")) {
+	    	  cityName1  = "Bangalore";
+
+	      }
+	      
+	      
+	      
 	      if ("oneWay".equals(tripType)) {
 	          tripinfo= tripSer.getonewayTrip(cityName, cityName1);
+	         
+	          if (tripinfo.isEmpty()) {
+	        	    // Assign a default value to tripinfo if it is empty
+	        	    // You may need to modify this based on your actual default value
+	        	  System.out.println("it is empty ");
+	        	  
+	        	  
+	        	  onewayTrip defaultTrip = new onewayTrip(
+	        	            null, // Set default value for id (you might want to adjust this)
+	        	            "",   // Set default value for sourceState
+	        	            "",   // Set default value for sourceCity
+	        	            "",   // Set default value for destinationState
+	        	            "",   // Set default value for destinationCity
+	        	            14,    // Set default value for hatchback
+	        	            15,    // Set default value for sedan
+	        	            18,    // Set default value for sedanpremium
+	        	            21,    // Set default value for suv
+	        	            26,    // Set default value for suvplus
+	        	            ""    // Set default value for status
+	        	        );
+	        	  
+	        	  
+	        	 
+	        	  
+	        	    tripinfo.add(defaultTrip);
+	        	}
+
 	          Distance = Dist;
 	          System.out.println(Distance);
 	      } else if ("roundTrip".equals(tripType)) {
@@ -419,10 +465,42 @@ public class BookingController {
 	    	  
 	    	  
 	          tripinfo =  tripSer.getRoundTrip(cityName, cityName1);
+	          
+	          
+	          if (tripinfo.isEmpty()) {
+	        	    // Assign a default value to tripinfo if it is empty
+	        	    // You may need to modify this based on your actual default value
+	        	  System.out.println("round trip is empty ");
+	        	  
+	        	  
+	        	  roundTrip defaultTrip = new roundTrip(
+	        	            null, // Set default value for id (you might want to adjust this)
+	        	            "",   // Set default value for sourceState
+	        	            "",   // Set default value for sourceCity
+	        	            "",   // Set default value for destinationState
+	        	            "",   // Set default value for destinationCity
+	        	            10,    // Set default value for hatchback
+	        	            11,    // Set default value for sedan
+	        	            14,    // Set default value for sedanpremium
+	        	            14,    // Set default value for suv
+	        	            21,    // Set default value for suvplus
+	        	            ""    // Set default value for status
+	        	        );
+	        	  
+	        	  
+	        	 
+	        	  
+	        	    tripinfo.add(defaultTrip);
+	        	}
+	          
+	          
+	          
+	          
+	          
 	      }
 		  
 		  List<CabInfo> c = cabser.getAll();
-		  System.out.println(tripinfo);
+		  System.out.println(tripinfo+" trip info  ");
 		  
 		  System.out.println(tripType);
 		  System.out.println(pickupLocation);
@@ -617,4 +695,15 @@ public class BookingController {
 	     // Redirect to the next page (replace "redirect:/nextPage" with the actual destination URL)
 	     return "invoice";
 	 }
+	 
+	 
+	 
+	 @PostMapping("/popup/save")
+		public String save(@ModelAttribute Popup popup) {
+//			
+//			 
+			    service.save(popup);
+			return "redirect:/home";
+			
+		}
 }

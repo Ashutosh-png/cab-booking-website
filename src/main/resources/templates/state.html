@@ -21,7 +21,27 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
       rel="stylesheet"
     />
-    
+    <style>
+ .call-button {
+    position: fixed;
+    bottom: 80px; /* Adjust the vertical position as needed */
+    right: 20px; /* Adjust the horizontal position as needed */
+    display: inline-block;
+    background-color: #fc0398;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    z-index: 999;
+}
+
+.call-button i {
+    margin-right: 5px;
+}
+.call-button:hover {
+    background-color: blue;
+}
+    </style>
      <style>
         /* Base styles for the card and city section */
         .card {
@@ -2750,7 +2770,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
         <div class="hotel-card-carousel carousel-action">
           <div class="card-item mb-0">
             <div class="card-img">
-              <a href="./pune.html" class="d-block">
+              <a href="./" class="d-block">
                 <img src="images/swift.jpeg" alt="hotel-img" />
               </a> -->
               <!-- <span class="badge">Bestseller</span> -->
@@ -2765,7 +2785,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
             </div>
             <div class="card-body">
               <h3 class="card-title">
-                <a href="./pune.html"
+                <a href="./"
                   >Hatchback</a
                 >
               </h3> -->
@@ -2783,7 +2803,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
                   <span class="price__num">$88.00</span>
                   <span class="price__text">Per night</span>
                 </p> -->
-                <!-- <a href="./pune.html" class="btn-text"
+                <!-- <a href="./" class="btn-text"
                   >See details<i class="la la-angle-right"></i
                 ></a>
               </div>
@@ -2792,7 +2812,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
           <!-- end card-item -->
           <!-- <div class="card-item mb-0">
             <div class="card-img">
-              <a href="./pune.html" class="d-block">
+              <a href="./" class="d-block">
                 <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="hotel-img" />
               </a>
               <div
@@ -2806,7 +2826,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
             </div>
             <div class="card-body">
               <h3 class="card-title">
-                <a href="./pune.html"
+                <a href="./"
                   >SUV</a
                 >
               </h3> -->
@@ -2824,7 +2844,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
                   <span class="price__num">$58.00</span>
                   <span class="price__text">Per night</span>
                 </p> -->
-                <!-- <a href="./pune.html" class="btn-text"
+                <!-- <a href="./" class="btn-text"
                   >See details<i class="la la-angle-right"></i
                 ></a>
               </div>
@@ -2833,7 +2853,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
           <!-- end card-item -->
           <!-- <div class="card-item mb-0">
             <div class="card-img">
-              <a href="./pune.html" class="d-block">
+              <a href="./" class="d-block">
                 <img src="images/swift-dzire-car-jpg-500x500.webp" alt="hotel-img" />
               </a> -->
               <!-- <span class="badge">Featured</span> -->
@@ -2848,7 +2868,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
             </div>
             <div class="card-body">
               <h3 class="card-title">
-                <a href="./pune.html"
+                <a href="./"
                   >Sedan</a
                 >
               </h3> -->
@@ -2866,7 +2886,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
                   <span class="price__num">$88.00</span>
                   <span class="price__text">Per night</span>
                 </p> -->
-                <!-- <a href="./pune.html" class="btn-text"
+                <!-- <a href="./" class="btn-text"
                   >See details<i class="la la-angle-right"></i
                 ></a>
               </div>
@@ -2875,7 +2895,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
           <!-- end card-item -->
           <!-- <div class="card-item mb-0">
             <div class="card-img">
-              <a href="./pune.html" class="d-block">
+              <a href="./" class="d-block">
                 <img src="images/536-5368941_innova-crysta-images-hd-hd-png-download.png" alt="hotel-img" / style="height: 200px;">
               </a> -->
               <!-- <span class="badge">Popular</span> -->
@@ -2890,7 +2910,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
             </div>
             <div class="card-body">
               <h3 class="card-title">
-                <a href="./pune.html"
+                <a href="./"
                   >MUV</a
                 > -->
               <!-- </h3> -->
@@ -2908,7 +2928,7 @@ class="hotel-area section-bg section-padding overflow-hidden padding-right-100px
                   <span class="price__num">$88.00</span>
                   <span class="price__text">Per night</span>
                 </p> -->
-                <!-- <a href="./pune.html" class="btn-text"
+                <!-- <a href="./" class="btn-text"
                   >See details<i class="la la-angle-right"></i
                 ></a>
               </div>
@@ -3233,31 +3253,32 @@ END HOTEL AREA
 </ul>
 <h5 class="text-primary" style="margin-top: 10px; margin-left: 15px;">Corporate Cabs</h5>
 <p style="margin-left: 15px;">
-<span>  <a th:href="@{/pune}">
-  Corporate Cabs in Delhi</a></span>
-  <span>   <a href="./pune.html">Corporate Cabs in Pune</a></span>|
-  <span>  <a href="./pune.html">Corporate Cabs in Bangalore</a> </span>|
-  <span>  <a  th:href="@{/Corporate Cabs in Mumbai.html}">Corporate Cabs in Mumbai</a>|
-    <span> <a href="./pune.html">
-  Corporate Cabs in Telangana</a></span> |
-  <span>  <a href="./pune.html">Corporate Cabs in Chennai</a></span>
-  <span>  <a href="./pune.html">Corporate Cabs in Gujarat</a></span> |
-  <span>  <a href="./pune.html">Corporate Cabs in Indor</a></span>
-</p>
+ <span>  <a th:href="@{/Corporate}">
+                Corporate Cabs in Delhi</a></span>|
+                <span>   <a th:href="@{/Corporate3}">Corporate Cabs in Pune</a></span>|
+                <span>  <a th:href="@{/Corporate2}">Corporate Cabs in Bangalore</a> </span>|
+                <span>  <a  th:href="@{/Corporate3}">Corporate Cabs in Mumbai</a> |
+                <span>  <a  th:href="@{/Telangana}">Corporate Cabs in Telangana</a></span>|
+             
+        
+                <span>  <a  th:href="@{/Corporate5}">Corporate Cabs in Chennai</a></span>|
+                <span>  <a  th:href="@{/Corporate6}">Corporate Cabs in Indor</a></span> |
+                <span>  <a  th:href="@{/Corporate7}">Corporate Cabs in Surat</a></span>
+              </p>
 <h5 class="text-primary" style="margin-top: 10px; margin-left: 15px;">Airport Cabs</h5>
 <p style="margin-left: 15px;">
 <a th:href="@{/pune}">Airport Cabs in Delhi</a> |
-<a href="./pune.html">Airport Cabs in Pune</a> |
-<a href="./pune.html">Airport Cabs in Bangalore</a> |
-<a href="./pune.html">Airport Cabs in Mumbai </a> |
-<a href="./pune.html">Airport Cabs in Telangana</a> |
-<a href="./pune.html">Airport Cabs in Surat</a> |
-<a href="./pune.html">Airport Cabs in Indor</a> |
-<a href="./pune.html">Airport Cabs in Chennai</a>
+<a href="./">Airport Cabs in Pune</a> |
+<a href="./">Airport Cabs in Bangalore</a> |
+<a href="./">Airport Cabs in Mumbai </a> |
+<a href="./">Airport Cabs in Telangana</a> |
+<a href="./">Airport Cabs in Surat</a> |
+<a href="./">Airport Cabs in Indor</a> |
+<a href="./">Airport Cabs in Chennai</a>
 </p>
-  <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
+   <h5 class="text-dark" style="margin-top: 10px; margin-left: 15px;color: black;">States</h5>
             <p style="margin-left: 15px;">
-           <span> <a th:href="@{/state/Maharashtra}">  Maharashtra</a></span> |
+            <span> <a th:href="@{/state/Maharashtra}">  Maharashtra</a></span> |
            <span>   <a th:href="@{/state/Goa}">Goa</a></span> |
             <span>  <a th:href="@{/state/Delhi}"> Delhi</a></span> |
             <span>  <a th:href="@{/state/Gujarat}">Gujarat</a></span> |
@@ -3266,8 +3287,17 @@ END HOTEL AREA
              <span> <a th:href="@{/state/Telangana}">Telangana</a></span> |
              <span>  <a th:href="@{/state/Uttar pradesh}">up</a></span> |
             <span>  <a th:href="@{/state/Rajasthan}">Rajasthan</a></span> |
-             <span> <a th:href="@{/state/west Bengal}">West Bengal</a></span>
-              </p>
+             <span> <a th:href="@{/state/west Bengal}">West Bengal</a></span>|
+            <span> <a th:href="@{/state/HP}">HP</a></span>|
+             <span> <a th:href="@{/state/Kerala}">Kerala</a></span>|
+          <span> <a th:href="@{/state/Tamil Nadu}">Tamil Nadu</a></span>|
+              <span> <a th:href="@{/state/Andhra Pradesh}">Andra Pradesh</a></span>|
+                        <span> <a th:href="@{/state/Punjab}">Punjab</a></span>|
+                     <span> <a th:href="@{/state/Odisha}">Odisha</a></span>|
+                     <span> <a th:href="@{/state/Chhattisgarh}">Chhattisgarh</a></span>|
+             
+              </p>
+           
 
 
 
@@ -3723,6 +3753,28 @@ return `${year}-${month}-${day}`;
 
 // Call the function when the page loads
 window.addEventListener('load', disablePreviousDates);
+</script>
+ <a href="tel:+919130030054" class="call-button">
+<i class="las la-phone-volume"> Call</i>   
+</a>
+<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+<script>
+    var wa_btnSetting = {
+        "btnColor": "#16BE45",
+        "ctaText": "",
+        "cornerRadius": 150,
+        "marginBottom": 20,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "btnPosition": "left",
+        "whatsAppNumber": "+919130030054",  // Remove the space after the plus sign
+        "welcomeMessage": "",
+        "zIndex": 999999,
+        "btnColorScheme": "light"
+    };
+    window.onload = () => {
+        _waEmbed(wa_btnSetting);
+    };
 </script>
 
 

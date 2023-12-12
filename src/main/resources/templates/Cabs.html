@@ -286,6 +286,12 @@
             width:180px;
             height:55px;
         }
+        .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    text-align: center;
+}
         
         
         
@@ -924,7 +930,7 @@
                                     
         <input type="hidden" name="modelName" th:value="Hatchback" />
         <input type="hidden" name="modelType" th:value="Hatchback" />
-        <input type="hidden" name="seats" th:value="4+1" />
+        <input type="hidden" name="seats" th:value="4" />
         <input type="hidden" name="availability" th:value="available" />
         <input type="hidden" name="price" th:value="${trip.hatchback*distance}" />
         <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
@@ -1005,7 +1011,7 @@
                                     
         <input type="hidden" name="modelName" th:value="Sedan" />
         <input type="hidden" name="modelType" th:value="Sedan" />
-        <input type="hidden" name="seats" th:value="4+1" />
+        <input type="hidden" name="seats" th:value="4" />
         <input type="hidden" name="availability" th:value="available" />
         <input type="hidden" name="price" th:value="${trip.sedan*distance}" />
         <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
@@ -1097,7 +1103,7 @@
                                     
         <input type="hidden" name="modelName" th:value="SedanPremium" />
         <input type="hidden" name="modelType" th:value="SedanPremium" />
-        <input type="hidden" name="seats" th:value="4+1" />
+        <input type="hidden" name="seats" th:value="4" />
         <input type="hidden" name="availability" th:value="available" />
         <input type="hidden" name="price" th:value="${trip.sedanpremium*distance}" />
         <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
@@ -1180,7 +1186,7 @@
                                     
         <input type="hidden" name="modelName" th:value="SUV" />
         <input type="hidden" name="modelType" th:value="SUV" />
-        <input type="hidden" name="seats" th:value="4+1" />
+        <input type="hidden" name="seats" th:value="6" />
         <input type="hidden" name="availability" th:value="available" />
         <input type="hidden" name="price" th:value="${trip.suv*distance}" />
         <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />
@@ -1263,7 +1269,7 @@
                                     
         <input type="hidden" name="modelName" th:value="MUV" />
         <input type="hidden" name="modelType" th:value="MUV" />
-        <input type="hidden" name="seats" th:value="6+1" />
+        <input type="hidden" name="seats" th:value="6" />
         <input type="hidden" name="availability" th:value="available" />
         <input type="hidden" name="price" th:value="${trip.suvplus*distance}" />
         <input type="hidden" name="pickupLocation" th:value="${pickupLocation}" />

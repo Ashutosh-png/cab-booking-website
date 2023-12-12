@@ -9,19 +9,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="Explore seamless and cost-effective outstation cab booking services with WorldTripLink. Enjoy the fastest service across major cities worldwide. Make your journeys safe, comfortable, and hassle-free with WorldTripLink reliable cab services." />
     <meta name="keywords"
-        content="WorldTripLink, car, cabs near me, taxis, book cab, book cabs online, car booking, taxi near me, cab booking online, taxi service, cab, cab service near me, car rental, car rental near me, taxi booking,  car rentals, tours and travels, luxury car, taxi, make my trip India,  cab service, easy my trip, swift dzire, cab booking, sedan, honda civic, BMW X5, Honda city, taxi service near me, airport taxi, trip, road trip, my trip, travels, book a taxi, car service, car service near me, cars in India, google travel, tourism, tours and travels near me, online cab booking, summer season, hill stations near me, cab rental services in India, trip, pune car rental, car rental in pune, cab in Pune, Outstation cab all over India." />
+        content="WorldTripLink, outstation cab booking, cabs near me, outstation taxi, book cab, book cabs online, car booking, taxi near me, cab booking online, taxi service, cab, cab service near me, car rental, car rental near me, taxi booking,  car rentals, tours and travels, luxury car, taxi, make my trip India,  cab service, easy my trip, swift dzire, cab booking, sedan, honda civic, pune outstation cab booking, pune outstation cab, taxi service near me, airport taxi, trip, road trip, my trip, travels, book a taxi, car service, car service near me, cars in India, google outstation, tourism, tours and travels near me, online cab booking, summer season, hill stations near me, cab rental services in India, trip, pune car rental, car rental in pune, cab in Pune, Outstation cab all over India." />
     <title>World Trip Link</title>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" />
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCelDo4I5cPQ72TfCTQW-arhPZ7ALNcp8w&libraries=places"></script>
-    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
       rel="stylesheet"
     />
-    
+   
+    <style>
+ .call-button {
+    position: fixed;
+    bottom: 80px; /* Adjust the vertical position as needed */
+    right: 20px; /* Adjust the horizontal position as needed */
+    display: inline-block;
+    background-color: #fc0398;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    z-index: 999;
+}
+
+.call-button i {
+    margin-right: 5px;
+}
+.call-button:hover {
+    background-color: blue;
+}
+    </style>
      <style>
         /* Base styles for the card and city section */
         .card {
@@ -155,13 +179,148 @@
 			 .copy__desc{
 				 align-items:center ;
 			 }
+			 }
+			  /* Style for the modal content */
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    /* Style for the modal header */
+    .modal-header {
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* Style for the modal title */
+    .modal-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    /* Style for the modal body */
+    .modal-body {
+        padding: 15px;
+    }
+
+    /* Style for the form inputs */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Style for the form input fields */
+  .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        height: 35px;
+        padding: 0.375rem 0.75rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    /* Hover state for the form input fields */
+    .form-control:hover {
+        border-color: #adb5bd;
+    }
+
+    /* Focus state for the form input fields */
+    .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    /* Style for the form group */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Style for the modal body */
+    .modal-body {
+        padding: 20px;
+    }
+
+    /* Style for the modal footer */
+    .modal-footer {
+        border-radius: 0 0 10px 10px;
+    }
+
+    /* Style for the subscribe button */
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-primary:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+    
+        .section-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card-container3 {
+            display: flex;
+            justify-content: space-around;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .card3 {
+            width: 49%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card3:hover {
+            transform: scale(1.02);
+        }
+
+        .card3 img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content3 {
+            padding: 20px;
+            text-align: center;
+            margin-top:10px;
+        }
+
+        .offer-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .offer-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+			 
     </style>
-     <script>
-        // JavaScript to add the 'show-card' class after a delay
-        setTimeout(function() {
-            document.querySelector('.card2').classList.add('show-card');
-        }, 500); // Delay in milliseconds (e.g., 500ms)
-    </script>
+   
 
     <!-- Template CSS Files -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -385,7 +544,7 @@
                   ><i class="la la-angle-down"></i
                 ></a>
                 <div class="logo">
-<a href="./index.html"><img src="/images/wtl-logos.png"  style="height: 70px;" alt=""><span style=" font-weight: bold; font-size: 30px; bottom: 900px; position: absolute; bottom: 20px; color: black;"></span></a>                  <div class="menu-toggler">
+<a href="./"><img src="/images/wtl-logos.png"  style="height: 70px;" alt=""><span style=" font-weight: bold; font-size: 30px; bottom: 900px; position: absolute; bottom: 20px; color: black;"></span></a>                  <div class="menu-toggler">
                     <i class="la la-bars"></i>
                     <i class="la la-times"></i>
                   </div>
@@ -3085,13 +3244,30 @@
     <section class="offercard2">
 		<div class="card2" style="width: 100%;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);background-color: #f0f0f0;">
        
-        <h1 style="color:rgb(255 167 0)">Unbeatable Deal: Get <span th:text="${discountPercentage}"></span>% Off Today!</h1>
+        <h1 style="color:rgb(255 167 0)">Unbeatable Deal: Get <span th:text="${discountPercentage}"></span>Discount</h1>
         <div class="offer" id="offer">
-            <p>Special Offer: <span th:text="${discountPercentage}"></span>% off!</p>
+            <p>Special Offers <span th:text="${discountPercentage}"></span></p>
         </div>
     </div>
 		
 	</section>
+	<section class="section-container">
+        <div class="card-container3">
+            <div class="card3">
+                <img src="https://aimcabbooking.com/admin/wtl-image/offer-image.jpg" alt="Special Cab Offer">
+            </div>
+
+            <div class="card3">
+                <div class="card-content3">
+                    <div class="offer-title">Exclusive Cab Offer!</div>
+                    <div class="offer-description">
+                        Enjoy an exclusive discount on your next cab booking. Limited time offer, book now!
+                    </div>
+                    <a href="#" class="cta-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
 	 <script>
         // Check if there is an offer and display it if available
         const offerDiv = document.getElementById("offer");
@@ -3107,6 +3283,68 @@
     <!-- ================================
     END INFO AREA
 ================================= -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Subscribe For Update</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form th:action="@{/popup/save}" method="POST" >
+					    <div class="form-group">
+					        <input type="text" class="form-control" name="name" placeholder="Name" >
+					    </div>
+					    <div class="form-group">
+					        <input type="text" class="form-control" name="email" placeholder="Email" >
+					    </div>
+					    <div class="form-group">
+					        <input type="text" class="form-control" name="phone" placeholder="Phone" >
+					    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Please subscribe</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+   <!-- Add this script in your HTML file -->
+<script>
+    // Check if a cookie with the name 'modalDisplayed' exists
+    var modalDisplayed = getCookie('modalDisplayed');
+
+    // If the cookie doesn't exist, show the modal and set the cookie
+    if (!modalDisplayed) {
+        $(document).ready(function () {
+            // Add the following script to open the modal after 5 seconds
+            setTimeout(function () {
+                $('#exampleModal').modal('show');
+            }, 5000);
+
+            // Set a cookie named 'modalDisplayed' with a value of 'true' and an expiration date
+            document.cookie = "modalDisplayed=true; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/";
+        });
+    }
+
+    // Function to get the value of a cookie by name
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+</script>
 
     <div class="section-block"></div>
 
@@ -3815,6 +4053,99 @@
                   </div>
                 </div>
               </div>
+                <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/etios-2010-2013.webp" alt="car-img" />
+                  </a>
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Luxury</p> -->
+                  <h3 class="card-title">
+                    <a href="car-single.html">Sedan</a>
+                  </h3>
+                  <!-- <div class="card-rating">
+                      <span class="badge text-white">4.4/5</span>
+                      <span class="review__text">Average</span>
+                      <span class="rating__text">(30 Reviews)</span>
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
+                        title="Passenger">
+                        <!-- <i class="la la-users"></i><span>5</span> -->
+                      </li>
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
+                        <!-- <i class="la la-suitcase"></i><span>3</span> -->
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
+                        <span class="price__from">From</span>
+                        <span class="price__num">$58.00</span>
+                        <span class="price__text">Per day</span>
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
+                        >See details<i class="la la-angle-right"></i
+                      ></a> -->
+                  </div>
+                </div>
+              </div>
+              <!-- end card-item -->
+              <div class="card-item car-card mb-0">
+                <div class="card-img">
+                  <a href="#Form" class="d-block">
+                    <img src="images/swift-dzire-car-jpg-500x500.webp" alt="car-img" />
+                  </a>
+                  <!-- <span class="badge">featured</span> -->
+                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
+                    title="Save for later">
+                    <i class="la la-heart-o"></i>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <!-- <p class="card-meta">Mini</p> -->
+                  <h3 class="card-title">
+                    <a href="car-single.html">Sedan</a>
+                  </h3>
+                  <!-- <div class="card-rating">
+                      <span class="badge text-white">4.4/5</span>
+                      <span class="review__text">Average</span>
+                      <span class="rating__text">(30 Reviews)</span>
+                    </div> -->
+                  <div class="card-attributes">
+                    <ul class="d-flex align-items-center">
+                      <!-- <li
+                          class="d-flex align-items-center"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Passenger"
+                        >
+                          <i class="la la-users"></i><span>4</span>
+                        </li> -->
+                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
+                        <!-- <i class="la la-suitcase"></i><span>1</span> -->
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-price d-flex align-items-center justify-content-between">
+                    <!-- <p>
+                        <span class="price__from">From</span>
+                        <span class="price__num">$23.00</span>
+                        <span class="price__text">Per day</span>
+                      </p> -->
+                    <!-- <a href="car-single.html" class="btn-text"
+                        >See details<i class="la la-angle-right"></i
+                      ></a> -->
+                  </div>
+                </div>
+              </div>
               <!-- end card-item -->
               <div class="card-item car-card mb-0">
                 <div class="card-img">
@@ -3918,99 +4249,7 @@
                   </div>
                 </div>
               </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/etios-2010-2013.webp" alt="car-img" />
-                  </a>
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Luxury</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Sedans</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top"
-                        title="Passenger">
-                        <!-- <i class="la la-users"></i><span>5</span> -->
-                      </li>
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>3</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$58.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
-              <!-- end card-item -->
-              <div class="card-item car-card mb-0">
-                <div class="card-img">
-                  <a href="#Form" class="d-block">
-                    <img src="images/swift-dzire-car-jpg-500x500.webp" alt="car-img" />
-                  </a>
-                  <!-- <span class="badge">featured</span> -->
-                  <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top"
-                    title="Save for later">
-                    <i class="la la-heart-o"></i>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <!-- <p class="card-meta">Mini</p> -->
-                  <h3 class="card-title">
-                    <a href="car-single.html">Sedan</a>
-                  </h3>
-                  <!-- <div class="card-rating">
-                      <span class="badge text-white">4.4/5</span>
-                      <span class="review__text">Average</span>
-                      <span class="rating__text">(30 Reviews)</span>
-                    </div> -->
-                  <div class="card-attributes">
-                    <ul class="d-flex align-items-center">
-                      <!-- <li
-                          class="d-flex align-items-center"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Passenger"
-                        >
-                          <i class="la la-users"></i><span>4</span>
-                        </li> -->
-                      <li class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title="Luggage">
-                        <!-- <i class="la la-suitcase"></i><span>1</span> -->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-price d-flex align-items-center justify-content-between">
-                    <!-- <p>
-                        <span class="price__from">From</span>
-                        <span class="price__num">$23.00</span>
-                        <span class="price__text">Per day</span>
-                      </p> -->
-                    <!-- <a href="car-single.html" class="btn-text"
-                        >See details<i class="la la-angle-right"></i
-                      ></a> -->
-                  </div>
-                </div>
-              </div>
+            
               <!-- end card-item -->
             </div>
             <!-- end car-carousel -->
@@ -4659,7 +4898,32 @@
              <span> <a th:href="@{state/Telangana}">Telangana</a></span> |
              <span>  <a th:href="@{state/Uttar pradesh}">up</a></span> |
             <span>  <a th:href="@{state/Rajasthan}">Rajasthan</a></span> |
-             <span> <a th:href="@{state/west Bengal}">West Bengal</a></span>
+             <span> <a th:href="@{state/west Bengal}">West Bengal</a></span>|
+            <span> <a th:href="@{state/HP}">HP</a></span>|
+             <span> <a th:href="@{state/Kerala}">Kerala</a></span>|
+          <span> <a th:href="@{state/Tamil Nadu}">Tamil Nadu</a></span>|
+              <span> <a th:href="@{state/Andhra Pradesh}">Andra Pradesh</a></span>|
+                        <span> <a th:href="@{state/Punjab}">Punjab</a></span>|
+                     <span> <a th:href="@{state/Odisha}">Odisha</a></span>|
+                     <span> <a th:href="@{state/Chhattisgarh}">Chhattisgarh</a></span>|
+                       <span> <a th:href="@{state/Arunachal Pradesh}">Arunachal Pradesh</a></span>|
+                         <span> <a th:href="@{state/Haryana}"> Haryana</a></span>|
+                            <span> <a th:href="@{state/Bihar}">Bihar</a></span>|
+                      <span> <a th:href="@{state/Assam}">Assam</a></span>|
+                                            <span> <a th:href="@{state/Jharkhand}">Jharkhand</a></span>|
+                                    <span> <a th:href="@{state/Manipur}">Manipur</a></span>|
+                                    <span> <a th:href="@{state/Uttarakhand}">Uttarakhand</a></span>|
+                                      <span> <a th:href="@{state/JK}">JK</a></span>|
+                                            
+                      
+                            
+                                                           
+                                                          
+                                                                   
+                                                  
+                                                    
+                          
+             
               </p>
            
             
@@ -5116,7 +5380,28 @@
     // Call the function when the page loads
     window.addEventListener('load', disablePreviousDates);
   </script>
-
+ <a href="tel:+919130030054" class="call-button">
+<i class="las la-phone-volume"> Call</i>   
+</a>
+<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+<script>
+    var wa_btnSetting = {
+        "btnColor": "#16BE45",
+        "ctaText": "",
+        "cornerRadius": 150,
+        "marginBottom": 20,
+        "marginLeft": 20,
+        "marginRight": 20,
+        "btnPosition": "left",
+        "whatsAppNumber": "+919130030054",  // Remove the space after the plus sign
+        "welcomeMessage": "",
+        "zIndex": 999999,
+        "btnColorScheme": "light"
+    };
+    window.onload = () => {
+        _waEmbed(wa_btnSetting);
+    };
+</script>
 
 </body>
 </html>
